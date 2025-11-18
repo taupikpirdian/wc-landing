@@ -32,12 +32,12 @@
                                                 </svg>
                                             </span>
                                             <ul class="navigation clearfix">
-                                                <li><a href="contact-us.html">Home</a></li>
-                                                <li><a href="contact-us.html">Services</a></li>
-                                                <li><a href="contact-us.html">Portfolio</a></li>
-                                                <li><a href="contact-us.html">Blog</a></li>
-                                                <li><a href="contact-us.html">Faq</a></li>
-                                                <li><a href="contact-us.html">About Us</a></li>
+                                                <li><a href="{{ route('home') }}">Home</a></li>
+                                                <li><a href="{{ route('services') }}">Services</a></li>
+                                                <li><a href="{{ route('portfolio') }}">Portfolio</a></li>
+                                                <li><a href="{{ route('blog') }}">Blog</a></li>
+                                                <li><a href="{{ route('faq') }}">Faq</a></li>
+                                                <li><a href="{{ route('about-us') }}">About Us</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -54,7 +54,7 @@
                                     </div>
                                 </div>
                                 <div class="pbmit-button-box-second">
-                                    <a class="pbmit-btn" href="contact-us.html">
+                                    <a class="pbmit-btn" href="{{ route('contact-us') }}">
                                         <span class="pbmit-button-content-wrapper">
                                             <span class="pbmit-button-icon">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22.76" height="22.76" viewBox="0 0 22.76 22.76">
