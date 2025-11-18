@@ -1,0 +1,265 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("../fonts/flaticon.woff2?8f9a5d362efd21b1ab85efd488d9635c") format("woff2"),
+url("../fonts/flaticon.woff?8f9a5d362efd21b1ab85efd488d9635c") format("woff"),
+url("../fonts/flaticon.eot?8f9a5d362efd21b1ab85efd488d9635c#iefix") format("embedded-opentype"),
+url("../fonts/flaticon.ttf?8f9a5d362efd21b1ab85efd488d9635c") format("truetype"),
+url("../fonts/flaticon.svg?8f9a5d362efd21b1ab85efd488d9635c#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" pbmit-xclean-icon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "clean-house": "\f101",
+    "water-container": "\f102",
+    "store": "\f103",
+    "sweeping": "\f104",
+    "cleaning": "\f105",
+    "soap": "\f106",
+    "sweeper": "\f107",
+    "dish-washing": "\f108",
+    "scrubber": "\f109",
+    "window-cleaning": "\f10a",
+    "scrubbing": "\f10b",
+    "clothing-iron": "\f10c",
+    "dry-cleaning": "\f10d",
+    "vaccum-cleaner": "\f10e",
+    "washing": "\f10f",
+    "dishes": "\f110",
+    "handwash": "\f111",
+    "scrubbing-1": "\f112",
+    "cleaning-1": "\f113",
+    "wipe": "\f114",
+    "wiper": "\f115",
+    "apron": "\f116",
+    "pump": "\f117",
+    "bathtub": "\f118",
+    "duster": "\f119",
+    "window-cleaning-1": "\f11a",
+    "cleaning-gloves": "\f11b",
+    "dusting": "\f11c",
+    "trash-bin": "\f11d",
+    "water-spray": "\f11e",
+    "dishwashing": "\f11f",
+    "detergent": "\f120",
+    "towel": "\f121",
+    "broom": "\f122",
+    "dustpan": "\f123",
+    "detergent-1": "\f124",
+    "bucket": "\f125",
+    "clean": "\f126",
+    "wet-floor": "\f127",
+    "soap-1": "\f128",
+    "soap-2": "\f129",
+    "sprayer": "\f12a",
+    "cleaning-2": "\f12b",
+    "toilet-roll": "\f12c",
+    "basket": "\f12d",
+    "mop": "\f12e",
+    "wiper-1": "\f12f",
+    "vacuum": "\f130",
+    "laundry": "\f131",
+    "ironing": "\f132",
+    "star": "\f133",
+    "customer-service": "\f134",
+    "home-service": "\f135",
+    "clean-1": "\f136",
+    "straight-quotes": "\f137",
+    "phone": "\f138",
+    "email": "\f139",
+    "briefcase": "\f13a",
+    "location": "\f13b",
+    "telephone-call": "\f13c",
+);
+
+.pbmit-xclean-icon-clean-house:before {
+    content: map-get($flaticon, "clean-house");
+}
+.pbmit-xclean-icon-water-container:before {
+    content: map-get($flaticon, "water-container");
+}
+.pbmit-xclean-icon-store:before {
+    content: map-get($flaticon, "store");
+}
+.pbmit-xclean-icon-sweeping:before {
+    content: map-get($flaticon, "sweeping");
+}
+.pbmit-xclean-icon-cleaning:before {
+    content: map-get($flaticon, "cleaning");
+}
+.pbmit-xclean-icon-soap:before {
+    content: map-get($flaticon, "soap");
+}
+.pbmit-xclean-icon-sweeper:before {
+    content: map-get($flaticon, "sweeper");
+}
+.pbmit-xclean-icon-dish-washing:before {
+    content: map-get($flaticon, "dish-washing");
+}
+.pbmit-xclean-icon-scrubber:before {
+    content: map-get($flaticon, "scrubber");
+}
+.pbmit-xclean-icon-window-cleaning:before {
+    content: map-get($flaticon, "window-cleaning");
+}
+.pbmit-xclean-icon-scrubbing:before {
+    content: map-get($flaticon, "scrubbing");
+}
+.pbmit-xclean-icon-clothing-iron:before {
+    content: map-get($flaticon, "clothing-iron");
+}
+.pbmit-xclean-icon-dry-cleaning:before {
+    content: map-get($flaticon, "dry-cleaning");
+}
+.pbmit-xclean-icon-vaccum-cleaner:before {
+    content: map-get($flaticon, "vaccum-cleaner");
+}
+.pbmit-xclean-icon-washing:before {
+    content: map-get($flaticon, "washing");
+}
+.pbmit-xclean-icon-dishes:before {
+    content: map-get($flaticon, "dishes");
+}
+.pbmit-xclean-icon-handwash:before {
+    content: map-get($flaticon, "handwash");
+}
+.pbmit-xclean-icon-scrubbing-1:before {
+    content: map-get($flaticon, "scrubbing-1");
+}
+.pbmit-xclean-icon-cleaning-1:before {
+    content: map-get($flaticon, "cleaning-1");
+}
+.pbmit-xclean-icon-wipe:before {
+    content: map-get($flaticon, "wipe");
+}
+.pbmit-xclean-icon-wiper:before {
+    content: map-get($flaticon, "wiper");
+}
+.pbmit-xclean-icon-apron:before {
+    content: map-get($flaticon, "apron");
+}
+.pbmit-xclean-icon-pump:before {
+    content: map-get($flaticon, "pump");
+}
+.pbmit-xclean-icon-bathtub:before {
+    content: map-get($flaticon, "bathtub");
+}
+.pbmit-xclean-icon-duster:before {
+    content: map-get($flaticon, "duster");
+}
+.pbmit-xclean-icon-window-cleaning-1:before {
+    content: map-get($flaticon, "window-cleaning-1");
+}
+.pbmit-xclean-icon-cleaning-gloves:before {
+    content: map-get($flaticon, "cleaning-gloves");
+}
+.pbmit-xclean-icon-dusting:before {
+    content: map-get($flaticon, "dusting");
+}
+.pbmit-xclean-icon-trash-bin:before {
+    content: map-get($flaticon, "trash-bin");
+}
+.pbmit-xclean-icon-water-spray:before {
+    content: map-get($flaticon, "water-spray");
+}
+.pbmit-xclean-icon-dishwashing:before {
+    content: map-get($flaticon, "dishwashing");
+}
+.pbmit-xclean-icon-detergent:before {
+    content: map-get($flaticon, "detergent");
+}
+.pbmit-xclean-icon-towel:before {
+    content: map-get($flaticon, "towel");
+}
+.pbmit-xclean-icon-broom:before {
+    content: map-get($flaticon, "broom");
+}
+.pbmit-xclean-icon-dustpan:before {
+    content: map-get($flaticon, "dustpan");
+}
+.pbmit-xclean-icon-detergent-1:before {
+    content: map-get($flaticon, "detergent-1");
+}
+.pbmit-xclean-icon-bucket:before {
+    content: map-get($flaticon, "bucket");
+}
+.pbmit-xclean-icon-clean:before {
+    content: map-get($flaticon, "clean");
+}
+.pbmit-xclean-icon-wet-floor:before {
+    content: map-get($flaticon, "wet-floor");
+}
+.pbmit-xclean-icon-soap-1:before {
+    content: map-get($flaticon, "soap-1");
+}
+.pbmit-xclean-icon-soap-2:before {
+    content: map-get($flaticon, "soap-2");
+}
+.pbmit-xclean-icon-sprayer:before {
+    content: map-get($flaticon, "sprayer");
+}
+.pbmit-xclean-icon-cleaning-2:before {
+    content: map-get($flaticon, "cleaning-2");
+}
+.pbmit-xclean-icon-toilet-roll:before {
+    content: map-get($flaticon, "toilet-roll");
+}
+.pbmit-xclean-icon-basket:before {
+    content: map-get($flaticon, "basket");
+}
+.pbmit-xclean-icon-mop:before {
+    content: map-get($flaticon, "mop");
+}
+.pbmit-xclean-icon-wiper-1:before {
+    content: map-get($flaticon, "wiper-1");
+}
+.pbmit-xclean-icon-vacuum:before {
+    content: map-get($flaticon, "vacuum");
+}
+.pbmit-xclean-icon-laundry:before {
+    content: map-get($flaticon, "laundry");
+}
+.pbmit-xclean-icon-ironing:before {
+    content: map-get($flaticon, "ironing");
+}
+.pbmit-xclean-icon-star:before {
+    content: map-get($flaticon, "star");
+}
+.pbmit-xclean-icon-customer-service:before {
+    content: map-get($flaticon, "customer-service");
+}
+.pbmit-xclean-icon-home-service:before {
+    content: map-get($flaticon, "home-service");
+}
+.pbmit-xclean-icon-clean-1:before {
+    content: map-get($flaticon, "clean-1");
+}
+.pbmit-xclean-icon-straight-quotes:before {
+    content: map-get($flaticon, "straight-quotes");
+}
+.pbmit-xclean-icon-phone:before {
+    content: map-get($flaticon, "phone");
+}
+.pbmit-xclean-icon-email:before {
+    content: map-get($flaticon, "email");
+}
+.pbmit-xclean-icon-briefcase:before {
+    content: map-get($flaticon, "briefcase");
+}
+.pbmit-xclean-icon-location:before {
+    content: map-get($flaticon, "location");
+}
+.pbmit-xclean-icon-telephone-call:before {
+    content: map-get($flaticon, "telephone-call");
+}
