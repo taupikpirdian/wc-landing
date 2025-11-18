@@ -1,144 +1,41 @@
 @extends('layouts.app')
 @section('content')
-<!-- About Start --> 
-<section class="section-xl">
+<!-- Ihbox Start -->
+<section class="section-lg ihbox-four-bg">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-xl-7">
-                <div class="pbmit-heading-subheading animation-style2">
-                    <h4 class="pbmit-subtitle">Our experience</h4>
-                    <h2 class="pbmit-title">We work many fields to <br> clean surrounding area</h2>
-                </div>
-            </div>
-            <div class="col-md-12 col-xl-5">
-                <p class="pbmit-text-editor style-1">We carefully screen all of our cleaners, so you can rest assured that your home would receive the absolute highest quality of service providing. We know that if you love our service you’re going to recommend.</p>
-                <ul class="list-group list-group-style-1 about-four-list-group list-group-borderless">
-                    <li class="list-group-item">
-                        <span class="pbmit-icon-list-icon">
-                            <i aria-hidden="true" class="fa fa-check-square"></i>						
-                        </span>
-                        <span class="pbmit-icon-list-text">Certified Expert Handyman</span>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="pbmit-icon-list-icon">
-                            <i aria-hidden="true" class="fa fa-check-square"></i>						
-                        </span>
-                        <span class="pbmit-icon-list-text">55 Expert Handyman</span>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="pbmit-icon-list-icon">
-                            <i aria-hidden="true" class="fa fa-check-square"></i>						
-                        </span>
-                        <span class="pbmit-icon-list-text">Trusted By thousands Clients</span>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="pbmit-icon-list-icon">
-                            <i aria-hidden="true" class="fa fa-check-square"></i>						
-                        </span>
-                        <span class="pbmit-icon-list-text">Modern Equipment Use</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="mt-xl-0 mt-4">
-            <div class="row">
-                <div class="col-md-12 col-xl-9">
-                    <div class="about-four-bg">
-                        <div class="ihbox-style-area">
-                            <div class="pbmit-ihbox-style-15">
-                                <div class="pbmit-ihbox-box">
-                                    <a class="pbmin-lightbox-video" href="https://www.youtube.com/watch?v=SZEflIVnhH8">
-                                        <div class="pbmit-ihbox-icon">
-                                            <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
-                                                <i class="fa fa-play"></i>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="pbmit-ihbox-contents">
-                                        <h2 class="pbmit-element-title">
-                                            <a href="https://www.youtube.com/watch?v=SZEflIVnhH8">
-                                                <span class="pbmit-button-text">Watch Video</span>
-                                                <span class="pbmit-button-icon-wrapper">
-                                                    <span class="pbmit-button-icon">
-                                                        <i class="pbmit-base-icon-black-arrow-1"></i>
-                                                    </span>
-                                                </span>
-                                            </a>
-                                        </h2>
-                                    </div>
-                                </div>
-                                <div class="pbmit-sticky-corner  pbmit-bottom-left-corner">
-                                    <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M30 30V0C30 16 16 30 0 30H30Z"></path>
-                                    </svg>
-                                </div>
-                                <div class="pbmit-sticky-corner pbmit-top-right-corner">
-                                    <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M30 30V0C30 16 16 30 0 30H30Z"></path>
-                                    </svg>
-                                </div>
-                            </div>
+        <div class="row g-0">
+            <div class="col-md-12 col-xl-6 pbmit-sticky-column">
+                <div class="theiaStickySidebar">
+                    <div class="ihbox-four-leftbox">
+                        <div class="pbmit-heading-subheading animation-style4">
+                            <h4 class="pbmit-subtitle">How it works</h4>
+                            <h2 class="pbmit-title">The most thorough & effective service with us</h2>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-xl-3">
-                    <div class="pb-4 mt-xl-0 mt-4">
-                        <div class="pbmit-ihbox-style-16">
-                            <div class="pbmit-ihbox-wrap">
-                                <div class="pbmit-icon-wrap">
-                                    <div class="pbmit-content-wrap-inner">
-                                        <div class="pbmit-ihbox-icon">
-                                            <div class="pbmit-ihbox-icon-wrapper pbmit-ihbox-icon-type-image">
-                                                <img src="{{ asset('assets/images/homepage-4/star.png') }}" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="pbmit-text-wrap">
-                                            <h2 class="pbmit-element-title">Based on</h2>
-                                            <h4 class="pbmit-element-subtitle">
-                                            645 <br>reviews
+                        <div class="position-relative">
+                            <div class="text-xl-start text-center">
+                                <img src="{{ asset('assets/images/homepage-4/about-img-01.jpg') }}" class="about-img img-fluid" alt="">
+                            </div>
+                            <div class="fid-style-box">
+                                <div class="pbminfotech-ele-fid-style-4">
+                                    <div class="pbmit-fld-contents">
+                                        <div class="pbmit-fld-wrap">
+                                            <h4 class="pbmit-fid-inner">
+                                                <span class="pbmit-fid-before"></span>
+                                                <span class="pbmit-number-rotate numinate" data-appear-animation="animateDigits" data-from="0" data-to="25" data-interval="5" data-before="" data-before-style="" data-after="" data-after-style="">25</span>
+                                                <span class="pbmit-fid"><span>+</span></span>
                                             </h4>
                                         </div>
+                                        <div class="pbmit-heading-desc">Years as a Trusted <br>Provider</div>
                                     </div>
-                                    <div class="pbmit-ihbox-wrapper">
-                                        <div class="pbmit-ihbox-icon-type-image">
-                                            <img src="images/homepage-4/pbmit-client-img.png" alt="">
-                                        </div>
+                                    <div class="pbmit-sticky-corner  pbmit-bottom-left-corner">
+                                        <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M30 30V0C30 16 16 30 0 30H30Z"></path>
+                                        </svg>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pbmit-ihbox-style-11">
-                        <div class="pbmit-ihbox-wrap">
-                            <div class="pbmit-ihbox-wrap-inner">
-                                <div class="pbmit-icon-wrap">
-                                    <div class="pbmit-ihbox-icon">
-                                        <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
-                                            <i class="pbmit-xclean-icon pbmit-xclean-icon-dusting"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pbmit-contents-wrap">
-                                    <h2 class="pbmit-element-title">Summer offer</h2>
-                                    <div class="pbmit-heading-desc">New clients save $100 on all hourly services.</div>
-                                </div>
-                            </div>
-                            <div class="pbmit-btn-wrap">
-                                <div class="pbmit-ihbox-btn">
-                                    <a href="#">
-                                        <span class="pbmit-button-text">Read More</span>
-                                        <span class="pbmit-button-icon-wrapper">
-                                            <span class="pbmit-button-icon">
-                                                <i class="pbmit-base-icon-black-arrow-1"></i>
-                                            </span>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="pbmit-icon-dup-wrap">
-                                <div class="pbmit-ihbox-icon">
-                                    <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
-                                        <i class="pbmit-xclean-icon pbmit-xclean-icon-dusting"></i>
+                                    <div class="pbmit-sticky-corner pbmit-top-right-corner">
+                                        <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M30 30V0C30 16 16 30 0 30H30Z"></path>
+                                        </svg>
                                     </div>
                                 </div>
                             </div>
@@ -146,52 +43,123 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section> 
-<!-- About end -->  
-
-<!-- Marquee Start --> 
-<section class="section-lgb overflow-hidden">
-    <div class="container-fluid p-0">
-        <div class="swiper-slider marquee">
-            <div class="swiper-wrapper">
-                <article class="pbmit-marquee-effect-style-1 swiper-slide">
-                    <div class="pbmit-tag-wrapper">
-                        <h2 class="pbmit-element-title" data-text="Cleaning">
-                            Cleaning
-                        </h2>
+            <div class="col-md-12 col-xl-6">
+                <div class="ihbox-four-rightbox">
+                    <div class="row pbmit-element-posts-wrapper pbminfotech-gap-50px">
+                        <article class="pbmit-miconheading-style-14 col-md-12">
+                            <div class="pbmit-ihbox-style-14">
+                                <div class="pbmit-ihbox-wrap">
+                                    <div class="pbmit-icon-wrap">
+                                        <div class="pbmit-content-number">
+                                            <div class="pbmit-wrap-number">
+                                            <div class="pbmit-ihbox-box-number">01</div>
+                                            </div>
+                                        </div>
+                                        <div class="pbmit-content-wrap">
+                                            <div class="pbmit-ihbox-icon">
+                                                <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
+                                                    <i class="pbmit-xclean-icon pbmit-xclean-icon-cleaning"></i>
+                                                </div>
+                                            </div>
+                                            <div class="pbmit-text-wrap">
+                                                <h2 class="pbmit-element-title">
+                                                    Highly skilled team
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pbmit-heading-desc">Professional and Experienced staff ready to help you anytime, Equipped with the most modern appliances Services</div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="pbmit-miconheading-style-14 col-md-12">
+                            <div class="pbmit-ihbox-style-14">
+                                <div class="pbmit-ihbox-wrap">
+                                    <div class="pbmit-icon-wrap">
+                                        <div class="pbmit-content-number">
+                                            <div class="pbmit-wrap-number">
+                                            <div class="pbmit-ihbox-box-number">02</div>
+                                            </div>
+                                        </div>
+                                        <div class="pbmit-content-wrap">
+                                            <div class="pbmit-ihbox-icon">
+                                                <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
+                                                    <i class="pbmit-xclean-icon pbmit-xclean-icon-window-cleaning"></i>
+                                                </div>
+                                            </div>
+                                            <div class="pbmit-text-wrap">
+                                                <h2 class="pbmit-element-title">
+                                                    Positive reputation
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pbmit-heading-desc">cleaning and sanitizing may be the most important aspects of a clean and stored in a clean, sanitary manner</div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="pbmit-miconheading-style-14 col-md-12">
+                            <div class="pbmit-ihbox-style-14">
+                                <div class="pbmit-ihbox-wrap">
+                                    <div class="pbmit-icon-wrap">
+                                        <div class="pbmit-content-number">
+                                            <div class="pbmit-wrap-number">
+                                            <div class="pbmit-ihbox-box-number">03</div>
+                                            </div>
+                                        </div>
+                                        <div class="pbmit-content-wrap">
+                                            <div class="pbmit-ihbox-icon">
+                                                <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
+                                                    <i class="pbmit-xclean-icon pbmit-xclean-icon-vacuum"></i>
+                                                </div>
+                                            </div>
+                                            <div class="pbmit-text-wrap">
+                                                <h2 class="pbmit-element-title">
+                                                    Fast and reliable
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pbmit-heading-desc">Provide you the best service quality with best rate all the time no matter you're looking for residential or commercial</div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="pbmit-miconheading-style-14 col-md-12">
+                            <div class="pbmit-ihbox-style-14">
+                                <div class="pbmit-ihbox-wrap">
+                                    <div class="pbmit-icon-wrap">
+                                        <div class="pbmit-content-number">
+                                            <div class="pbmit-wrap-number">
+                                            <div class="pbmit-ihbox-box-number">04</div>
+                                            </div>
+                                        </div>
+                                        <div class="pbmit-content-wrap">
+                                            <div class="pbmit-ihbox-icon">
+                                                <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
+                                                    <i class="pbmit-xclean-icon pbmit-xclean-icon-vaccum-cleaner"></i>
+                                                </div>
+                                            </div>
+                                            <div class="pbmit-text-wrap">
+                                                <h2 class="pbmit-element-title">
+                                                    24/7 availability
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pbmit-heading-desc">We make sure that we had all the tools and equipment you need to provide high-quality service to our clients 24/7</div>
+                                </div>
+                            </div>
+                        </article>
                     </div>
-                </article>
-                <article class="pbmit-marquee-effect-style-1 swiper-slide">
-                    <div class="pbmit-tag-wrapper">
-                        <h2 class="pbmit-element-title" data-text="Moping">
-                            Moping
-                        </h2>
-                    </div>
-                </article>
-                <article class="pbmit-marquee-effect-style-1 swiper-slide">
-                    <div class="pbmit-tag-wrapper">
-                        <h2 class="pbmit-element-title" data-text="Vacuum">
-                            Vacuum
-                        </h2>
-                    </div>
-                </article>
-                <article class="pbmit-marquee-effect-style-1 swiper-slide">
-                    <div class="pbmit-tag-wrapper">
-                        <h2 class="pbmit-element-title" data-text="Sweeping">
-                            Sweeping
-                        </h2>
-                    </div>
-                </article>
+                </div>
             </div>
         </div>
     </div>
 </section>
-<!-- Marquee End -->
+<!-- Ihbox End -->
 
 <!-- Service Start --> 
-<section class="pbmit-bg-color-light section-xl service-sec-four">
+<section class="pbmit-bg-color-light section-xl service-sec-four mb-5">
     <div class="container">
         <div class="pbmit-heading-subheading text-center animation-style2">
             <h4 class="pbmit-subtitle">Our Service</h4>
@@ -431,166 +399,8 @@
 </section>
 <!-- Service End -->
 
-<!-- Ihbox Start -->
-<section class="section-lg ihbox-four-bg">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-md-12 col-xl-6 pbmit-sticky-column">
-                <div class="theiaStickySidebar">
-                    <div class="ihbox-four-leftbox">
-                        <div class="pbmit-heading-subheading animation-style4">
-                            <h4 class="pbmit-subtitle">How it works</h4>
-                            <h2 class="pbmit-title">The most thorough & effective service with us</h2>
-                        </div>
-                        <div class="position-relative">
-                            <div class="text-xl-start text-center">
-                                <img src="{{ asset('assets/images/homepage-4/about-img-01.jpg') }}" class="about-img img-fluid" alt="">
-                            </div>
-                            <div class="fid-style-box">
-                                <div class="pbminfotech-ele-fid-style-4">
-                                    <div class="pbmit-fld-contents">
-                                        <div class="pbmit-fld-wrap">
-                                            <h4 class="pbmit-fid-inner">
-                                                <span class="pbmit-fid-before"></span>
-                                                <span class="pbmit-number-rotate numinate" data-appear-animation="animateDigits" data-from="0" data-to="25" data-interval="5" data-before="" data-before-style="" data-after="" data-after-style="">25</span>
-                                                <span class="pbmit-fid"><span>+</span></span>
-                                            </h4>
-                                        </div>
-                                        <div class="pbmit-heading-desc">Years as a Trusted <br>Provider</div>
-                                    </div>
-                                    <div class="pbmit-sticky-corner  pbmit-bottom-left-corner">
-                                        <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M30 30V0C30 16 16 30 0 30H30Z"></path>
-                                        </svg>
-                                    </div>
-                                    <div class="pbmit-sticky-corner pbmit-top-right-corner">
-                                        <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M30 30V0C30 16 16 30 0 30H30Z"></path>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 col-xl-6">
-                <div class="ihbox-four-rightbox">
-                    <div class="row pbmit-element-posts-wrapper pbminfotech-gap-50px">
-                        <article class="pbmit-miconheading-style-14 col-md-12">
-                            <div class="pbmit-ihbox-style-14">
-                                <div class="pbmit-ihbox-wrap">
-                                    <div class="pbmit-icon-wrap">
-                                        <div class="pbmit-content-number">
-                                            <div class="pbmit-wrap-number">
-                                            <div class="pbmit-ihbox-box-number">01</div>
-                                            </div>
-                                        </div>
-                                        <div class="pbmit-content-wrap">
-                                            <div class="pbmit-ihbox-icon">
-                                                <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
-                                                    <i class="pbmit-xclean-icon pbmit-xclean-icon-cleaning"></i>
-                                                </div>
-                                            </div>
-                                            <div class="pbmit-text-wrap">
-                                                <h2 class="pbmit-element-title">
-                                                    Highly skilled team
-                                                </h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pbmit-heading-desc">Professional and Experienced staff ready to help you anytime, Equipped with the most modern appliances Services</div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="pbmit-miconheading-style-14 col-md-12">
-                            <div class="pbmit-ihbox-style-14">
-                                <div class="pbmit-ihbox-wrap">
-                                    <div class="pbmit-icon-wrap">
-                                        <div class="pbmit-content-number">
-                                            <div class="pbmit-wrap-number">
-                                            <div class="pbmit-ihbox-box-number">02</div>
-                                            </div>
-                                        </div>
-                                        <div class="pbmit-content-wrap">
-                                            <div class="pbmit-ihbox-icon">
-                                                <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
-                                                    <i class="pbmit-xclean-icon pbmit-xclean-icon-window-cleaning"></i>
-                                                </div>
-                                            </div>
-                                            <div class="pbmit-text-wrap">
-                                                <h2 class="pbmit-element-title">
-                                                    Positive reputation
-                                                </h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pbmit-heading-desc">cleaning and sanitizing may be the most important aspects of a clean and stored in a clean, sanitary manner</div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="pbmit-miconheading-style-14 col-md-12">
-                            <div class="pbmit-ihbox-style-14">
-                                <div class="pbmit-ihbox-wrap">
-                                    <div class="pbmit-icon-wrap">
-                                        <div class="pbmit-content-number">
-                                            <div class="pbmit-wrap-number">
-                                            <div class="pbmit-ihbox-box-number">03</div>
-                                            </div>
-                                        </div>
-                                        <div class="pbmit-content-wrap">
-                                            <div class="pbmit-ihbox-icon">
-                                                <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
-                                                    <i class="pbmit-xclean-icon pbmit-xclean-icon-vacuum"></i>
-                                                </div>
-                                            </div>
-                                            <div class="pbmit-text-wrap">
-                                                <h2 class="pbmit-element-title">
-                                                    Fast and reliable
-                                                </h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pbmit-heading-desc">Provide you the best service quality with best rate all the time no matter you're looking for residential or commercial</div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="pbmit-miconheading-style-14 col-md-12">
-                            <div class="pbmit-ihbox-style-14">
-                                <div class="pbmit-ihbox-wrap">
-                                    <div class="pbmit-icon-wrap">
-                                        <div class="pbmit-content-number">
-                                            <div class="pbmit-wrap-number">
-                                            <div class="pbmit-ihbox-box-number">04</div>
-                                            </div>
-                                        </div>
-                                        <div class="pbmit-content-wrap">
-                                            <div class="pbmit-ihbox-icon">
-                                                <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
-                                                    <i class="pbmit-xclean-icon pbmit-xclean-icon-vaccum-cleaner"></i>
-                                                </div>
-                                            </div>
-                                            <div class="pbmit-text-wrap">
-                                                <h2 class="pbmit-element-title">
-                                                    24/7 availability
-                                                </h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pbmit-heading-desc">We make sure that we had all the tools and equipment you need to provide high-quality service to our clients 24/7</div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Ihbox End -->
-
 <!-- Portfolio Start -->
-<section class="position-relative">
+<section class="position-relative mt-5">
     <div class="container-fluid p-0">
         <div class="swiper-slider pbmit-element-portfolio-style-3" data-autoplay="false" data-loop="true" data-dots="false" data-arrows="false" data-columns="4" data-margin="30" data-effect="slide">
             <div class="swiper-wrapper">
