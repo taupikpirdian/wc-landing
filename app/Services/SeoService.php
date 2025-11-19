@@ -267,4 +267,77 @@ class SeoService
     {
         return implode(', ', array_unique($keywords));
     }
+
+    public static function forPortfolioDetail(string $slug): self
+    {
+        // $portfolio = Portfolio::where('slug', $slug)->firstOrFail();
+
+        // return $this->forPage(
+        //     $portfolio->title . ' - Proyek Sedot WC Berhasil | Sedot WC Resmi',
+        //     $portfolio->description,
+        //     [
+        //         'keywords' => $this->generateMetaKeywords($portfolio->keywords),
+        //         'image' => $portfolio->image ? asset('assets/images/portfolio/' . $portfolio->image) : asset('assets/images/og-portfolio.jpg'),
+        //     ]
+        // );
+
+        return self::forPage(
+            'Blog - Tips & Informasi Seputar Sedot WC | Sedot WC Resmi',
+            'Dapatkan informasi berguna seputar jasa sedot WC, tips perawatan, dan solusi masalah WC dari para ahli berpengalaman.',
+            [
+                'keywords' => ['blog sedot wc', 'tips perawatan wc', 'masalah wc', 'solusi wc'],
+                'image' => asset('assets/images/og-blog.jpg'),
+                'robots' => 'index, follow'
+            ]
+        );
+    }
+
+    public static function forBlogDetail(string $slug): self
+    {
+        // $blog = Blog::where('slug', $slug)->firstOrFail();
+
+        // return $this->forPage(
+        //     $blog->title . ' - Blog Sedot WC | Sedot WC Resmi',
+        //     $blog->description,
+        //     [
+        //         'keywords' => $this->generateMetaKeywords($blog->keywords),
+        //         'image' => $blog->image ? asset('assets/images/blog/' . $blog->image) : asset('assets/images/og-blog.jpg'),
+        //     ]
+        // );
+
+        return self::forPage(
+            'Blog - Tips & Informasi Seputar Sedot WC | Sedot WC Resmi',
+            'Dapatkan informasi berguna seputar jasa sedot WC, tips perawatan, dan solusi masalah WC dari para ahli berpengalaman.',
+            [
+                'keywords' => ['blog sedot wc', 'tips perawatan wc', 'masalah wc', 'solusi wc'],
+                'image' => asset('assets/images/og-blog.jpg'),
+                'robots' => 'index, follow'
+            ]
+        );
+    }
+
+    public static function forServiceDetail(string $slug): self
+    {
+        // $service = Service::where('slug', $slug)->firstOrFail();
+
+        // return $this->forPage(
+        //     $service->title . ' - Layanan Sedot WC | Sedot WC Resmi',
+        //     $service->description,
+        //     [
+        //         'keywords' => $this->generateMetaKeywords($service->keywords),
+        //         'image' => $service->image ? asset('assets/images/service/' . $service->image) : asset('assets/images/og-service.jpg'),
+        //     ]
+        // );
+
+        return self::forPage(
+            'Layanan - Jasa Sedot WC | Sedot WC Resmi',
+            'Jasa sedot WC terbaik dengan kualitas terbaik dan harga terjangkau.',
+            [
+                'keywords' => ['layanan sedot wc', 'jasa sedot wc', 'kualitas wc', 'harga wc'],
+                'image' => asset('assets/images/og-service.jpg'),
+                'robots' => 'index, follow'
+            ]
+        );
+    }  
+
 }

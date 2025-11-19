@@ -15,6 +15,10 @@ Route::middleware(['web'])->group(function () {
     Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
     Route::get('/tentang-kami', [HomeController::class, 'aboutUs'])->name('about-us');
     Route::get('/hubungi-kami', [HomeController::class, 'contactUs'])->name('contact-us');
+
+    Route::get('/blog/{slug}', [HomeController::class, 'blogDetail'])->name('blog-detail');
+    Route::get('/portfolio/{slug}', [HomeController::class, 'portfolioDetail'])->name('portfolio-detail');
+    Route::get('/layanan-kami/{slug}', [HomeController::class, 'serviceDetail'])->name('service-detail');
 });
 
 // SEO Routes

@@ -62,4 +62,22 @@ class HomeController extends Controller
         $seoService = SeoService::forContact();
         return view('pages.contact-us', compact('seoService'));
     }
+
+    public function blogDetail($slug)
+    {
+        $seoService = SeoService::forBlogDetail($slug);
+        return view('pages.blog-detail', compact('seoService'));
+    }
+
+    public function portfolioDetail($slug)
+    {
+        $seoService = SeoService::forPortfolioDetail($slug);
+        return view('pages.portfolio-detail', compact('seoService'));
+    }
+
+    public function serviceDetail($slug)
+    {
+        $seoService = SeoService::forServiceDetail($slug);
+        return view('pages.services-detail', compact('seoService'));
+    }
 }
