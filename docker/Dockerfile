@@ -5,11 +5,6 @@ RUN apk add --no-cache \
     bash curl git icu-dev libzip-dev oniguruma-dev zlib-dev \
     freetype-dev libpng-dev libjpeg-turbo-dev
 
-# Install system dependencies
-RUN apk add --no-cache \
-    bash curl git icu-dev libzip-dev oniguruma-dev zlib-dev \
-    freetype-dev libpng-dev libjpeg-turbo-dev
-
 # Install PHP extensions
 RUN docker-php-ext-configure intl \
     && docker-php-ext-install \
@@ -41,6 +36,13 @@ COPY . .
 
 # Install dependencies (production)
 RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+
+# Clear and optimize Laravel caches to prevent "Class config does not exist" errors
+RUN php artisan config:clear \
+    && php artisan cache:clear \
+    && php artisan route:clear \
+    && php artisan config:cache \
+    && composer dump-autoload
 
 # Publish Livewire assets
 RUN php artisan vendor:publish --tag=livewire:assets --force

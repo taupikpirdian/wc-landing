@@ -18,10 +18,8 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
 
         // Apply HTTPS middleware to all web routes in production
-        if (config('app.env') === 'production') {
-            $middleware->web(\App\Http\Middleware\ForceHttps::class);
-            $middleware->web(\App\Http\Middleware\TrustProxies::class);
-        }
+        $middleware->web(\App\Http\Middleware\ForceHttps::class);
+        $middleware->web(\App\Http\Middleware\TrustProxies::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
