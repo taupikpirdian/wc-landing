@@ -183,7 +183,7 @@
                                         <a href="services.html" rel="tag">Air Freshener</a>
                                     </div>
                                     <h3 class="pbmit-service-title">
-                                        <a href="service-details.html">Residential Cleaning</a>
+                                        <a href="{{ route('service-detail', 'residential-cleaning') }}">Residential Cleaning</a>
                                     </h3>
                                 </div>
                             </div>
@@ -192,7 +192,7 @@
                             </div>
                         </div>
                         <div class="pbmit-service-btn-wrapper">
-                            <a class="pbmit-service-btn" href="service-details.html" title="Residential Cleaning">
+                            <a class="pbmit-service-btn" href="{{ route('service-detail', 'residential-cleaning') }}" title="Residential Cleaning">
                                 <span class="pbmit-button-icon-wrapper">
                                     <span class="pbmit-button-icon">
                                         <i class=" pbmit-base-icon-black-arrow-1"></i>
@@ -201,7 +201,7 @@
                             </a>
                         </div>
                     </div>
-                    <a class="pbmit-link" href="service-details.html"></a>
+                    <a class="pbmit-link" href="{{ route('service-detail', 'residential-cleaning') }}"></a>
                 </div>
             </article>
             <article class="pbmit-service-style-5 col-md-4">
@@ -221,7 +221,7 @@
                                         <a href="services.html" rel="tag">Cleaner</a>
                                     </div>
                                     <h3 class="pbmit-service-title">
-                                        <a href="service-details.html">Office Cleaning</a>
+                                        <a href="{{ route('service-detail', 'residential-cleaning') }}">Office Cleaning</a>
                                     </h3>
                                 </div>
                             </div>
@@ -230,7 +230,7 @@
                             </div>
                         </div>
                         <div class="pbmit-service-btn-wrapper">
-                            <a class="pbmit-service-btn" href="service-details.html" title="Office Cleaning">
+                            <a class="pbmit-service-btn" href="{{ route('service-detail', 'residential-cleaning') }}" title="Office Cleaning">
                                 <span class="pbmit-button-icon-wrapper">
                                     <span class="pbmit-button-icon">
                                         <i class=" pbmit-base-icon-black-arrow-1"></i>
@@ -239,7 +239,7 @@
                             </a>
                         </div>
                     </div>
-                    <a class="pbmit-link" href="service-details.html"></a>
+                    <a class="pbmit-link" href="{{ route('service-detail', 'residential-cleaning') }}"></a>
                 </div>
             </article>
             <article class="pbmit-service-style-5 col-md-4">
@@ -259,7 +259,7 @@
                                         <a href="services.html" rel="tag">Custodian</a>
                                     </div>
                                     <h3 class="pbmit-service-title">
-                                        <a href="service-details.html">Floor Cleaner</a>
+                                        <a href="{{ route('service-detail', 'residential-cleaning') }}">Floor Cleaner</a>
                                     </h3>
                                 </div>
                             </div>
@@ -268,7 +268,7 @@
                             </div>
                         </div>
                         <div class="pbmit-service-btn-wrapper">
-                            <a class="pbmit-service-btn" href="service-details.html" title="Floor Cleaner">
+                            <a class="pbmit-service-btn" href="{{ route('service-detail', 'residential-cleaning') }}" title="Floor Cleaner">
                                 <span class="pbmit-button-icon-wrapper">
                                     <span class="pbmit-button-icon">
                                         <i class=" pbmit-base-icon-black-arrow-1"></i>
@@ -277,7 +277,7 @@
                             </a>
                         </div>
                     </div>
-                    <a class="pbmit-link" href="service-details.html"></a>
+                    <a class="pbmit-link" href="{{ route('service-detail', 'residential-cleaning') }}"></a>
                 </div>
             </article>
             <article class="pbmit-service-style-5 col-md-4">
@@ -297,7 +297,7 @@
                                         <a href="services.html" rel="tag">Disinfectant</a>
                                     </div>
                                     <h3 class="pbmit-service-title">
-                                        <a href="service-details.html">Domestic Cleaning</a>
+                                        <a href="{{ route('service-detail', 'residential-cleaning') }}">Domestic Cleaning</a>
                                     </h3>
                                 </div>
                             </div>
@@ -306,7 +306,7 @@
                             </div>
                         </div>
                         <div class="pbmit-service-btn-wrapper">
-                            <a class="pbmit-service-btn" href="service-details.html" title="Domestic Cleaning">
+                            <a class="pbmit-service-btn" href="{{ route('service-detail', 'residential-cleaning') }}" title="Domestic Cleaning">
                                 <span class="pbmit-button-icon-wrapper">
                                     <span class="pbmit-button-icon">
                                         <i class=" pbmit-base-icon-black-arrow-1"></i>
@@ -315,7 +315,7 @@
                             </a>
                         </div>
                     </div>
-                    <a class="pbmit-link" href="service-details.html"></a>
+                    <a class="pbmit-link" href="{{ route('service-detail', 'residential-cleaning') }}"></a>
                 </div>
             </article>
             <article class="pbmit-service-style-5 col-md-4">
@@ -335,7 +335,7 @@
                                         <a href="services.html" rel="tag">Vacuum</a>
                                     </div>
                                     <h3 class="pbmit-service-title">
-                                        <a href="service-details.html">Pressure Washing</a>
+                                        <a href="{{ route('service-detail', 'residential-cleaning') }}">Pressure Washing</a>
                                     </h3>
                                 </div>
                             </div>
@@ -344,7 +344,7 @@
                             </div>
                         </div>
                         <div class="pbmit-service-btn-wrapper">
-                            <a class="pbmit-service-btn" href="service-details.html" title="Pressure Washing">
+                            <a class="pbmit-service-btn" href="{{ route('service-detail', 'residential-cleaning') }}" title="Pressure Washing">
                                 <span class="pbmit-button-icon-wrapper">
                                     <span class="pbmit-button-icon">
                                         <i class=" pbmit-base-icon-black-arrow-1"></i>
@@ -353,7 +353,7 @@
                             </a>
                         </div>
                     </div>
-                    <a class="pbmit-link" href="service-details.html"></a>
+                    <a class="pbmit-link" href="{{ route('service-detail', 'residential-cleaning') }}"></a>
                 </div>
             </article>
             <article class="pbmit-service-style-5 col-md-4">
@@ -373,7 +373,7 @@
                                         <a href="services.html" rel="tag">Washroom</a>
                                     </div>
                                     <h3 class="pbmit-service-title">
-                                        <a href="service-details.html">Window Cleaning</a>
+                                        <a href="{{ route('service-detail', 'residential-cleaning') }}">Window Cleaning</a>
                                     </h3>
                                 </div>
                             </div>
@@ -382,7 +382,7 @@
                             </div>
                         </div>
                         <div class="pbmit-service-btn-wrapper">
-                            <a class="pbmit-service-btn" href="service-details.html" title="Window Cleaning">
+                            <a class="pbmit-service-btn" href="{{ route('service-detail', 'residential-cleaning') }}" title="Window Cleaning">
                                 <span class="pbmit-button-icon-wrapper">
                                     <span class="pbmit-button-icon">
                                         <i class=" pbmit-base-icon-black-arrow-1"></i>
@@ -391,7 +391,7 @@
                             </a>
                         </div>
                     </div>
-                    <a class="pbmit-link" href="service-details.html"></a>
+                    <a class="pbmit-link" href="{{ route('service-detail', 'residential-cleaning') }}"></a>
                 </div>
             </article>
         </div>
@@ -418,16 +418,16 @@
                                     <a href="portfolio-grid-col-3.html" rel="tag">Disinfectant</a>
                                 </div>
                                 <h3 class="pbmit-portfolio-title">
-                                    <a href="portfolio-single-style-01.html">Deep Cleaning</a>
+                                    <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Deep Cleaning</a>
                                 </h3>
                             </div>
                         </div>
                         <div class="pbmit-portfolio-btn">
-                            <a href="portfolio-single-style-01.html">
+                            <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
                                 <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
                             </a>
                         </div>
-                        <a class="pbmit-link" href="portfolio-single-style-01.html"></a>
+                        <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
                     </div>
                 </article>
                 <!-- Slide2 -->
@@ -444,16 +444,16 @@
                                     <a href="portfolio-grid-col-3.html" rel="tag">Shaking</a>
                                 </div>
                                 <h3 class="pbmit-portfolio-title">
-                                    <a href="portfolio-single-style-01.html">Window Cleaning</a>
+                                    <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Window Cleaning</a>
                                 </h3>
                             </div>
                         </div>
                         <div class="pbmit-portfolio-btn">
-                            <a href="portfolio-single-style-01.html">
+                            <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
                                 <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
                             </a>
                         </div>
-                        <a class="pbmit-link" href="portfolio-single-style-01.html"></a>
+                        <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
                     </div>
                 </article>
                 <!-- Slide3 -->
@@ -470,16 +470,16 @@
                                     <a href="portfolio-grid-col-3.html" rel="tag">Dusting</a>
                                 </div>
                                 <h3 class="pbmit-portfolio-title">
-                                    <a href="portfolio-single-style-01.html">Kitchen Cleaning</a>
+                                    <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Kitchen Cleaning</a>
                                 </h3>
                             </div>
                         </div>
                         <div class="pbmit-portfolio-btn">
-                            <a href="portfolio-single-style-01.html">
+                            <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
                                 <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
                             </a>
                         </div>
-                        <a class="pbmit-link" href="portfolio-single-style-01.html"></a>
+                        <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
                     </div>
                 </article>
                 <!-- Slide4 -->
@@ -496,16 +496,16 @@
                                     <a href="portfolio-grid-col-3.html" rel="tag">Vacuum</a>
                                 </div>
                                 <h3 class="pbmit-portfolio-title">
-                                    <a href="portfolio-single-style-01.html">Dash Cleanup</a>
+                                    <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Dash Cleanup</a>
                                 </h3>
                             </div>
                         </div>
                         <div class="pbmit-portfolio-btn">
-                            <a href="portfolio-single-style-01.html">
+                            <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
                                 <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
                             </a>
                         </div>
-                        <a class="pbmit-link" href="portfolio-single-style-01.html"></a>
+                        <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
                     </div>
                 </article>
                 <!-- Slide5 -->
@@ -522,16 +522,16 @@
                                     <a href="portfolio-grid-col-3.html" rel="tag">Sweeping</a>
                                 </div>
                                 <h3 class="pbmit-portfolio-title">
-                                    <a href="portfolio-single-style-01.html">Junk Removal</a>
+                                    <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Junk Removal</a>
                                 </h3>
                             </div>
                         </div>
                         <div class="pbmit-portfolio-btn">
-                            <a href="portfolio-single-style-01.html">
+                            <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
                                 <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
                             </a>
                         </div>
-                        <a class="pbmit-link" href="portfolio-single-style-01.html"></a>
+                        <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
                     </div>
                 </article>
                 <!-- Slide6 -->
@@ -548,16 +548,16 @@
                                     <a href="portfolio-grid-col-3.html" rel="tag">Shaking</a>
                                 </div>
                                 <h3 class="pbmit-portfolio-title">
-                                    <a href="portfolio-single-style-01.html">Stephen House</a>
+                                    <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Stephen House</a>
                                 </h3>
                             </div>
                         </div>
                         <div class="pbmit-portfolio-btn">
-                            <a href="portfolio-single-style-01.html">
+                            <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
                                 <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
                             </a>
                         </div>
-                        <a class="pbmit-link" href="portfolio-single-style-01.html"></a>
+                        <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
                     </div>
                 </article>
                 <!-- Slide7 -->
@@ -574,16 +574,16 @@
                                     <a href="portfolio-grid-col-3.html" rel="tag">Moping</a>
                                 </div>
                                 <h3 class="pbmit-portfolio-title">
-                                    <a href="portfolio-single-style-01.html">Door Cleaning</a>
+                                    <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Door Cleaning</a>
                                 </h3>
                             </div>
                         </div>
                         <div class="pbmit-portfolio-btn">
-                            <a href="portfolio-single-style-01.html">
+                            <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
                                 <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
                             </a>
                         </div>
-                        <a class="pbmit-link" href="portfolio-single-style-01.html"></a>
+                        <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
                     </div>
                 </article>
                 <!-- Slide8 -->
@@ -600,16 +600,16 @@
                                     <a href="portfolio-grid-col-3.html" rel="tag">Dusting</a>
                                 </div>
                                 <h3 class="pbmit-portfolio-title">
-                                    <a href="portfolio-single-style-01.html">Bathroom Cleaning</a>
+                                    <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Bathroom Cleaning</a>
                                 </h3>
                             </div>
                         </div>
                         <div class="pbmit-portfolio-btn">
-                            <a href="portfolio-single-style-01.html">
+                            <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
                                 <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
                             </a>
                         </div>
-                        <a class="pbmit-link" href="portfolio-single-style-01.html"></a>
+                        <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
                     </div>
                 </article>
                 <!-- Slide9 -->
@@ -626,16 +626,16 @@
                                     <a href="portfolio-grid-col-3.html" rel="tag">Disinfectant</a>
                                 </div>
                                 <h3 class="pbmit-portfolio-title">
-                                    <a href="portfolio-single-style-01.html">Apartment Cleaning</a>
+                                    <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Apartment Cleaning</a>
                                 </h3>
                             </div>
                         </div>
                         <div class="pbmit-portfolio-btn">
-                            <a href="portfolio-single-style-01.html">
+                            <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
                                 <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
                             </a>
                         </div>
-                        <a class="pbmit-link" href="portfolio-single-style-01.html"></a>
+                        <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
                     </div>
                 </article>
             </div>
@@ -657,16 +657,16 @@
                                         <a href="portfolio-grid-col-3.html" rel="tag">Disinfectant</a>
                                     </div>
                                     <h3 class="pbmit-portfolio-title">
-                                        <a href="portfolio-single-style-01.html">Deep Cleaning</a>
+                                        <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Deep Cleaning</a>
                                     </h3>
                                 </div>
                             </div>
                             <div class="pbmit-portfolio-btn">
-                                <a href="portfolio-single-style-01.html">
+                                <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
                                     <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
                                 </a>
                             </div>
-                            <a class="pbmit-link" href="portfolio-single-style-01.html"></a>
+                            <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
                         </div>
                     </article>
                     <!-- Slide2 -->
@@ -683,16 +683,16 @@
                                         <a href="portfolio-grid-col-3.html" rel="tag">Shaking</a>
                                     </div>
                                     <h3 class="pbmit-portfolio-title">
-                                        <a href="portfolio-single-style-01.html">Window Cleaning</a>
+                                        <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Window Cleaning</a>
                                     </h3>
                                 </div>
                             </div>
                             <div class="pbmit-portfolio-btn">
-                                <a href="portfolio-single-style-01.html">
+                                <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
                                     <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
                                 </a>
                             </div>
-                            <a class="pbmit-link" href="portfolio-single-style-01.html"></a>
+                            <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
                         </div>
                     </article>
                     <!-- Slide3 -->
@@ -709,16 +709,16 @@
                                         <a href="portfolio-grid-col-3.html" rel="tag">Dusting</a>
                                     </div>
                                     <h3 class="pbmit-portfolio-title">
-                                        <a href="portfolio-single-style-01.html">Kitchen Cleaning</a>
+                                        <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Kitchen Cleaning</a>
                                     </h3>
                                 </div>
                             </div>
                             <div class="pbmit-portfolio-btn">
-                                <a href="portfolio-single-style-01.html">
+                                <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
                                     <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
                                 </a>
                             </div>
-                            <a class="pbmit-link" href="portfolio-single-style-01.html"></a>
+                            <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
                         </div>
                     </article>
                     <!-- Slide4 -->
@@ -735,16 +735,16 @@
                                         <a href="portfolio-grid-col-3.html" rel="tag">Vacuum</a>
                                     </div>
                                     <h3 class="pbmit-portfolio-title">
-                                        <a href="portfolio-single-style-01.html">Dash Cleanup</a>
+                                        <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Dash Cleanup</a>
                                     </h3>
                                 </div>
                             </div>
                             <div class="pbmit-portfolio-btn">
-                                <a href="portfolio-single-style-01.html">
+                                <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
                                     <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
                                 </a>
                             </div>
-                            <a class="pbmit-link" href="portfolio-single-style-01.html"></a>
+                            <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
                         </div>
                     </article>
                     <!-- Slide5 -->
@@ -761,16 +761,16 @@
                                         <a href="portfolio-grid-col-3.html" rel="tag">Sweeping</a>
                                     </div>
                                     <h3 class="pbmit-portfolio-title">
-                                        <a href="portfolio-single-style-01.html">Junk Removal</a>
+                                        <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Junk Removal</a>
                                     </h3>
                                 </div>
                             </div>
                             <div class="pbmit-portfolio-btn">
-                                <a href="portfolio-single-style-01.html">
+                                <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
                                     <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
                                 </a>
                             </div>
-                            <a class="pbmit-link" href="portfolio-single-style-01.html"></a>
+                            <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
                         </div>
                     </article>
                     <!-- Slide6 -->
@@ -787,16 +787,16 @@
                                         <a href="portfolio-grid-col-3.html" rel="tag">Shaking</a>
                                     </div>
                                     <h3 class="pbmit-portfolio-title">
-                                        <a href="portfolio-single-style-01.html">Stephen House</a>
+                                        <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Stephen House</a>
                                     </h3>
                                 </div>
                             </div>
                             <div class="pbmit-portfolio-btn">
-                                <a href="portfolio-single-style-01.html">
+                                <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
                                     <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
                                 </a>
                             </div>
-                            <a class="pbmit-link" href="portfolio-single-style-01.html"></a>
+                            <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
                         </div>
                     </article>
                     <!-- Slide7 -->
@@ -813,16 +813,16 @@
                                         <a href="portfolio-grid-col-3.html" rel="tag">Moping</a>
                                     </div>
                                     <h3 class="pbmit-portfolio-title">
-                                        <a href="portfolio-single-style-01.html">Door Cleaning</a>
+                                        <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Door Cleaning</a>
                                     </h3>
                                 </div>
                             </div>
                             <div class="pbmit-portfolio-btn">
-                                <a href="portfolio-single-style-01.html">
+                                <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
                                     <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
                                 </a>
                             </div>
-                            <a class="pbmit-link" href="portfolio-single-style-01.html"></a>
+                            <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
                         </div>
                     </article>
                     <!-- Slide8 -->
@@ -839,16 +839,16 @@
                                         <a href="portfolio-grid-col-3.html" rel="tag">Dusting</a>
                                     </div>
                                     <h3 class="pbmit-portfolio-title">
-                                        <a href="portfolio-single-style-01.html">Bathroom Cleaning</a>
+                                        <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Bathroom Cleaning</a>
                                     </h3>
                                 </div>
                             </div>
                             <div class="pbmit-portfolio-btn">
-                                <a href="portfolio-single-style-01.html">
+                                <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
                                     <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
                                 </a>
                             </div>
-                            <a class="pbmit-link" href="portfolio-single-style-01.html"></a>
+                            <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
                         </div>
                     </article>
                     <!-- Slide9 -->
@@ -865,16 +865,16 @@
                                         <a href="portfolio-grid-col-3.html" rel="tag">Disinfectant</a>
                                     </div>
                                     <h3 class="pbmit-portfolio-title">
-                                        <a href="portfolio-single-style-01.html">Apartment Cleaning</a>
+                                        <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Apartment Cleaning</a>
                                     </h3>
                                 </div>
                             </div>
                             <div class="pbmit-portfolio-btn">
-                                <a href="portfolio-single-style-01.html">
+                                <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
                                     <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
                                 </a>
                             </div>
-                            <a class="pbmit-link" href="portfolio-single-style-01.html"></a>
+                            <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
                         </div>
                     </article>
                 </div>
@@ -1157,7 +1157,7 @@
                                         <img src="{{ asset('assets/images/homepage-1/blog/blog-img-01.jpg') }}" class="img-fluid" alt="">
                                     </div>
                                 </div>
-                                <a class="pbmit-link" href="blog-details.html"></a>
+                                <a class="pbmit-link" href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}"></a>
                             </div>
                             <div class="pbmit-meta-date pbmit-meta-line">
                                 <span class="pbmit-post-date">8 Aug 2024</span>
@@ -1165,7 +1165,7 @@
                         </div>
                         <div class="pbmit-content-wrapper">
                             <h3 class="pbmit-post-title">
-                                <a href="blog-details.html">Things to know choosing a cleaning service.</a>
+                                <a href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}">Things to know choosing a cleaning service.</a>
                             </h3>
                             <div class="pbmit-meta-category-wrapper pbmit-meta-line">
                                 <div class="pbmit-meta-category">
@@ -1185,7 +1185,7 @@
                                         <img src="{{ asset('assets/images/homepage-1/blog/blog-img-02.jpg') }}" class="img-fluid" alt="">
                                     </div>
                                 </div>
-                                <a class="pbmit-link" href="blog-details.html"></a>
+                                <a class="pbmit-link" href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}"></a>
                             </div>
                             <div class="pbmit-meta-date pbmit-meta-line">
                                 <span class="pbmit-post-date">8 Aug 2024</span>
@@ -1193,7 +1193,7 @@
                         </div>
                         <div class="pbmit-content-wrapper">
                             <h3 class="pbmit-post-title">
-                                <a href="blog-details.html">Step by step guide to clean your carpets.</a>
+                                <a href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}">Step by step guide to clean your carpets.</a>
                             </h3>
                             <div class="pbmit-meta-category-wrapper pbmit-meta-line">
                                 <div class="pbmit-meta-category">
@@ -1213,7 +1213,7 @@
                                         <img src="{{ asset('assets/images/homepage-1/blog/blog-img-03.jpg') }}" class="img-fluid" alt="">
                                     </div>
                                 </div>
-                                <a class="pbmit-link" href="blog-details.html"></a>
+                                <a class="pbmit-link" href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}"></a>
                             </div>
                             <div class="pbmit-meta-date pbmit-meta-line">
                                 <span class="pbmit-post-date">8 Aug 2024</span>
@@ -1221,7 +1221,7 @@
                         </div>
                         <div class="pbmit-content-wrapper">
                             <h3 class="pbmit-post-title">
-                                <a href="blog-details.html">How You Typically Do Your Cleaning Process</a>
+                                <a href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}">How You Typically Do Your Cleaning Process</a>
                             </h3>
                             <div class="pbmit-meta-category-wrapper pbmit-meta-line">
                                 <div class="pbmit-meta-category">
@@ -1241,7 +1241,7 @@
                                         <img src="{{ asset('assets/images/homepage-1/blog/blog-img-04.jpg') }}" class="img-fluid" alt="">
                                     </div>
                                 </div>
-                                <a class="pbmit-link" href="blog-details.html"></a>
+                                <a class="pbmit-link" href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}"></a>
                             </div>
                             <div class="pbmit-meta-date pbmit-meta-line">
                                 <span class="pbmit-post-date">8 Aug 2024</span>
@@ -1249,7 +1249,7 @@
                         </div>
                         <div class="pbmit-content-wrapper">
                             <h3 class="pbmit-post-title">
-                                <a href="blog-details.html">Cleaning Business history and evolution over time</a>
+                                <a href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}">Cleaning Business history and evolution over time</a>
                             </h3>
                             <div class="pbmit-meta-category-wrapper pbmit-meta-line">
                                 <div class="pbmit-meta-category">
@@ -1269,7 +1269,7 @@
                                         <img src="{{ asset('assets/images/homepage-1/blog/blog-img-05.jpg') }}" class="img-fluid" alt="">
                                     </div>
                                 </div>
-                                <a class="pbmit-link" href="blog-details.html"></a>
+                                <a class="pbmit-link" href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}"></a>
                             </div>
                             <div class="pbmit-meta-date pbmit-meta-line">
                                 <span class="pbmit-post-date">8 Aug 2024</span>
@@ -1277,7 +1277,7 @@
                         </div>
                         <div class="pbmit-content-wrapper">
                             <h3 class="pbmit-post-title">
-                                <a href="blog-details.html">Create a helpful checklist for customers.</a>
+                                <a href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}">Create a helpful checklist for customers.</a>
                             </h3>
                             <div class="pbmit-meta-category-wrapper pbmit-meta-line">
                                 <div class="pbmit-meta-category">
@@ -1297,7 +1297,7 @@
                                         <img src="{{ asset('assets/images/homepage-1/blog/blog-img-06.jpg') }}" class="img-fluid" alt="">
                                     </div>
                                 </div>
-                                <a class="pbmit-link" href="blog-details.html"></a>
+                                <a class="pbmit-link" href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}"></a>
                             </div>
                             <div class="pbmit-meta-date pbmit-meta-line">
                                 <span class="pbmit-post-date">8 Aug 2024</span>
@@ -1305,7 +1305,7 @@
                         </div>
                         <div class="pbmit-content-wrapper">
                             <h3 class="pbmit-post-title">
-                                <a href="blog-details.html">How to use cleaning equipment properly</a>
+                                <a href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}">How to use cleaning equipment properly</a>
                             </h3>
                             <div class="pbmit-meta-category-wrapper pbmit-meta-line">
                                 <div class="pbmit-meta-category">
@@ -1325,7 +1325,7 @@
                                         <img src="{{ asset('assets/images/homepage-1/blog/blog-img-07.jpg') }}" class="img-fluid" alt="">
                                     </div>
                                 </div>
-                                <a class="pbmit-link" href="blog-details.html"></a>
+                                <a class="pbmit-link" href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}"></a>
                             </div>
                             <div class="pbmit-meta-date pbmit-meta-line">
                                 <span class="pbmit-post-date">8 Aug 2024</span>
@@ -1333,7 +1333,7 @@
                         </div>
                         <div class="pbmit-content-wrapper">
                             <h3 class="pbmit-post-title">
-                                <a href="blog-details.html">The benefits of using a cleaning service</a>
+                                <a href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}">The benefits of using a cleaning service</a>
                             </h3>
                             <div class="pbmit-meta-category-wrapper pbmit-meta-line">
                                 <div class="pbmit-meta-category">
@@ -1353,7 +1353,7 @@
                                         <img src="{{ asset('assets/images/homepage-1/blog/blog-img-08.jpg') }}" class="img-fluid" alt="">
                                     </div>
                                 </div>
-                                <a class="pbmit-link" href="blog-details.html"></a>
+                                <a class="pbmit-link" href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}"></a>
                             </div>
                             <div class="pbmit-meta-date pbmit-meta-line">
                                 <span class="pbmit-post-date">8 Aug 2024</span>
@@ -1361,7 +1361,7 @@
                         </div>
                         <div class="pbmit-content-wrapper">
                             <h3 class="pbmit-post-title">
-                                <a href="blog-details.html">Complete Guide to Air Duct Cleaning for Your Home</a>
+                                <a href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}">Complete Guide to Air Duct Cleaning for Your Home</a>
                             </h3>
                             <div class="pbmit-meta-category-wrapper pbmit-meta-line">
                                 <div class="pbmit-meta-category">
@@ -1381,7 +1381,7 @@
                                         <img src="{{ asset('assets/images/homepage-1/blog/blog-img-09.jpg') }}" class="img-fluid" alt="">
                                     </div>
                                 </div>
-                                <a class="pbmit-link" href="blog-details.html"></a>
+                                <a class="pbmit-link" href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}"></a>
                             </div>
                             <div class="pbmit-meta-date pbmit-meta-line">
                                 <span class="pbmit-post-date">8 Aug 2024</span>
@@ -1389,7 +1389,7 @@
                         </div>
                         <div class="pbmit-content-wrapper">
                             <h3 class="pbmit-post-title">
-                                <a href="blog-details.html">The best cleaning process homeowners can use</a>
+                                <a href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}">The best cleaning process homeowners can use</a>
                             </h3>
                             <div class="pbmit-meta-category-wrapper pbmit-meta-line">
                                 <div class="pbmit-meta-category">

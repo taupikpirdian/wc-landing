@@ -65,7 +65,7 @@
                             </a>
                         </div>
                         <div class="pbmit-button-box-second">
-                            <a class="pbmit-btn" href="contact-us.html">
+                            <a class="pbmit-btn" href="{{ route('contact-us') }}">
                                 <span class="pbmit-button-content-wrapper">
                                     <span class="pbmit-button-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="22.76" height="22.76" viewBox="0 0 22.76 22.76">
@@ -75,7 +75,7 @@
                                             <path d="M22.34,1,1,22.34" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
                                         </svg>
                                     </span>
-                                    <span class="pbmit-button-text">Get a Quote</span>
+                                    <span class="pbmit-button-text">Hubungi Kami</span>
                                 </span>
                             </a>
                         </div>
