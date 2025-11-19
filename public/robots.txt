@@ -1,2 +1,15 @@
 User-agent: *
 Disallow:
+
+# Allow all crawlers to access the site
+User-agent: *
+Allow: /
+
+# Block common bot paths that shouldn't be indexed
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+
+# Sitemap location (if you have one)
+# Sitemap: https://yourdomain.com/sitemap.xml

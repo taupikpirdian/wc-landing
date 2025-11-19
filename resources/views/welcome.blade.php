@@ -919,7 +919,7 @@
                         </div>
                         <div class="pbmit-featured-img-wrapper">
                             <div class="pbmit-featured-wrapper">
-                                <img src="images/homepage-3/testimonial/testimonial-01.jpg" class="img-fluid" alt="">
+                                <img src="{{ asset('assets/images/homepage-3/testimonial/testimonial-01.jpg') }}" class="img-fluid" alt="">
                             </div>
                         </div>
                     </div>
@@ -938,7 +938,7 @@
                         </div>
                         <div class="pbmit-featured-img-wrapper">
                             <div class="pbmit-featured-wrapper">
-                                <img src="images/homepage-3/testimonial/testimonial-02.jpg" class="img-fluid" alt="">
+                                <img src="{{ asset('assets/images/homepage-3/testimonial/testimonial-02.jpg') }}" class="img-fluid" alt="">
                             </div>
                         </div>
                     </div>
@@ -957,7 +957,7 @@
                         </div>
                         <div class="pbmit-featured-img-wrapper">
                             <div class="pbmit-featured-wrapper">
-                                <img src="images/homepage-3/testimonial/testimonial-03.jpg" class="img-fluid" alt="">
+                                <img src="{{ asset('assets/images/homepage-3/testimonial/testimonial-03.jpg') }}" class="img-fluid" alt="">
                             </div>
                         </div>
                     </div>
@@ -976,7 +976,7 @@
                         </div>
                         <div class="pbmit-featured-img-wrapper">
                             <div class="pbmit-featured-wrapper">
-                                <img src="images/homepage-3/testimonial/testimonial-04.jpg" class="img-fluid" alt="">
+                                <img src="{{ asset('assets/images/homepage-3/testimonial/testimonial-04.jpg') }}" class="img-fluid" alt="">
                             </div>
                         </div>
                     </div>
@@ -995,7 +995,7 @@
                         </div>
                         <div class="pbmit-featured-img-wrapper">
                             <div class="pbmit-featured-wrapper">
-                                <img src="images/homepage-3/testimonial/testimonial-05.jpg" class="img-fluid" alt="">
+                                <img src="{{ asset('assets/images/homepage-3/testimonial/testimonial-05.jpg') }}" class="img-fluid" alt="">
                             </div>
                         </div>
                     </div>
@@ -1014,7 +1014,7 @@
                         </div>
                         <div class="pbmit-featured-img-wrapper">
                             <div class="pbmit-featured-wrapper">
-                                <img src="images/homepage-3/testimonial/testimonial-06.jpg" class="img-fluid" alt="">
+                                <img src="{{ asset('assets/images/homepage-3/testimonial/testimonial-06.jpg') }}" class="img-fluid" alt="">
                             </div>
                         </div>
                     </div>

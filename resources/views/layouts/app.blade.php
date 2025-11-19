@@ -8,6 +8,12 @@
 		<!-- SEO Meta Tags -->
 		<x-seo :seo="$seoService" />
 
+		<!-- PWA Manifest -->
+		<link rel="manifest" href="{{ asset('manifest.json') }}">
+
+		<!-- Theme color for PWA -->
+		<meta name="theme-color" content="#4CAF50">
+
 		<!-- Stylesheets -->
 		@include('components.style')
 	</head>
