@@ -381,7 +381,7 @@
                                                 <path d="M22.34,1,1,22.34" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
                                             </svg>
                                         </span>
-                                        <span class="pbmit-button-text">Contact us Now</span>
+                                        <span class="pbmit-button-text">Hubungi Kami Sekarang</span>
                                     </span>
                                 </a>
                             </div>
