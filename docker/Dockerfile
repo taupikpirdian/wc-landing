@@ -42,6 +42,9 @@ COPY . .
 # Install dependencies (production)
 RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
+# Publish Livewire assets
+RUN php artisan vendor:publish --tag=livewire:assets --force
+
 # Ensure writable permissions for storage and cache
 RUN mkdir -p storage bootstrap/cache \
     && chown -R www-data:www-data storage bootstrap/cache \
