@@ -19,16 +19,21 @@ class ForceHttps
     {
         // Force HTTPS in production and development environments
         if (config('app.env') === 'production' || config('app.env') === 'development') {
-            if (!$request->secure()) {
+            if (!$request->secure() && !$this->isBehindProxy($request)) {
                 return redirect()->secure($request->getRequestUri());
             }
-        }
-
-        // Force asset URLs to use HTTPS
-        if (config('app.env') === 'production' || config('app.env') === 'development') {
             URL::forceScheme('https');
         }
 
         return $next($request);
+    }
+
+    /**
+     * Check if the request is behind a proxy that already handles HTTPS
+     */
+    protected function isBehindProxy(Request $request): bool
+    {
+        return $request->hasHeader('X-Forwarded-Proto') &&
+               $request->header('X-Forwarded-Proto') === 'https';
     }
 }
