@@ -5,9 +5,22 @@ RUN apk add --no-cache \
     bash curl git icu-dev libzip-dev oniguruma-dev zlib-dev \
     freetype-dev libpng-dev libjpeg-turbo-dev
 
+# Install system dependencies
+RUN apk add --no-cache \
+    bash curl git icu-dev libzip-dev oniguruma-dev zlib-dev \
+    freetype-dev libpng-dev libjpeg-turbo-dev
+
 # Install PHP extensions
-RUN docker-php-ext-install \
-    pdo pdo_mysql mbstring bcmath zip exif pcntl
+RUN docker-php-ext-configure intl \
+    && docker-php-ext-install \
+        pdo \
+        pdo_mysql \
+        mbstring \
+        bcmath \
+        zip \
+        exif \
+        pcntl \
+        intl
 
 # Optional image extension
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
