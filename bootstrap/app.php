@@ -13,13 +13,13 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'seo' => \App\Http\Middleware\SeoMiddleware::class,
-            'force.https' => \App\Http\Middleware\ForceHttps::class,
-            'trust.proxies' => \App\Http\Middleware\TrustProxies::class,
+            // 'force.https' => \App\Http\Middleware\ForceHttps::class,
+            // 'trust.proxies' => \App\Http\Middleware\TrustProxies::class,
         ]);
 
         // Apply HTTPS middleware to all web routes in production
-        $middleware->web(\App\Http\Middleware\ForceHttps::class);
-        $middleware->web(\App\Http\Middleware\TrustProxies::class);
+        // $middleware->web(\App\Http\Middleware\ForceHttps::class);
+        // $middleware->web(\App\Http\Middleware\TrustProxies::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
