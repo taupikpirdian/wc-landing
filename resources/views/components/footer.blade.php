@@ -39,11 +39,11 @@
                         <h2 class="widget-title">Useful Link</h2>
                         <div class="textwidget">
                             <ul>
-                                <li><a href="our-history.html">Home</a></li>
-                                <li><a href="contact-us.html">Services</a></li>
-                                <li><a href="contact-us.html">Blog</a></li>
-                                <li><a href="contact-us.html">About</a></li>
-                                <li><a href="contact-us.html">Contact</a></li>
+                                <li><a href="{{ route('home') }}">Home</a></li>
+                                <li><a href="{{ route('services') }}">Services</a></li>
+                                <li><a href="{{ route('blog') }}">Blog</a></li>
+                                <li><a href="{{ route('about-us') }}">About</a></li>
+                                <li><a href="{{ route('contact-us') }}">Contact</a></li>
                             </ul>
                         </div>
                     </div>
