@@ -1,0 +1,38 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: app
+    image: sedotwc:latest
+    container_name: polda-app
+    volumes:
+      - laravel_storage:/var/www/html/storage
+    env_file:
+      - .env
+    networks:
+      - sedotwc_net
+    restart: unless-stopped
+
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: nginx
+    container_name: sedotwc-nginx
+    ports:
+      - "8001:80"
+    volumes:
+      - laravel_storage:/var/www/html/storage
+    depends_on:
+      - app
+    networks:
+      - sedotwc_net
+    restart: unless-stopped
+
+networks:
+  sedotwc_net:
+    driver: bridge
+
+volumes:
+  laravel_storage:

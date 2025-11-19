@@ -33,11 +33,11 @@
                                             </span>
                                             <ul class="navigation clearfix">
                                                 <li><a href="{{ route('home') }}">Home</a></li>
-                                                <li><a href="{{ route('services') }}">Services</a></li>
+                                                <li><a href="{{ route('about-us') }}">Tentang Kami</a></li>
+                                                <li><a href="{{ route('services') }}">Layanan Kami</a></li>
                                                 <li><a href="{{ route('portfolio') }}">Portfolio</a></li>
                                                 <li><a href="{{ route('blog') }}">Blog</a></li>
                                                 <li><a href="{{ route('faq') }}">Faq</a></li>
-                                                <li><a href="{{ route('about-us') }}">About Us</a></li>
                                             </ul>
                                         </div>
                                     </div>
