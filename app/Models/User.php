@@ -8,6 +8,8 @@ use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
+use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements FilamentUser
@@ -23,7 +25,67 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'phone',
+        'address',
+        'avatar',
+        'is_active',
+        'last_login_at',
+        'last_login_ip',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Delete avatar file when user is deleted
+        static::deleted(function ($user) {
+            if ($user->avatar) {
+                // Remove "public/" prefix if exists
+                $pathAvatar = str_starts_with($user->avatar, 'public/')
+                    ? substr($user->avatar, 7)
+                    : $user->avatar;
+                Storage::disk('public')->delete($pathAvatar);
+            }
+        });
+    }
+
+    /**
+     * Delete old avatar when updating with new one
+     */
+    public function deleteOldAvatar()
+    {
+        if ($this->isDirty('avatar')) {
+            $oldAvatar = $this->getOriginal('avatar');
+            if ($oldAvatar) {
+                // Remove "public/" prefix if exists
+                $oldAvatar = str_starts_with($oldAvatar, 'public/')
+                    ? substr($oldAvatar, 7)
+                    : $oldAvatar;
+                Storage::disk('public')->delete($oldAvatar);
+            }
+        }
+    }
+
+    /**
+     * Get full URL for the avatar
+     */
+    public function getAvatarUrlAttribute()
+    {
+        return $this->avatar ? Storage::disk('public')->url($this->avatar) : null;
+    }
+
+    public static function booted()
+    {
+        static::saved(function ($model) {
+            // Optimize avatar if it exists
+            if ($model->avatar) {
+                $path = storage_path('app/public/' . $model->avatar);
+                if (file_exists($path)) {
+                    ImageOptimizer::optimize($path);
+                }
+            }
+        });
+    }
 
     /**
      * The attributes that should be hidden for serialization.

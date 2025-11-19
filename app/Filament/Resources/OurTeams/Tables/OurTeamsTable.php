@@ -1,0 +1,108 @@
+<?php
+
+namespace App\Filament\Resources\OurTeams\Tables;
+
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
+
+class OurTeamsTable
+{
+    public static function configure(Table $table): Table
+    {
+        return $table
+            ->columns([
+                TextColumn::make('id')
+                    ->searchable(false)
+                    ->sortable(),
+
+                ImageColumn::make('image')
+                    ->label('Photo')
+                    ->size(60)
+                    ->circular()
+                    ->defaultImageUrl(null),
+
+                TextColumn::make('name')
+                    ->label('Full Name')
+                    ->searchable()
+                    ->sortable()
+                    ->badge()
+                    ->color('primary'),
+
+                TextColumn::make('position')
+                    ->label('Position')
+                    ->searchable()
+                    ->sortable()
+                    ->badge()
+                    ->color('info'),
+
+                TextColumn::make('social_profiles_count')
+                    ->label('Social Profiles')
+                    ->getStateUsing(fn ($record) =>
+                        (empty($record->facebook) ? 0 : 1) +
+                        (empty($record->twitter) ? 0 : 1) +
+                        (empty($record->instagram) ? 0 : 1) +
+                        (empty($record->youtube) ? 0 : 1)
+                    )
+                    ->badge()
+                    ->color('success'),
+
+                TextColumn::make('facebook')
+                    ->label('Facebook')
+                    ->url(fn ($record) => $record->facebook)
+                    ->openUrlInNewTab()
+                    ->icon('heroicon-o-globe-alt')
+                    ->placeholder('-')
+                    ->toggleable(isToggledHiddenByDefault: true),
+
+                TextColumn::make('twitter')
+                    ->label('Twitter')
+                    ->url(fn ($record) => $record->twitter)
+                    ->openUrlInNewTab()
+                    ->icon('heroicon-o-globe-alt')
+                    ->placeholder('-')
+                    ->toggleable(isToggledHiddenByDefault: true),
+
+                TextColumn::make('instagram')
+                    ->label('Instagram')
+                    ->url(fn ($record) => $record->instagram)
+                    ->openUrlInNewTab()
+                    ->icon('heroicon-o-globe-alt')
+                    ->placeholder('-')
+                    ->toggleable(isToggledHiddenByDefault: true),
+
+                TextColumn::make('created_at')
+                    ->label('Created At')
+                    ->dateTime('M d, Y H:i')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+
+                TextColumn::make('updated_at')
+                    ->label('Updated At')
+                    ->dateTime('M d, Y H:i')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+            ])
+            ->filters([
+                //
+            ])
+            ->recordActions([
+                EditAction::make(),
+                DeleteAction::make(),
+            ])
+            ->bulkActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
+                ]),
+            ])
+            ->emptyStateActions([
+                // Add empty state actions will be handled by the List page
+            ])
+            ->emptyStateHeading('No team members found')
+            ->emptyStateDescription('Add your first team member to showcase your team.');
+    }
+}

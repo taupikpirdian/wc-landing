@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer;
 
 class Slider extends Model
 {
@@ -21,6 +22,19 @@ class Slider extends Model
                     ? substr($slider->image, 7)
                     : $slider->image;
                 Storage::disk('public')->delete($pathImage);
+            }
+        });
+    }
+
+    public static function booted()
+    {
+        static::saved(function ($model) {
+            if ($model->image) {
+                $path = storage_path('app/public/' . $model->image);
+
+                if (file_exists($path)) {
+                    ImageOptimizer::optimize($path);
+                }
             }
         });
     }

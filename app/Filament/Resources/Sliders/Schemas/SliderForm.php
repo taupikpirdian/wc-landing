@@ -15,12 +15,12 @@ class SliderForm
             ->components([
                 TextInput::make('title')
                     ->required()
-                    ->maxLength(255)
-                    ->label('Title'),
+                    ->label('Title')
+                    ->maxLength(255),
 
                 Textarea::make('desc')
-                    ->label('Description')
                     ->rows(3)
+                    ->label('Description')
                     ->nullable()
                     ->columnSpanFull(),
 
