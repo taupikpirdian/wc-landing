@@ -9,12 +9,12 @@ use App\Http\Controllers\RobotsController;
 // Main web routes with SEO handled in controllers
 Route::middleware(['web'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/services', [HomeController::class, 'services'])->name('services');
+    Route::get('/layanan-kami', [HomeController::class, 'services'])->name('services');
     Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
     Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
     Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
-    Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('about-us');
-    Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
+    Route::get('/tentang-kami', [HomeController::class, 'aboutUs'])->name('about-us');
+    Route::get('/hubungi-kami', [HomeController::class, 'contactUs'])->name('contact-us');
 });
 
 // SEO Routes

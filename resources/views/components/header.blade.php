@@ -32,12 +32,12 @@
                                                 </svg>
                                             </span>
                                             <ul class="navigation clearfix">
-                                                <li><a href="{{ route('home') }}">Home</a></li>
-                                                <li><a href="{{ route('about-us') }}">Tentang Kami</a></li>
-                                                <li><a href="{{ route('services') }}">Layanan Kami</a></li>
-                                                <li><a href="{{ route('portfolio') }}">Portfolio</a></li>
-                                                <li><a href="{{ route('blog') }}">Blog</a></li>
-                                                <li><a href="{{ route('faq') }}">Faq</a></li>
+                                                <li class="@if(request()->segment(1) == '') active @endif"><a href="{{ route('home') }}">Home</a></li>
+                                                <li class="@if(request()->segment(1) == 'tentang-kami') active @endif"><a href="{{ route('about-us') }}">Tentang Kami</a></li>
+                                                <li class="@if(request()->segment(1) == 'layanan-kami') active @endif"><a href="{{ route('services') }}">Layanan Kami</a></li>
+                                                <li class="@if(request()->segment(1) == 'portfolio') active @endif"><a href="{{ route('portfolio') }}">Portfolio</a></li>
+                                                <li class="@if(request()->segment(1) == 'blog') active @endif"><a href="{{ route('blog') }}">Blog</a></li>
+                                                <li class="@if(request()->segment(1) == 'faq') active @endif"><a href="{{ route('faq') }}">Faq</a></li>
                                             </ul>
                                         </div>
                                     </div>

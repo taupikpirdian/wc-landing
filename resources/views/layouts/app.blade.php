@@ -9,18 +9,18 @@
 		<x-seo :seo="$seoService" />
 
 		<!-- Stylesheets -->
-		@include('component.style')
+		@include('components.style')
 	</head>
 	<body>
 	<!-- page wrapper -->
 	<div class="page-wrapper" id="page">
-		@include('component.header')
+		@include('components.header')
 		<!-- page content -->
 		<div class="page-content">
 			@yield('content')
 		</div>
 		<!-- page content End -->
-		@include('component.footer')
+		@include('components.footer')
 	</div>
 	<!-- page wrapper End -->
 
@@ -48,6 +48,6 @@
 		</svg>	
 	</div>
 	<!-- Scroll To Top End -->
-	@include('component.script')
+	@include('components.script')
 	</body>
 </html>
