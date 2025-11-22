@@ -20,6 +20,9 @@ class FaqForm
                     ->columnSpanFull(),
                 Toggle::make('is_general')
                     ->required(),
+                Toggle::make('is_show_home')
+                    ->label('Tampilkan di Halaman Utama')
+                    ->required(),
             ]);
     }
 }

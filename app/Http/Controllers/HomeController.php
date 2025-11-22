@@ -25,7 +25,7 @@ class HomeController extends Controller
         $services = Service::latest()->limit(6)->get();
         $portfolios = Portfolio::latest()->limit(9)->get();
         $testimonies = Testimony::latest()->limit(6)->get();
-        $faqs = Faq::where('is_general', true)->latest()->limit(3)->get();
+        $faqs = Faq::where('is_show_home', true)->latest()->limit(3)->get();
         $blogs = Blog::where('is_publish', true)->orderByDesc('published_at')->limit(9)->get();
         return view('welcome', compact('seoService', 'sliders', 'services', 'portfolios', 'testimonies', 'faqs', 'blogs'));
     }

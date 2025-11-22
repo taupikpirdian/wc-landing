@@ -40,6 +40,15 @@ class FaqsTable
                     ->trueColor('success')
                     ->falseColor('danger'),
 
+                IconColumn::make('is_show_home')
+                    ->label('Show on Home')
+                    ->boolean()
+                    ->sortable()
+                    ->trueIcon('heroicon-o-check-circle')
+                    ->falseIcon('heroicon-o-x-circle')
+                    ->trueColor('success')
+                    ->falseColor('danger'),
+
                 TextColumn::make('created_at')
                     ->label('Created At')
                     ->dateTime('M d, Y H:i')

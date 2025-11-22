@@ -9,7 +9,7 @@ use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer;
 
 class Service extends Model
 {
-    protected $fillable = ['title', 'slug', 'label', 'desc', 'image_icon', 'image_cover'];
+    protected $fillable = ['title', 'slug', 'label', 'desc', 'image_icon', 'image_cover', 'summary'];
 
     protected static function boot()
     {
