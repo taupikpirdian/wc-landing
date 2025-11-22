@@ -88,94 +88,47 @@
     <div class="pbmit-slider-area pbmit-slider-four">
         <div class="swiper-slider" data-autoplay="true" data-loop="true" data-dots="true" data-arrows="false" data-columns="1" data-margin="0" data-effect="fade">
             <div class="swiper-wrapper">
-                <!-- Slide1 -->
-                <div class="swiper-slide">
-                    <div class="pbmit-slider-item">
-                        <div class="pbmit-slider-bg" style="background-image: url({{ asset('assets/images/banner-slider-img/demo04-sllide-01.jpg') }});"></div>
-                        <div class="container">
-                            <div class="row text-center">
-                                <div class="col-md-12">
-                                    <div class="pbmit-slider-content">
-                                        <h5 class="pbmit-sub-title transform-delay-1">Needs Professional Cleaning</h5>
-                                        <h2 class="pbmit-title transform-bottom transform-delay-2">Make your home <br> shiny and clean!</h2>
-                                        <div class="pbmit-button d-flex justify-content-center">
-                                            <div class="transform-bottom transform-delay-3 me-md-4 me-2">
-                                                <a class="pbmit-btn pbmit-btn-hover-blackish" href="contact-us.html">
-                                                    <span class="pbmit-button-content-wrapper">
-                                                        <span class="pbmit-button-icon">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="22.76" height="22.76" viewBox="0 0 22.76 22.76">
-                                                                <title>black-arrow</title>
-                                                                <path d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                                <path d="M22.34,1a14.67,14.67,0,0,0,0,20.75" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                                <path d="M22.34,1,1,22.34" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                            </svg>
+                @foreach($sliders as $s)
+                    <div class="swiper-slide">
+                        <div class="pbmit-slider-item">
+                            <div class="pbmit-slider-bg" style="background-image: url({{ asset(str_replace("public/", "", $s->image_url)) }});"></div>
+                            <div class="container">
+                                <div class="row text-center">
+                                    <div class="col-md-12">
+                                        <div class="pbmit-slider-content">
+                                            <h5 class="pbmit-sub-title transform-delay-1">{{ $s->title }}</h5>
+                                            <h2 class="pbmit-title transform-bottom transform-delay-2">{{ $s->desc }}</h2>
+                                            <div class="pbmit-button d-flex justify-content-center">
+                                                <div class="transform-bottom transform-delay-3 me-md-4 me-2">
+                                                    <a class="pbmit-btn pbmit-btn-hover-blackish" href="{{ route('contact-us') }}">
+                                                        <span class="pbmit-button-content-wrapper">
+                                                            <span class="pbmit-button-icon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="22.76" height="22.76" viewBox="0 0 22.76 22.76">
+                                                                    <title>black-arrow</title>
+                                                                    <path d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
+                                                                    <path d="M22.34,1a14.67,14.67,0,0,0,0,20.75" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
+                                                                    <path d="M22.34,1,1,22.34" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
+                                                                </svg>
+                                                            </span>
+                                                            <span class="pbmit-button-text">Hubungi Kami</span>
                                                         </span>
-                                                        <span class="pbmit-button-text">Hubungi Kami</span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="transform-bottom transform-delay-4">
-                                                <a class="pbmit-btn pbmit-btn-global" href="contact-us.html">
-                                                    <span class="pbmit-button-content-wrapper">
-                                                        <span class="pbmit-button-icon">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="22.76" height="22.76" viewBox="0 0 22.76 22.76">
-                                                                <title>black-arrow</title>
-                                                                <path d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                                <path d="M22.34,1a14.67,14.67,0,0,0,0,20.75" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                                <path d="M22.34,1,1,22.34" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                            </svg>
+                                                    </a>
+                                                </div>
+                                                <div class="transform-bottom transform-delay-4">
+                                                    <a class="pbmit-btn pbmit-btn-global" href="{{ route('contact-us') }}">
+                                                        <span class="pbmit-button-content-wrapper">
+                                                            <span class="pbmit-button-icon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="22.76" height="22.76" viewBox="0 0 22.76 22.76">
+                                                                    <title>black-arrow</title>
+                                                                    <path d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
+                                                                    <path d="M22.34,1a14.67,14.67,0,0,0,0,20.75" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
+                                                                    <path d="M22.34,1,1,22.34" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
+                                                                </svg>
+                                                            </span>
+                                                            <span class="pbmit-button-text">Get a Quote</span>
                                                         </span>
-                                                        <span class="pbmit-button-text">Get a Quote</span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Slide2 -->
-                <div class="swiper-slide">
-                    <div class="pbmit-slider-item">
-                        <div class="pbmit-slider-bg" style="background-image: url({{ asset('assets/images/banner-slider-img/demo04-sllide-02.jpg') }});"></div>
-                        <div class="container">
-                            <div class="row text-center">
-                                <div class="col-md-12">
-                                    <div class="pbmit-slider-content">
-                                        <h5 class="pbmit-sub-title transform-delay-1">cleanliness to your doorstep</h5>
-                                        <h2 class="pbmit-title transform-bottom transform-delay-2">Reliable choice for <br> professional cleaning</h2>
-                                        <div class="pbmit-button d-flex justify-content-center">
-                                            <div class="transform-bottom transform-delay-3 me-md-4 me-2">
-                                                <a class="pbmit-btn pbmit-btn-hover-blackish" href="contact-us.html">
-                                                    <span class="pbmit-button-content-wrapper">
-                                                        <span class="pbmit-button-icon">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="22.76" height="22.76" viewBox="0 0 22.76 22.76">
-                                                                <title>black-arrow</title>
-                                                                <path d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                                <path d="M22.34,1a14.67,14.67,0,0,0,0,20.75" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                                <path d="M22.34,1,1,22.34" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                            </svg>
-                                                        </span>
-                                                        <span class="pbmit-button-text">Hubungi Kami</span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="transform-bottom transform-delay-4">
-                                                <a class="pbmit-btn pbmit-btn-global" href="contact-us.html">
-                                                    <span class="pbmit-button-content-wrapper">
-                                                        <span class="pbmit-button-icon">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="22.76" height="22.76" viewBox="0 0 22.76 22.76">
-                                                                <title>black-arrow</title>
-                                                                <path d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                                <path d="M22.34,1a14.67,14.67,0,0,0,0,20.75" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                                <path d="M22.34,1,1,22.34" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                            </svg>
-                                                        </span>
-                                                        <span class="pbmit-button-text">Get a Quote</span>
-                                                    </span>
-                                                </a>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -183,55 +136,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- Slide3 -->
-                <div class="swiper-slide">
-                    <div class="pbmit-slider-item">
-                        <div class="pbmit-slider-bg" style="background-image: url({{ asset('assets/images/banner-slider-img/demo04-sllide-03.jpg') }});"></div>
-                        <div class="container">
-                            <div class="row text-center">
-                                <div class="col-md-12">
-                                    <div class="pbmit-slider-content">
-                                        <h5 class="pbmit-sub-title transform-delay-1">cleaning for better tomorrow</h5>
-                                        <h2 class="pbmit-title transform-bottom transform-delay-2">Clean houses make <br> happier people</h2>
-                                        <div class="pbmit-button d-flex justify-content-center">
-                                            <div class="transform-bottom transform-delay-3 me-md-4 me-2">
-                                                <a class="pbmit-btn pbmit-btn-hover-blackish" href="contact-us.html">
-                                                    <span class="pbmit-button-content-wrapper">
-                                                        <span class="pbmit-button-icon">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="22.76" height="22.76" viewBox="0 0 22.76 22.76">
-                                                                <title>black-arrow</title>
-                                                                <path d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                                <path d="M22.34,1a14.67,14.67,0,0,0,0,20.75" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                                <path d="M22.34,1,1,22.34" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                            </svg>
-                                                        </span>
-                                                        <span class="pbmit-button-text">Hubungi Kami</span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="transform-bottom transform-delay-4">
-                                                <a class="pbmit-btn pbmit-btn-global" href="contact-us.html">
-                                                    <span class="pbmit-button-content-wrapper">
-                                                        <span class="pbmit-button-icon">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="22.76" height="22.76" viewBox="0 0 22.76 22.76">
-                                                                <title>black-arrow</title>
-                                                                <path d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                                <path d="M22.34,1a14.67,14.67,0,0,0,0,20.75" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                                <path d="M22.34,1,1,22.34" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                            </svg>
-                                                        </span>
-                                                        <span class="pbmit-button-text">Get a Quote</span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

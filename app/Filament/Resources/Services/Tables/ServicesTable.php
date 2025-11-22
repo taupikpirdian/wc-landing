@@ -36,7 +36,7 @@ class ServicesTable
                     ->searchable()
                     ->sortable(),
 
-                TextColumn::make('desc')
+                TextColumn::make('summary')
                     ->limit(50)
                     ->wrap()
                     ->searchable(),

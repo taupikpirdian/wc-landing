@@ -70,11 +70,13 @@ class Service extends Model
         if ($this->isDirty('image_icon')) {
             $oldImageIcon = $this->getOriginal('image_icon');
             if ($oldImageIcon) {
-                // Remove "public/" prefix if exists
-                $oldImageIcon = str_starts_with($oldImageIcon, 'public/')
-                    ? substr($oldImageIcon, 7)
-                    : $oldImageIcon;
-                Storage::disk('public')->delete($oldImageIcon);
+                $isFa = str_starts_with($oldImageIcon, 'fa ') || str_starts_with($oldImageIcon, 'fa-') || str_contains($oldImageIcon, ' fa ');
+                if (!$isFa) {
+                    $oldImageIcon = str_starts_with($oldImageIcon, 'public/')
+                        ? substr($oldImageIcon, 7)
+                        : $oldImageIcon;
+                    Storage::disk('public')->delete($oldImageIcon);
+                }
             }
         }
 
@@ -95,7 +97,17 @@ class Service extends Model
      */
     public function getImageIconUrlAttribute()
     {
-        return $this->image_icon ? Storage::disk('public')->url($this->image_icon) : null;
+        if (!$this->image_icon) return null;
+        $isFa = str_starts_with($this->image_icon, 'fa ') || str_starts_with($this->image_icon, 'fa-') || str_contains($this->image_icon, ' fa ');
+        if ($isFa) return null;
+        return Storage::disk('public')->url($this->image_icon);
+    }
+
+    public function getIconClassAttribute()
+    {
+        if (!$this->image_icon) return null;
+        $isFa = str_starts_with($this->image_icon, 'fa ') || str_starts_with($this->image_icon, 'fa-') || str_contains($this->image_icon, ' fa ');
+        return $isFa ? $this->image_icon : null;
     }
 
     /**
