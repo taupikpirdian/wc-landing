@@ -48,8 +48,14 @@
                             <div class="pbmit-right-box-button d-flex align-items-center">
                                 <div class="pbmit-button-box pe-4">
                                     <div class="pbmit-header-button">
-                                        <a href="tel:+1(212)255-511">
-                                            <span class="pbmit-header-button-text-1">+1(212)255-511</span>			
+                                        @php($rawMobile = $contactUs->mobile ?? null)
+                                        @php($digits = $rawMobile ? preg_replace('/\D+/', '', $rawMobile) : null)
+                                        @php($wa = null)
+                                        @if($digits)
+                                            @php($wa = str_starts_with($digits, '0') ? ('62' . substr($digits, 1)) : (str_starts_with($digits, '62') ? $digits : (str_starts_with($digits, '8') ? ('62' . $digits) : $digits)))
+                                        @endif
+                                        <a href="{{ $wa ? ('https://wa.me/' . $wa) : '#' }}" @if($wa) target="_blank" rel="noopener" @endif>
+                                            <span class="pbmit-header-button-text-1">{{ $rawMobile ?? '+1(212)255-511' }}</span>
                                         </a>
                                     </div>
                                 </div>

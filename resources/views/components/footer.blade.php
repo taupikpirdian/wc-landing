@@ -52,16 +52,33 @@
                     <div class="widget widget_text">
                         <h2 class="widget-title">Working Time</h2>
                         <div class="pbmit-timelist-wrapper">
+                            @php($contactUs = isset($contactUs) ? $contactUs : \App\Models\ContactUs::with('workingTimes')->first())
                             <ul class="pbmit-timelist-list">
-                                <li>
-                                    <span class="pbmit-timelist-time">Mon - Fri: 9.00am - 5.00pm</span>
-                                </li>
-                                <li>
-                                    <span class="pbmit-timelist-time">Saturday: 10.00am - 6.00pm</span>
-                                </li>
-                                <li>
-                                    <span class="pbmit-timelist-time">Sunday Closed</span>
-                                </li>
+                                @if($contactUs && $contactUs->relationLoaded('workingTimes') && $contactUs->workingTimes->count())
+                                    @foreach($contactUs->workingTimes as $wt)
+                                        @php($summary = data_get($wt, 'summary'))
+                                        @php($day = data_get($wt, 'day'))
+                                        @php($start = data_get($wt, 'start'))
+                                        @php($end = data_get($wt, 'end'))
+                                        <li>
+                                            <span class="pbmit-timelist-time">{{ $summary ?? trim(($day ? ($day.': ') : '').(($start && $end) ? ($start.' - '.$end) : '')) }}</span>
+                                        </li>
+                                    @endforeach
+                                @elseif($contactUs && $contactUs->working_day_summary)
+                                    <li>
+                                        <span class="pbmit-timelist-time">{{ $contactUs->working_day_summary }}</span>
+                                    </li>
+                                @else
+                                    <li>
+                                        <span class="pbmit-timelist-time">Mon - Fri: 9.00am - 5.00pm</span>
+                                    </li>
+                                    <li>
+                                        <span class="pbmit-timelist-time">Saturday: 10.00am - 6.00pm</span>
+                                    </li>
+                                    <li>
+                                        <span class="pbmit-timelist-time">Sunday Closed</span>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -70,8 +87,8 @@
                     <aside class="widget">
                         <h2 class="widget-title">Say Hello</h2>
                         <div class="pbmit-contact-widget-lines">
-                            <div class="pbmit-contact-widget-line pbmit-contact-widget-phone">+1 800 123 456 789</div>
-                            <div class="pbmit-contact-widget-line pbmit-contact-widget-email">info@yourdomain.com</div>
+                            <div class="pbmit-contact-widget-line pbmit-contact-widget-phone">{{ $contactUs->phone ?? '+1 800 123 456 789' }}</div>
+                            <div class="pbmit-contact-widget-line pbmit-contact-widget-email">{{ $contactUs->mail ?? 'info@yourdomain.com' }}</div>
                         </div>
                     </aside>
                 </div>

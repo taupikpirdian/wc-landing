@@ -166,234 +166,66 @@
             <h2 class="pbmit-title">Whatever you need done</h2>
         </div>
         <div class="row">
-            <article class="pbmit-service-style-5 col-md-4">
-                <div class="pbminfotech-post-item">
-                    <div class="pbmit-box-content-wrap">
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper"></div>
-                        </div>
-                        <div class="pbmit-content-box">
-                            <div class="pbmit-content-box-inner">
-                                <div class="pbmit-service-icon">
-                                    <i class="pbmit-xclean-icon pbmit-xclean-icon-store"></i>				
-                                </div>
-                                <div class="pbmit-service-title-wrap">
-                                    <div class="pbminfotech-box-number">01</div>
-                                    <div class="pbmit-serv-cat">
-                                        <a href="services.html" rel="tag">Air Freshener</a>
+            @if(isset($services) && $services->isNotEmpty())
+                @foreach($services as $service)
+                    <article class="pbmit-service-style-5 col-md-4">
+                        <div class="pbminfotech-post-item">
+                            <div class="pbmit-box-content-wrap">
+                                <div class="pbmit-featured-img-wrapper">
+                                    <div class="pbmit-featured-wrapper">
+                                        @if($service->image_cover_url)
+                                            <img src="{{ asset(str_replace("public/", "", $service->image_cover_url)) }}" class="img-fluid" alt="{{ $service->title }}">
+                                        @endif
                                     </div>
-                                    <h3 class="pbmit-service-title">
-                                        <a href="{{ route('service-detail', 'residential-cleaning') }}">Residential Cleaning</a>
-                                    </h3>
                                 </div>
-                            </div>
-                            <div class="pbmit-service-description">
-                                <p>We provide you the best service quality with best matter you’re looking for residential or commercial cleaning services</p>
-                            </div>
-                        </div>
-                        <div class="pbmit-service-btn-wrapper">
-                            <a class="pbmit-service-btn" href="{{ route('service-detail', 'residential-cleaning') }}" title="Residential Cleaning">
-                                <span class="pbmit-button-icon-wrapper">
-                                    <span class="pbmit-button-icon">
-                                        <i class=" pbmit-base-icon-black-arrow-1"></i>
-                                    </span>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                    <a class="pbmit-link" href="{{ route('service-detail', 'residential-cleaning') }}"></a>
-                </div>
-            </article>
-            <article class="pbmit-service-style-5 col-md-4">
-                <div class="pbminfotech-post-item">
-                    <div class="pbmit-box-content-wrap">
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper"></div>
-                        </div>
-                        <div class="pbmit-content-box">
-                            <div class="pbmit-content-box-inner">
-                                <div class="pbmit-service-icon">
-                                    <i class="pbmit-xclean-icon pbmit-xclean-icon-dusting"></i>				
-                                </div>
-                                <div class="pbmit-service-title-wrap">
-                                    <div class="pbminfotech-box-number">02</div>
-                                    <div class="pbmit-serv-cat">
-                                        <a href="services.html" rel="tag">Cleaner</a>
+                                <div class="pbmit-content-box">
+                                    <div class="pbmit-content-box-inner">
+                                        <div class="pbmit-service-icon">
+                                            @php($iconUrl = $service->image_icon_url)
+                                            @php($iconClass = $service->icon_class)
+                                            @if($iconUrl)
+                                                <img src="{{ $iconUrl }}" class="img-fluid" alt="{{ $service->title }}" style="width:32px;height:32px;object-fit:contain;">
+                                            @elseif($iconClass)
+                                                <i class="{{ $iconClass }}" style="font-size:28px;"></i>
+                                            @else
+                                                <i class="fa fa-life-ring"></i>
+                                            @endif
+                                        </div>
+                                        <div class="pbmit-service-title-wrap">
+                                            <div class="pbminfotech-box-number">{{ sprintf('%02d', $loop->iteration) }}</div>
+                                            <div class="pbmit-serv-cat">
+                                                @if($service->label)
+                                                    <a href="{{ route('services') }}" rel="tag">{{ $service->label }}</a>
+                                                @endif
+                                            </div>
+                                            <h3 class="pbmit-service-title">
+                                                <a href="{{ route('service-detail', $service->slug) }}">{{ $service->title }}</a>
+                                            </h3>
+                                        </div>
                                     </div>
-                                    <h3 class="pbmit-service-title">
-                                        <a href="{{ route('service-detail', 'residential-cleaning') }}">Office Cleaning</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="pbmit-service-description">
-                                <p>We provide you the best service quality with best matter you’re looking for residential or commercial cleaning services</p>
-                            </div>
-                        </div>
-                        <div class="pbmit-service-btn-wrapper">
-                            <a class="pbmit-service-btn" href="{{ route('service-detail', 'residential-cleaning') }}" title="Office Cleaning">
-                                <span class="pbmit-button-icon-wrapper">
-                                    <span class="pbmit-button-icon">
-                                        <i class=" pbmit-base-icon-black-arrow-1"></i>
-                                    </span>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                    <a class="pbmit-link" href="{{ route('service-detail', 'residential-cleaning') }}"></a>
-                </div>
-            </article>
-            <article class="pbmit-service-style-5 col-md-4">
-                <div class="pbminfotech-post-item">
-                    <div class="pbmit-box-content-wrap">
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper"></div>
-                        </div>
-                        <div class="pbmit-content-box">
-                            <div class="pbmit-content-box-inner">
-                                <div class="pbmit-service-icon">
-                                    <i class="pbmit-xclean-icon pbmit-xclean-icon-vaccum-cleaner"></i>				
-                                </div>
-                                <div class="pbmit-service-title-wrap">
-                                    <div class="pbminfotech-box-number">03</div>
-                                    <div class="pbmit-serv-cat">
-                                        <a href="services.html" rel="tag">Custodian</a>
+                                    <div class="pbmit-service-description">
+                                        <p>{{ cleanHtml($service->desc) }}</p>
                                     </div>
-                                    <h3 class="pbmit-service-title">
-                                        <a href="{{ route('service-detail', 'residential-cleaning') }}">Floor Cleaner</a>
-                                    </h3>
+                                </div>
+                                <div class="pbmit-service-btn-wrapper">
+                                    <a class="pbmit-service-btn" href="{{ route('service-detail', $service->slug) }}" title="{{ $service->title }}">
+                                        <span class="pbmit-button-icon-wrapper">
+                                            <span class="pbmit-button-icon">
+                                                <i class=" pbmit-base-icon-black-arrow-1"></i>
+                                            </span>
+                                        </span>
+                                    </a>
                                 </div>
                             </div>
-                            <div class="pbmit-service-description">
-                                <p>We provide you the best service quality with best matter you’re looking for residential or commercial cleaning services</p>
-                            </div>
+                            <a class="pbmit-link" href="{{ route('service-detail', $service->slug) }}"></a>
                         </div>
-                        <div class="pbmit-service-btn-wrapper">
-                            <a class="pbmit-service-btn" href="{{ route('service-detail', 'residential-cleaning') }}" title="Floor Cleaner">
-                                <span class="pbmit-button-icon-wrapper">
-                                    <span class="pbmit-button-icon">
-                                        <i class=" pbmit-base-icon-black-arrow-1"></i>
-                                    </span>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                    <a class="pbmit-link" href="{{ route('service-detail', 'residential-cleaning') }}"></a>
+                    </article>
+                @endforeach
+            @else
+                <div class="col-12 text-center">
+                    <p>Belum ada data layanan.</p>
                 </div>
-            </article>
-            <article class="pbmit-service-style-5 col-md-4">
-                <div class="pbminfotech-post-item">
-                    <div class="pbmit-box-content-wrap">
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper"></div>
-                        </div>
-                        <div class="pbmit-content-box">
-                            <div class="pbmit-content-box-inner">
-                                <div class="pbmit-service-icon">
-                                    <i class="pbmit-xclean-icon pbmit-xclean-icon-duster"></i>				
-                                </div>
-                                <div class="pbmit-service-title-wrap">
-                                    <div class="pbminfotech-box-number">04</div>
-                                    <div class="pbmit-serv-cat">
-                                        <a href="services.html" rel="tag">Disinfectant</a>
-                                    </div>
-                                    <h3 class="pbmit-service-title">
-                                        <a href="{{ route('service-detail', 'residential-cleaning') }}">Domestic Cleaning</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="pbmit-service-description">
-                                <p>We provide you the best service quality with best matter you’re looking for residential or commercial cleaning services</p>
-                            </div>
-                        </div>
-                        <div class="pbmit-service-btn-wrapper">
-                            <a class="pbmit-service-btn" href="{{ route('service-detail', 'residential-cleaning') }}" title="Domestic Cleaning">
-                                <span class="pbmit-button-icon-wrapper">
-                                    <span class="pbmit-button-icon">
-                                        <i class=" pbmit-base-icon-black-arrow-1"></i>
-                                    </span>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                    <a class="pbmit-link" href="{{ route('service-detail', 'residential-cleaning') }}"></a>
-                </div>
-            </article>
-            <article class="pbmit-service-style-5 col-md-4">
-                <div class="pbminfotech-post-item">
-                    <div class="pbmit-box-content-wrap">
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper"></div>
-                        </div>
-                        <div class="pbmit-content-box">
-                            <div class="pbmit-content-box-inner">
-                                <div class="pbmit-service-icon">
-                                    <i class="pbmit-xclean-icon pbmit-xclean-icon-mop"></i>				
-                                </div>
-                                <div class="pbmit-service-title-wrap">
-                                    <div class="pbminfotech-box-number">05</div>
-                                    <div class="pbmit-serv-cat">
-                                        <a href="services.html" rel="tag">Vacuum</a>
-                                    </div>
-                                    <h3 class="pbmit-service-title">
-                                        <a href="{{ route('service-detail', 'residential-cleaning') }}">Pressure Washing</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="pbmit-service-description">
-                                <p>We provide you the best service quality with best matter you’re looking for residential or commercial cleaning services</p>
-                            </div>
-                        </div>
-                        <div class="pbmit-service-btn-wrapper">
-                            <a class="pbmit-service-btn" href="{{ route('service-detail', 'residential-cleaning') }}" title="Pressure Washing">
-                                <span class="pbmit-button-icon-wrapper">
-                                    <span class="pbmit-button-icon">
-                                        <i class=" pbmit-base-icon-black-arrow-1"></i>
-                                    </span>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                    <a class="pbmit-link" href="{{ route('service-detail', 'residential-cleaning') }}"></a>
-                </div>
-            </article>
-            <article class="pbmit-service-style-5 col-md-4">
-                <div class="pbminfotech-post-item">
-                    <div class="pbmit-box-content-wrap">
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper"></div>
-                        </div>
-                        <div class="pbmit-content-box">
-                            <div class="pbmit-content-box-inner">
-                                <div class="pbmit-service-icon">
-                                    <i class="pbmit-xclean-icon pbmit-xclean-icon-cleaning-gloves"></i>				
-                                </div>
-                                <div class="pbmit-service-title-wrap">
-                                    <div class="pbminfotech-box-number">06</div>
-                                    <div class="pbmit-serv-cat">
-                                        <a href="services.html" rel="tag">Washroom</a>
-                                    </div>
-                                    <h3 class="pbmit-service-title">
-                                        <a href="{{ route('service-detail', 'residential-cleaning') }}">Window Cleaning</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="pbmit-service-description">
-                                <p>We provide you the best service quality with best matter you’re looking for residential or commercial cleaning services</p>
-                            </div>
-                        </div>
-                        <div class="pbmit-service-btn-wrapper">
-                            <a class="pbmit-service-btn" href="{{ route('service-detail', 'residential-cleaning') }}" title="Window Cleaning">
-                                <span class="pbmit-button-icon-wrapper">
-                                    <span class="pbmit-button-icon">
-                                        <i class=" pbmit-base-icon-black-arrow-1"></i>
-                                    </span>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                    <a class="pbmit-link" href="{{ route('service-detail', 'residential-cleaning') }}"></a>
-                </div>
-            </article>
+            @endif
         </div>
     </div>
 </section>
@@ -404,481 +236,71 @@
     <div class="container-fluid p-0">
         <div class="swiper-slider pbmit-element-portfolio-style-3" data-autoplay="false" data-loop="true" data-dots="false" data-arrows="false" data-columns="4" data-margin="30" data-effect="slide">
             <div class="swiper-wrapper">
-                <!-- Slide1 -->
-                <article class="pbmit-portfolio-style-3 swiper-slide">
-                    <div class="pbminfotech-post-content">
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper">
-                                <img src="{{ asset('assets/images/homepage-4/portfolio/portfolio-img-01.jpg') }}" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <div class="pbminfotech-box-content">
-                            <div class="pbminfotech-titlebox">
-                                <div class="pbmit-port-cat">
-                                    <a href="portfolio-grid-col-3.html" rel="tag">Disinfectant</a>
+                @foreach($portfolios as $p)
+                    <article class="pbmit-portfolio-style-3 swiper-slide">
+                        <div class="pbminfotech-post-content">
+                            <div class="pbmit-featured-img-wrapper">
+                                <div class="pbmit-featured-wrapper">
+                                    @if($p->image_cover_url)
+                                        <img src="{{ asset(str_replace('public/', '', $p->image_cover_url)) }}" class="img-fluid" alt="{{ $p->title }}">
+                                    @endif
                                 </div>
-                                <h3 class="pbmit-portfolio-title">
-                                    <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Deep Cleaning</a>
-                                </h3>
                             </div>
-                        </div>
-                        <div class="pbmit-portfolio-btn">
-                            <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
-                                <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
-                            </a>
-                        </div>
-                        <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
-                    </div>
-                </article>
-                <!-- Slide2 -->
-                <article class="pbmit-portfolio-style-3 swiper-slide">
-                    <div class="pbminfotech-post-content">
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper">
-                                <img src="{{ asset('assets/images/homepage-4/portfolio/portfolio-img-02.jpg') }}" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <div class="pbminfotech-box-content">
-                            <div class="pbminfotech-titlebox">
-                                <div class="pbmit-port-cat">
-                                    <a href="portfolio-grid-col-3.html" rel="tag">Shaking</a>
+                            <div class="pbminfotech-box-content">
+                                <div class="pbminfotech-titlebox">
+                                    <div class="pbmit-port-cat">
+                                        <a href="{{ route('portfolio') }}" rel="tag">Portfolio</a>
+                                    </div>
+                                    <h3 class="pbmit-portfolio-title">
+                                        <a href="{{ route('portfolio-detail', $p->slug) }}">{{ $p->title }}</a>
+                                    </h3>
                                 </div>
-                                <h3 class="pbmit-portfolio-title">
-                                    <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Window Cleaning</a>
-                                </h3>
                             </div>
-                        </div>
-                        <div class="pbmit-portfolio-btn">
-                            <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
-                                <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
-                            </a>
-                        </div>
-                        <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
-                    </div>
-                </article>
-                <!-- Slide3 -->
-                <article class="pbmit-portfolio-style-3 swiper-slide">
-                    <div class="pbminfotech-post-content">
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper">
-                                <img src="{{ asset('assets/images/homepage-4/portfolio/portfolio-img-03.jpg') }}" class="img-fluid" alt="">
+                            <div class="pbmit-portfolio-btn">
+                                <a href="{{ route('portfolio-detail', $p->slug) }}">
+                                    <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
+                                </a>
                             </div>
+                            <a class="pbmit-link" href="{{ route('portfolio-detail', $p->slug) }}"></a>
                         </div>
-                        <div class="pbminfotech-box-content">
-                            <div class="pbminfotech-titlebox">
-                                <div class="pbmit-port-cat">
-                                    <a href="portfolio-grid-col-3.html" rel="tag">Dusting</a>
-                                </div>
-                                <h3 class="pbmit-portfolio-title">
-                                    <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Kitchen Cleaning</a>
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="pbmit-portfolio-btn">
-                            <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
-                                <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
-                            </a>
-                        </div>
-                        <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
-                    </div>
-                </article>
-                <!-- Slide4 -->
-                <article class="pbmit-portfolio-style-3 swiper-slide">
-                    <div class="pbminfotech-post-content">
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper">
-                                <img src="{{ asset('assets/images/homepage-4/portfolio/portfolio-img-04.jpg') }}" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <div class="pbminfotech-box-content">
-                            <div class="pbminfotech-titlebox">
-                                <div class="pbmit-port-cat">
-                                    <a href="portfolio-grid-col-3.html" rel="tag">Vacuum</a>
-                                </div>
-                                <h3 class="pbmit-portfolio-title">
-                                    <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Dash Cleanup</a>
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="pbmit-portfolio-btn">
-                            <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
-                                <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
-                            </a>
-                        </div>
-                        <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
-                    </div>
-                </article>
-                <!-- Slide5 -->
-                <article class="pbmit-portfolio-style-3 swiper-slide">
-                    <div class="pbminfotech-post-content">
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper">
-                                <img src="{{ asset('assets/images/homepage-4/portfolio/portfolio-img-05.jpg') }}" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <div class="pbminfotech-box-content">
-                            <div class="pbminfotech-titlebox">
-                                <div class="pbmit-port-cat">
-                                    <a href="portfolio-grid-col-3.html" rel="tag">Sweeping</a>
-                                </div>
-                                <h3 class="pbmit-portfolio-title">
-                                    <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Junk Removal</a>
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="pbmit-portfolio-btn">
-                            <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
-                                <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
-                            </a>
-                        </div>
-                        <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
-                    </div>
-                </article>
-                <!-- Slide6 -->
-                <article class="pbmit-portfolio-style-3 swiper-slide">
-                    <div class="pbminfotech-post-content">
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper">
-                                <img src="{{ asset('assets/images/homepage-4/portfolio/portfolio-img-06.jpg') }}" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <div class="pbminfotech-box-content">
-                            <div class="pbminfotech-titlebox">
-                                <div class="pbmit-port-cat">
-                                    <a href="portfolio-grid-col-3.html" rel="tag">Shaking</a>
-                                </div>
-                                <h3 class="pbmit-portfolio-title">
-                                    <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Stephen House</a>
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="pbmit-portfolio-btn">
-                            <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
-                                <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
-                            </a>
-                        </div>
-                        <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
-                    </div>
-                </article>
-                <!-- Slide7 -->
-                <article class="pbmit-portfolio-style-3 swiper-slide">
-                    <div class="pbminfotech-post-content">
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper">
-                                <img src="{{ asset('assets/images/homepage-4/portfolio/portfolio-img-07.jpg') }}" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <div class="pbminfotech-box-content">
-                            <div class="pbminfotech-titlebox">
-                                <div class="pbmit-port-cat">
-                                    <a href="portfolio-grid-col-3.html" rel="tag">Moping</a>
-                                </div>
-                                <h3 class="pbmit-portfolio-title">
-                                    <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Door Cleaning</a>
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="pbmit-portfolio-btn">
-                            <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
-                                <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
-                            </a>
-                        </div>
-                        <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
-                    </div>
-                </article>
-                <!-- Slide8 -->
-                <article class="pbmit-portfolio-style-3 swiper-slide">
-                    <div class="pbminfotech-post-content">
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper">
-                                <img src="{{ asset('assets/images/homepage-4/portfolio/portfolio-img-08.jpg') }}" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <div class="pbminfotech-box-content">
-                            <div class="pbminfotech-titlebox">
-                                <div class="pbmit-port-cat">
-                                    <a href="portfolio-grid-col-3.html" rel="tag">Dusting</a>
-                                </div>
-                                <h3 class="pbmit-portfolio-title">
-                                    <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Bathroom Cleaning</a>
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="pbmit-portfolio-btn">
-                            <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
-                                <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
-                            </a>
-                        </div>
-                        <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
-                    </div>
-                </article>
-                <!-- Slide9 -->
-                <article class="pbmit-portfolio-style-3 swiper-slide">
-                    <div class="pbminfotech-post-content">
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper">
-                                <img src="{{ asset('assets/images/homepage-4/portfolio/portfolio-img-09.jpg') }}" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <div class="pbminfotech-box-content">
-                            <div class="pbminfotech-titlebox">
-                                <div class="pbmit-port-cat">
-                                    <a href="portfolio-grid-col-3.html" rel="tag">Disinfectant</a>
-                                </div>
-                                <h3 class="pbmit-portfolio-title">
-                                    <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Apartment Cleaning</a>
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="pbmit-portfolio-btn">
-                            <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
-                                <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
-                            </a>
-                        </div>
-                        <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
-                    </div>
-                </article>
+                    </article>
+                @endforeach
             </div>
         </div>
         <div class="pbmit-portfolio-bottom">
-            <div class="swiper-slider pbmit-element-portfolio-style-3" data-autoplay="false" data-loop="true" data-dots="false" data-arrows="false" data-columns="4" data-margin="30" data-effect="slide">
-                <div class="swiper-wrapper">
-                    <!-- Slide1 -->
+        <div class="swiper-slider pbmit-element-portfolio-style-3" data-autoplay="false" data-loop="true" data-dots="false" data-arrows="false" data-columns="4" data-margin="30" data-effect="slide">
+            <div class="swiper-wrapper">
+                @foreach($portfolios as $p)
                     <article class="pbmit-portfolio-style-3 swiper-slide">
                         <div class="pbminfotech-post-content">
                             <div class="pbmit-featured-img-wrapper">
                                 <div class="pbmit-featured-wrapper">
-                                    <img src="{{ asset('assets/images/homepage-4/portfolio/portfolio-img-01.jpg') }}" class="img-fluid" alt="">
+                                    @if($p->image_cover_url)
+                                        <img src="{{ asset(str_replace('public/', '', $p->image_cover_url)) }}" class="img-fluid" alt="{{ $p->title }}">
+                                    @endif
                                 </div>
                             </div>
                             <div class="pbminfotech-box-content">
                                 <div class="pbminfotech-titlebox">
                                     <div class="pbmit-port-cat">
-                                        <a href="portfolio-grid-col-3.html" rel="tag">Disinfectant</a>
+                                        <a href="{{ route('portfolio') }}" rel="tag">Portfolio</a>
                                     </div>
                                     <h3 class="pbmit-portfolio-title">
-                                        <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Deep Cleaning</a>
+                                        <a href="{{ route('portfolio-detail', $p->slug) }}">{{ $p->title }}</a>
                                     </h3>
                                 </div>
                             </div>
                             <div class="pbmit-portfolio-btn">
-                                <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
+                                <a href="{{ route('portfolio-detail', $p->slug) }}">
                                     <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
                                 </a>
                             </div>
-                            <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
+                            <a class="pbmit-link" href="{{ route('portfolio-detail', $p->slug) }}"></a>
                         </div>
                     </article>
-                    <!-- Slide2 -->
-                    <article class="pbmit-portfolio-style-3 swiper-slide">
-                        <div class="pbminfotech-post-content">
-                            <div class="pbmit-featured-img-wrapper">
-                                <div class="pbmit-featured-wrapper">
-                                    <img src="{{ asset('assets/images/homepage-4/portfolio/portfolio-img-02.jpg') }}" class="img-fluid" alt="">
-                                </div>
-                            </div>
-                            <div class="pbminfotech-box-content">
-                                <div class="pbminfotech-titlebox">
-                                    <div class="pbmit-port-cat">
-                                        <a href="portfolio-grid-col-3.html" rel="tag">Shaking</a>
-                                    </div>
-                                    <h3 class="pbmit-portfolio-title">
-                                        <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Window Cleaning</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="pbmit-portfolio-btn">
-                                <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
-                                    <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
-                                </a>
-                            </div>
-                            <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
-                        </div>
-                    </article>
-                    <!-- Slide3 -->
-                    <article class="pbmit-portfolio-style-3 swiper-slide">
-                        <div class="pbminfotech-post-content">
-                            <div class="pbmit-featured-img-wrapper">
-                                <div class="pbmit-featured-wrapper">
-                                    <img src="{{ asset('assets/images/homepage-4/portfolio/portfolio-img-03.jpg') }}" class="img-fluid" alt="">
-                                </div>
-                            </div>
-                            <div class="pbminfotech-box-content">
-                                <div class="pbminfotech-titlebox">
-                                    <div class="pbmit-port-cat">
-                                        <a href="portfolio-grid-col-3.html" rel="tag">Dusting</a>
-                                    </div>
-                                    <h3 class="pbmit-portfolio-title">
-                                        <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Kitchen Cleaning</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="pbmit-portfolio-btn">
-                                <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
-                                    <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
-                                </a>
-                            </div>
-                            <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
-                        </div>
-                    </article>
-                    <!-- Slide4 -->
-                    <article class="pbmit-portfolio-style-3 swiper-slide">
-                        <div class="pbminfotech-post-content">
-                            <div class="pbmit-featured-img-wrapper">
-                                <div class="pbmit-featured-wrapper">
-                                    <img src="{{ asset('assets/images/homepage-4/portfolio/portfolio-img-04.jpg') }}" class="img-fluid" alt="">
-                                </div>
-                            </div>
-                            <div class="pbminfotech-box-content">
-                                <div class="pbminfotech-titlebox">
-                                    <div class="pbmit-port-cat">
-                                        <a href="portfolio-grid-col-3.html" rel="tag">Vacuum</a>
-                                    </div>
-                                    <h3 class="pbmit-portfolio-title">
-                                        <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Dash Cleanup</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="pbmit-portfolio-btn">
-                                <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
-                                    <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
-                                </a>
-                            </div>
-                            <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
-                        </div>
-                    </article>
-                    <!-- Slide5 -->
-                    <article class="pbmit-portfolio-style-3 swiper-slide">
-                        <div class="pbminfotech-post-content">
-                            <div class="pbmit-featured-img-wrapper">
-                                <div class="pbmit-featured-wrapper">
-                                    <img src="{{ asset('assets/images/homepage-4/portfolio/portfolio-img-05.jpg') }}" class="img-fluid" alt="">
-                                </div>
-                            </div>
-                            <div class="pbminfotech-box-content">
-                                <div class="pbminfotech-titlebox">
-                                    <div class="pbmit-port-cat">
-                                        <a href="portfolio-grid-col-3.html" rel="tag">Sweeping</a>
-                                    </div>
-                                    <h3 class="pbmit-portfolio-title">
-                                        <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Junk Removal</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="pbmit-portfolio-btn">
-                                <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
-                                    <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
-                                </a>
-                            </div>
-                            <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
-                        </div>
-                    </article>
-                    <!-- Slide6 -->
-                    <article class="pbmit-portfolio-style-3 swiper-slide">
-                        <div class="pbminfotech-post-content">
-                            <div class="pbmit-featured-img-wrapper">
-                                <div class="pbmit-featured-wrapper">
-                                    <img src="{{ asset('assets/images/homepage-4/portfolio/portfolio-img-06.jpg') }}" class="img-fluid" alt="">
-                                </div>
-                            </div>
-                            <div class="pbminfotech-box-content">
-                                <div class="pbminfotech-titlebox">
-                                    <div class="pbmit-port-cat">
-                                        <a href="portfolio-grid-col-3.html" rel="tag">Shaking</a>
-                                    </div>
-                                    <h3 class="pbmit-portfolio-title">
-                                        <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Stephen House</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="pbmit-portfolio-btn">
-                                <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
-                                    <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
-                                </a>
-                            </div>
-                            <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
-                        </div>
-                    </article>
-                    <!-- Slide7 -->
-                    <article class="pbmit-portfolio-style-3 swiper-slide">
-                        <div class="pbminfotech-post-content">
-                            <div class="pbmit-featured-img-wrapper">
-                                <div class="pbmit-featured-wrapper">
-                                    <img src="{{ asset('assets/images/homepage-4/portfolio/portfolio-img-07.jpg') }}" class="img-fluid" alt="">
-                                </div>
-                            </div>
-                            <div class="pbminfotech-box-content">
-                                <div class="pbminfotech-titlebox">
-                                    <div class="pbmit-port-cat">
-                                        <a href="portfolio-grid-col-3.html" rel="tag">Moping</a>
-                                    </div>
-                                    <h3 class="pbmit-portfolio-title">
-                                        <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Door Cleaning</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="pbmit-portfolio-btn">
-                                <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
-                                    <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
-                                </a>
-                            </div>
-                            <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
-                        </div>
-                    </article>
-                    <!-- Slide8 -->
-                    <article class="pbmit-portfolio-style-3 swiper-slide">
-                        <div class="pbminfotech-post-content">
-                            <div class="pbmit-featured-img-wrapper">
-                                <div class="pbmit-featured-wrapper">
-                                    <img src="{{ asset('assets/images/homepage-4/portfolio/portfolio-img-08.jpg') }}" class="img-fluid" alt="">
-                                </div>
-                            </div>
-                            <div class="pbminfotech-box-content">
-                                <div class="pbminfotech-titlebox">
-                                    <div class="pbmit-port-cat">
-                                        <a href="portfolio-grid-col-3.html" rel="tag">Dusting</a>
-                                    </div>
-                                    <h3 class="pbmit-portfolio-title">
-                                        <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Bathroom Cleaning</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="pbmit-portfolio-btn">
-                                <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
-                                    <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
-                                </a>
-                            </div>
-                            <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
-                        </div>
-                    </article>
-                    <!-- Slide9 -->
-                    <article class="pbmit-portfolio-style-3 swiper-slide">
-                        <div class="pbminfotech-post-content">
-                            <div class="pbmit-featured-img-wrapper">
-                                <div class="pbmit-featured-wrapper">
-                                    <img src="{{ asset('assets/images/homepage-4/portfolio/portfolio-img-09.jpg') }}" class="img-fluid" alt="">
-                                </div>
-                            </div>
-                            <div class="pbminfotech-box-content">
-                                <div class="pbminfotech-titlebox">
-                                    <div class="pbmit-port-cat">
-                                        <a href="portfolio-grid-col-3.html" rel="tag">Disinfectant</a>
-                                    </div>
-                                    <h3 class="pbmit-portfolio-title">
-                                        <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">Apartment Cleaning</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="pbmit-portfolio-btn">
-                                <a href="{{ route('portfolio-detail', 'deep-cleaning') }}">
-                                    <i class="pbmit-atlaw-icon pbmit-base-icon-arrow-right"></i>
-                                </a>
-                            </div>
-                            <a class="pbmit-link" href="{{ route('portfolio-detail', 'deep-cleaning') }}"></a>
-                        </div>
-                    </article>
-                </div>
+                @endforeach
             </div>
+        </div>
         </div>
         <div class="pbmit-portfolio-content">
             <div class="pbmit-heading animation-style4">
@@ -905,120 +327,30 @@
         </div>
         <div class="swiper-slider" data-arrows-class="testimonial-swiper-arrow" data-autoplay="true" data-loop="true" data-dots="false" data-arrows="true" data-columns="2" data-margin="40" data-effect="slide">
             <div class="swiper-wrapper">
-                <!-- Slide1 -->
-                <article class="pbmit-testimonial-style-2 swiper-slide">
-                    <div class="pbminfotech-post-item">
-                        <div class="pbminfotech-box-desc">
-                            <blockquote class="pbminfotech-testimonial-text">
-                                <p>“I would recommend practitioners at this center to everyone! They are great to work with and are excellent trainers. Thank you all!”</p>
-                            </blockquote>
-                        </div>
-                        <div class="pbmit-auther-content">
-                            <h3 class="pbminfotech-box-title">Evangeline Lee</h3>
-                            <div class="pbminfotech-testimonial-detail">Manager</div>
-                        </div>
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper">
-                                <img src="{{ asset('assets/images/homepage-3/testimonial/testimonial-01.jpg') }}" class="img-fluid" alt="">
+                @foreach($testimonies as $t)
+                    <article class="pbmit-testimonial-style-2 swiper-slide">
+                        <div class="pbminfotech-post-item">
+                            <div class="pbminfotech-box-desc">
+                                <blockquote class="pbminfotech-testimonial-text">
+                                    <p>{{ $t->desc }}</p>
+                                </blockquote>
+                            </div>
+                            <div class="pbmit-auther-content">
+                                <h3 class="pbminfotech-box-title">{{ $t->name }}</h3>
+                                <div class="pbminfotech-testimonial-detail">{{ $t->position }}</div>
+                            </div>
+                            <div class="pbmit-featured-img-wrapper">
+                                <div class="pbmit-featured-wrapper">
+                                    @if($t->image_url)
+                                        <img src="{{ asset(str_replace('public/', '', $t->image_url)) }}" class="img-fluid" alt="{{ $t->name }}">
+                                    @else
+                                        <img src="{{ asset('assets/images/user2.png') }}" class="img-fluid" alt="{{ $t->name }}">
+                                    @endif
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </article>
-                <!-- Slide2 -->
-                <article class="pbmit-testimonial-style-2 swiper-slide">
-                    <div class="pbminfotech-post-item">
-                        <div class="pbminfotech-box-desc">
-                            <blockquote class="pbminfotech-testimonial-text">
-                                <p>“I would recommend practitioners at this center to everyone! They are great to work with and are excellent trainers. Thank you all!”</p>
-                            </blockquote>
-                        </div>
-                        <div class="pbmit-auther-content">
-                            <h3 class="pbminfotech-box-title">Adeline wood</h3>
-                            <div class="pbminfotech-testimonial-detail">Satisfied Client</div>
-                        </div>
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper">
-                                <img src="{{ asset('assets/images/homepage-3/testimonial/testimonial-02.jpg') }}" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- Slide3 -->
-                <article class="pbmit-testimonial-style-2 swiper-slide">
-                    <div class="pbminfotech-post-item">
-                        <div class="pbminfotech-box-desc">
-                            <blockquote class="pbminfotech-testimonial-text">
-                                <p>“I would recommend practitioners at this center to everyone! They are great to work with and are excellent trainers. Thank you all!”</p>
-                            </blockquote>
-                        </div>
-                        <div class="pbmit-auther-content">
-                            <h3 class="pbminfotech-box-title">Naomi Violet</h3>
-                            <div class="pbminfotech-testimonial-detail">Customer</div>
-                        </div>
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper">
-                                <img src="{{ asset('assets/images/homepage-3/testimonial/testimonial-03.jpg') }}" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- Slide4 -->
-                <article class="pbmit-testimonial-style-2 swiper-slide">
-                    <div class="pbminfotech-post-item">
-                        <div class="pbminfotech-box-desc">
-                            <blockquote class="pbminfotech-testimonial-text">
-                                <p>“I would recommend practitioners at this center to everyone! They are great to work with and are excellent trainers. Thank you all!”</p>
-                            </blockquote>
-                        </div>
-                        <div class="pbmit-auther-content">
-                            <h3 class="pbminfotech-box-title">Hazel Jenkins</h3>
-                            <div class="pbminfotech-testimonial-detail">Satisfied Client</div>
-                        </div>
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper">
-                                <img src="{{ asset('assets/images/homepage-3/testimonial/testimonial-04.jpg') }}" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- Slide5 -->
-                <article class="pbmit-testimonial-style-2 swiper-slide">
-                    <div class="pbminfotech-post-item">
-                        <div class="pbminfotech-box-desc">
-                            <blockquote class="pbminfotech-testimonial-text">
-                                <p>“I would recommend practitioners at this center to everyone! They are great to work with and are excellent trainers. Thank you all!”</p>
-                            </blockquote>
-                        </div>
-                        <div class="pbmit-auther-content">
-                            <h3 class="pbminfotech-box-title">Ariana Green</h3>
-                            <div class="pbminfotech-testimonial-detail">Manager</div>
-                        </div>
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper">
-                                <img src="{{ asset('assets/images/homepage-3/testimonial/testimonial-05.jpg') }}" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- Slide6 -->
-                <article class="pbmit-testimonial-style-2 swiper-slide">
-                    <div class="pbminfotech-post-item">
-                        <div class="pbminfotech-box-desc">
-                            <blockquote class="pbminfotech-testimonial-text">
-                                <p>“I would recommend practitioners at this center to everyone! They are great to work with and are excellent trainers. Thank you all!”</p>
-                            </blockquote>
-                        </div>
-                        <div class="pbmit-auther-content">
-                            <h3 class="pbminfotech-box-title">Parsons William</h3>
-                            <div class="pbminfotech-testimonial-detail">Ceo & Founder</div>
-                        </div>
-                        <div class="pbmit-featured-img-wrapper">
-                            <div class="pbmit-featured-wrapper">
-                                <img src="{{ asset('assets/images/homepage-3/testimonial/testimonial-06.jpg') }}" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                    </article>
+                @endforeach
             </div>
         </div>
     </div>
@@ -1030,7 +362,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 col-xl-6">
-                <div class="faq-four-bg-img"></div>
+                <div class="faq-four-bg-img" style="background-image: url('{{ asset('assets/images/faq.jpg') }}');"></div>
             </div>
             <div class="col-md-12 col-xl-6">
                 <div class="faq-four-area pbmit-bg-color-light">
@@ -1039,78 +371,34 @@
                         <h2 class="pbmit-title">You will learn more from our FAQ.</h2>
                     </div>
                     <div class="accordion accordion-1" id="accordionExample1">
-                        <div class="accordion-item active" id="headingOne1">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne1" aria-expanded="false" aria-controls="collapseOne1">
-                                    <span class="pbmit-accordion-icon pbmit-accordion-icon-right">
-                                        <span class="pbmit-accordion-icon-closed">
-                                            <i class="fa fa-plus"></i>
-                                        </span>
-                                        <span class="pbmit-accordion-icon-opened">
-                                            <i class="fa fa-minus"></i>
-                                        </span>
-                                    </span>
-                                    <span class="pbmit-accordion-title">
-                                        01. How much time will it take to deep clean my home?
-                                    </span>
-                                </button>
-                            </h2>
-                            <div id="collapseOne1" class="accordion-collapse collapse show" aria-labelledby="headingOne1"
-                                data-bs-parent="#accordionExample1">
-                                <div class="accordion-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. 
+                        @if(isset($faqs) && $faqs->isNotEmpty())
+                            @foreach($faqs as $faq)
+                                <div class="accordion-item @if($loop->first) active @endif" id="heading{{ $loop->iteration }}1">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button @if(!$loop->first) collapsed @endif" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse{{ $loop->iteration }}1" aria-expanded="@if($loop->first)true @else false @endif" aria-controls="collapse{{ $loop->iteration }}1">
+                                            <span class="pbmit-accordion-icon pbmit-accordion-icon-right">
+                                                <span class="pbmit-accordion-icon-closed">
+                                                    <i class="fa fa-plus"></i>
+                                                </span>
+                                                <span class="pbmit-accordion-icon-opened">
+                                                    <i class="fa fa-minus"></i>
+                                                </span>
+                                            </span>
+                                            <span class="pbmit-accordion-title">
+                                                {{ sprintf('%02d', $loop->iteration) }}. {{ $faq->question }}
+                                            </span>
+                                        </button>
+                                    </h2>
+                                    <div id="collapse{{ $loop->iteration }}1" class="accordion-collapse collapse @if($loop->first) show @endif" aria-labelledby="heading{{ $loop->iteration }}1"
+                                        data-bs-parent="#accordionExample1">
+                                        <div class="accordion-body">
+                                            {{ $faq->answer }}
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo1">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo1" aria-expanded="false" aria-controls="collapseTwo1">
-                                    <span class="pbmit-accordion-icon pbmit-accordion-icon-right">
-                                        <span class="pbmit-accordion-icon-closed">
-                                            <i class="fa fa-plus"></i>
-                                        </span>
-                                        <span class="pbmit-accordion-icon-opened">
-                                            <i class="fa fa-minus"></i>
-                                        </span>
-                                    </span>
-                                    <span class="pbmit-accordion-title">
-                                        02. I've never had a cleaning before, does that cost extra?
-                                    </span>
-                                </button>
-                            </h2>
-                            <div id="collapseTwo1" class="accordion-collapse collapse" aria-labelledby="headingTwo1"
-                                data-bs-parent="#accordionExample1">
-                                <div class="accordion-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree1">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree1" aria-expanded="false" aria-controls="collapseThree1">
-                                    <span class="pbmit-accordion-icon pbmit-accordion-icon-right">
-                                        <span class="pbmit-accordion-icon-closed">
-                                            <i class="fa fa-plus"></i>
-                                        </span>
-                                        <span class="pbmit-accordion-icon-opened">
-                                            <i class="fa fa-minus"></i>
-                                        </span>
-                                    </span>
-                                    <span class="pbmit-accordion-title">
-                                        03. What to do when the cleaners arrive?
-                                    </span>
-                                </button>
-                            </h2>
-                            <div id="collapseThree1" class="accordion-collapse collapse" aria-labelledby="headingThree1"
-                                data-bs-parent="#accordionExample1">
-                                <div class="accordion-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. 
-                                </div>
-                            </div>
-                        </div>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>
@@ -1130,7 +418,7 @@
                 </div>
             </div>
             <div class="col-md-4 col-lg-6 text-md-end mb-md-0 mb-5">
-                <a class="pbmit-btn pbmit-btn-global" href="blog-grid-col-3.html">
+                <a class="pbmit-btn pbmit-btn-global" href="{{ route('blog') }}">
                     <span class="pbmit-button-content-wrapper">
                         <span class="pbmit-button-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22.76" height="22.76" viewBox="0 0 22.76 22.76">
@@ -1147,258 +435,42 @@
         </div>
         <div class="swiper-slider" data-autoplay="false" data-loop="true" data-dots="false" data-arrows="false" data-columns="3" data-margin="40" data-effect="slide">
             <div class="swiper-wrapper">
-                <!-- Slide1 -->
-                <article class="pbmit-blog-style-1 swiper-slide">
-                    <div class="pbmit-post-item">
-                        <div class="pbmit-featured-wrapper">
-                            <div class="pbmit-featured-container">
-                                <div class="pbmit-featured-img-wrapper">
-                                    <div class="pbmit-featured-wrapper">
-                                        <img src="{{ asset('assets/images/homepage-1/blog/blog-img-01.jpg') }}" class="img-fluid" alt="">
+                @if(isset($blogs) && $blogs->isNotEmpty())
+                    @foreach($blogs as $blog)
+                        <article class="pbmit-blog-style-1 swiper-slide">
+                            <div class="pbmit-post-item">
+                                <div class="pbmit-featured-wrapper">
+                                    <div class="pbmit-featured-container">
+                                        <div class="pbmit-featured-img-wrapper">
+                                            <div class="pbmit-featured-wrapper">
+                                                @php($blogImage = $blog->thumbnail ? Storage::disk('public')->url($blog->thumbnail) : null)
+                                                @if($blogImage)
+                                                    <img src="{{ asset(str_replace('public/', '', $blogImage)) }}" class="img-fluid" alt="{{ $blog->title }}">
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <a class="pbmit-link" href="{{ route('blog-detail', $blog->slug) }}"></a>
+                                    </div>
+                                    <div class="pbmit-meta-date pbmit-meta-line">
+                                        <span class="pbmit-post-date">{{ ($blog->published_at ?? $blog->created_at)->format('j M Y') }}</span>
                                     </div>
                                 </div>
-                                <a class="pbmit-link" href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}"></a>
-                            </div>
-                            <div class="pbmit-meta-date pbmit-meta-line">
-                                <span class="pbmit-post-date">8 Aug 2024</span>
-                            </div>
-                        </div>
-                        <div class="pbmit-content-wrapper">
-                            <h3 class="pbmit-post-title">
-                                <a href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}">Things to know choosing a cleaning service.</a>
-                            </h3>
-                            <div class="pbmit-meta-category-wrapper pbmit-meta-line">
-                                <div class="pbmit-meta-category">
-                                    <a href="blog-classic.html" rel="category tag">Domestic</a> / <a href="blog-classic.html" rel="category tag">Sweeping</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- Slide2 -->
-                <article class="pbmit-blog-style-1 swiper-slide">
-                    <div class="pbmit-post-item">
-                        <div class="pbmit-featured-wrapper">
-                            <div class="pbmit-featured-container">
-                                <div class="pbmit-featured-img-wrapper">
-                                    <div class="pbmit-featured-wrapper">
-                                        <img src="{{ asset('assets/images/homepage-1/blog/blog-img-02.jpg') }}" class="img-fluid" alt="">
+                                <div class="pbmit-content-wrapper">
+                                    <h3 class="pbmit-post-title">
+                                        <a href="{{ route('blog-detail', $blog->slug) }}">{{ $blog->title }}</a>
+                                    </h3>
+                                    <div class="pbmit-meta-category-wrapper pbmit-meta-line">
+                                        <div class="pbmit-meta-category">
+                                            @if($blog->category)
+                                                <a href="{{ route('blog') }}" rel="category tag">{{ $blog->category->name }}</a>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
-                                <a class="pbmit-link" href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}"></a>
                             </div>
-                            <div class="pbmit-meta-date pbmit-meta-line">
-                                <span class="pbmit-post-date">8 Aug 2024</span>
-                            </div>
-                        </div>
-                        <div class="pbmit-content-wrapper">
-                            <h3 class="pbmit-post-title">
-                                <a href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}">Step by step guide to clean your carpets.</a>
-                            </h3>
-                            <div class="pbmit-meta-category-wrapper pbmit-meta-line">
-                                <div class="pbmit-meta-category">
-                                    <a href="blog-classic.html" rel="category tag">Cleaner</a> / <a href="blog-classic.html" rel="category tag">Sweeping</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- Slide3 -->
-                <article class="pbmit-blog-style-1 swiper-slide">
-                    <div class="pbmit-post-item">
-                        <div class="pbmit-featured-wrapper">
-                            <div class="pbmit-featured-container">
-                                <div class="pbmit-featured-img-wrapper">
-                                    <div class="pbmit-featured-wrapper">
-                                        <img src="{{ asset('assets/images/homepage-1/blog/blog-img-03.jpg') }}" class="img-fluid" alt="">
-                                    </div>
-                                </div>
-                                <a class="pbmit-link" href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}"></a>
-                            </div>
-                            <div class="pbmit-meta-date pbmit-meta-line">
-                                <span class="pbmit-post-date">8 Aug 2024</span>
-                            </div>
-                        </div>
-                        <div class="pbmit-content-wrapper">
-                            <h3 class="pbmit-post-title">
-                                <a href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}">How You Typically Do Your Cleaning Process</a>
-                            </h3>
-                            <div class="pbmit-meta-category-wrapper pbmit-meta-line">
-                                <div class="pbmit-meta-category">
-                                    <a href="blog-classic.html" rel="category tag">Custodian</a> / <a href="blog-classic.html" rel="category tag">Furniture</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- Slide4 -->
-                <article class="pbmit-blog-style-1 swiper-slide">
-                    <div class="pbmit-post-item">
-                        <div class="pbmit-featured-wrapper">
-                            <div class="pbmit-featured-container">
-                                <div class="pbmit-featured-img-wrapper">
-                                    <div class="pbmit-featured-wrapper">
-                                        <img src="{{ asset('assets/images/homepage-1/blog/blog-img-04.jpg') }}" class="img-fluid" alt="">
-                                    </div>
-                                </div>
-                                <a class="pbmit-link" href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}"></a>
-                            </div>
-                            <div class="pbmit-meta-date pbmit-meta-line">
-                                <span class="pbmit-post-date">8 Aug 2024</span>
-                            </div>
-                        </div>
-                        <div class="pbmit-content-wrapper">
-                            <h3 class="pbmit-post-title">
-                                <a href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}">Cleaning Business history and evolution over time</a>
-                            </h3>
-                            <div class="pbmit-meta-category-wrapper pbmit-meta-line">
-                                <div class="pbmit-meta-category">
-                                    <a href="blog-classic.html" rel="category tag">Cleaner</a> / <a href="blog-classic.html" rel="category tag">Sweeping</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- Slide5 -->
-                <article class="pbmit-blog-style-1 swiper-slide">
-                    <div class="pbmit-post-item">
-                        <div class="pbmit-featured-wrapper">
-                            <div class="pbmit-featured-container">
-                                <div class="pbmit-featured-img-wrapper">
-                                    <div class="pbmit-featured-wrapper">
-                                        <img src="{{ asset('assets/images/homepage-1/blog/blog-img-05.jpg') }}" class="img-fluid" alt="">
-                                    </div>
-                                </div>
-                                <a class="pbmit-link" href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}"></a>
-                            </div>
-                            <div class="pbmit-meta-date pbmit-meta-line">
-                                <span class="pbmit-post-date">8 Aug 2024</span>
-                            </div>
-                        </div>
-                        <div class="pbmit-content-wrapper">
-                            <h3 class="pbmit-post-title">
-                                <a href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}">Create a helpful checklist for customers.</a>
-                            </h3>
-                            <div class="pbmit-meta-category-wrapper pbmit-meta-line">
-                                <div class="pbmit-meta-category">
-                                    <a href="blog-classic.html" rel="category tag">Residential</a> / <a href="blog-classic.html" rel="category tag">Sweeping</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- Slide6 -->
-                <article class="pbmit-blog-style-1 swiper-slide">
-                    <div class="pbmit-post-item">
-                        <div class="pbmit-featured-wrapper">
-                            <div class="pbmit-featured-container">
-                                <div class="pbmit-featured-img-wrapper">
-                                    <div class="pbmit-featured-wrapper">
-                                        <img src="{{ asset('assets/images/homepage-1/blog/blog-img-06.jpg') }}" class="img-fluid" alt="">
-                                    </div>
-                                </div>
-                                <a class="pbmit-link" href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}"></a>
-                            </div>
-                            <div class="pbmit-meta-date pbmit-meta-line">
-                                <span class="pbmit-post-date">8 Aug 2024</span>
-                            </div>
-                        </div>
-                        <div class="pbmit-content-wrapper">
-                            <h3 class="pbmit-post-title">
-                                <a href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}">How to use cleaning equipment properly</a>
-                            </h3>
-                            <div class="pbmit-meta-category-wrapper pbmit-meta-line">
-                                <div class="pbmit-meta-category">
-                                    <a href="blog-classic.html" rel="category tag">Furniture</a> / <a href="blog-classic.html" rel="category tag">Residential</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- Slide7 -->
-                <article class="pbmit-blog-style-1 swiper-slide">
-                    <div class="pbmit-post-item">
-                        <div class="pbmit-featured-wrapper">
-                            <div class="pbmit-featured-container">
-                                <div class="pbmit-featured-img-wrapper">
-                                    <div class="pbmit-featured-wrapper">
-                                        <img src="{{ asset('assets/images/homepage-1/blog/blog-img-07.jpg') }}" class="img-fluid" alt="">
-                                    </div>
-                                </div>
-                                <a class="pbmit-link" href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}"></a>
-                            </div>
-                            <div class="pbmit-meta-date pbmit-meta-line">
-                                <span class="pbmit-post-date">8 Aug 2024</span>
-                            </div>
-                        </div>
-                        <div class="pbmit-content-wrapper">
-                            <h3 class="pbmit-post-title">
-                                <a href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}">The benefits of using a cleaning service</a>
-                            </h3>
-                            <div class="pbmit-meta-category-wrapper pbmit-meta-line">
-                                <div class="pbmit-meta-category">
-                                    <a href="blog-classic.html" rel="category tag">Domestic</a> / <a href="blog-classic.html" rel="category tag">Furniture</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- Slide8 -->
-                <article class="pbmit-blog-style-1 swiper-slide">
-                    <div class="pbmit-post-item">
-                        <div class="pbmit-featured-wrapper">
-                            <div class="pbmit-featured-container">
-                                <div class="pbmit-featured-img-wrapper">
-                                    <div class="pbmit-featured-wrapper">
-                                        <img src="{{ asset('assets/images/homepage-1/blog/blog-img-08.jpg') }}" class="img-fluid" alt="">
-                                    </div>
-                                </div>
-                                <a class="pbmit-link" href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}"></a>
-                            </div>
-                            <div class="pbmit-meta-date pbmit-meta-line">
-                                <span class="pbmit-post-date">8 Aug 2024</span>
-                            </div>
-                        </div>
-                        <div class="pbmit-content-wrapper">
-                            <h3 class="pbmit-post-title">
-                                <a href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}">Complete Guide to Air Duct Cleaning for Your Home</a>
-                            </h3>
-                            <div class="pbmit-meta-category-wrapper pbmit-meta-line">
-                                <div class="pbmit-meta-category">
-                                    <a href="blog-classic.html" rel="category tag">Custodian</a> / <a href="blog-classic.html" rel="category tag">Domestic</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- Slide9 -->
-                <article class="pbmit-blog-style-1 swiper-slide">
-                    <div class="pbmit-post-item">
-                        <div class="pbmit-featured-wrapper">
-                            <div class="pbmit-featured-container">
-                                <div class="pbmit-featured-img-wrapper">
-                                    <div class="pbmit-featured-wrapper">
-                                        <img src="{{ asset('assets/images/homepage-1/blog/blog-img-09.jpg') }}" class="img-fluid" alt="">
-                                    </div>
-                                </div>
-                                <a class="pbmit-link" href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}"></a>
-                            </div>
-                            <div class="pbmit-meta-date pbmit-meta-line">
-                                <span class="pbmit-post-date">8 Aug 2024</span>
-                            </div>
-                        </div>
-                        <div class="pbmit-content-wrapper">
-                            <h3 class="pbmit-post-title">
-                                <a href="{{ route('blog-detail', 'things-to-know-choosing-a-cleaning-service') }}">The best cleaning process homeowners can use</a>
-                            </h3>
-                            <div class="pbmit-meta-category-wrapper pbmit-meta-line">
-                                <div class="pbmit-meta-category">
-                                    <a href="blog-classic.html" rel="category tag">Cleaner</a> / <a href="blog-classic.html" rel="category tag">Custodian</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                        </article>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>

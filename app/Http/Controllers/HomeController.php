@@ -14,7 +14,6 @@ use App\Models\OurAdvantage;
 use App\Models\OurTeam;
 use App\Models\ContactUs;
 use App\Services\SeoService;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -27,7 +26,8 @@ class HomeController extends Controller
         $testimonies = Testimony::latest()->limit(6)->get();
         $faqs = Faq::where('is_show_home', true)->latest()->limit(3)->get();
         $blogs = Blog::where('is_publish', true)->orderByDesc('published_at')->limit(9)->get();
-        return view('welcome', compact('seoService', 'sliders', 'services', 'portfolios', 'testimonies', 'faqs', 'blogs'));
+        $contactUs = ContactUs::first();
+        return view('welcome', compact('seoService', 'sliders', 'services', 'portfolios', 'testimonies', 'faqs', 'blogs', 'contactUs'));
     }
 
     public function services()
