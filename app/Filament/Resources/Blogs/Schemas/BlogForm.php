@@ -91,6 +91,16 @@ class BlogForm
                             ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp'])
                             ->helperText('Upload a featured image for your blog post (max 4MB)')
                             ->columnSpanFull(),
+                        FileUpload::make('thumbnail')
+                            ->label('Thumbnail (880x620)')
+                            ->image()
+                            ->imageEditor()
+                            ->directory('public/blogs/thumbnails')
+                            ->visibility('public')
+                            ->maxSize(4096)
+                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp'])
+                            ->helperText('Crop image to 880x620 for optimal display')
+                            ->columnSpanFull(),
                     ]),
 
                 Section::make('Publication')
