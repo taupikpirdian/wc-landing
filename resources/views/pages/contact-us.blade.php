@@ -38,7 +38,7 @@
                         <div class="pbmit-ihbox-wrap">
                             <div class="pbmit-ihbox-contents">
                                 <h2 class="pbmit-element-title">Mail Us 24/7</h2>
-                                <div class="pbmit-heading-desc">pbminfotech@gmail.com <br> support@pbminfotech.com</div>
+                                <div class="pbmit-heading-desc">{{ $contactUs->mail ?? '' }}</div>
                             </div>
                             <div class="pbmit-ihbox-icon">
                                 <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
@@ -67,7 +67,7 @@
                         <div class="pbmit-ihbox-wrap">
                             <div class="pbmit-ihbox-contents">
                                 <h2 class="pbmit-element-title">Our Location</h2>
-                                <div class="pbmit-heading-desc">85 Preston, Inglewood, Maine <br> 98380, Hoofddorp Noord- 2132</div>
+                                <div class="pbmit-heading-desc">{{ $contactUs->location ?? '' }}</div>
                             </div>
                             <div class="pbmit-ihbox-icon">
                                 <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
@@ -96,7 +96,7 @@
                         <div class="pbmit-ihbox-wrap">
                             <div class="pbmit-ihbox-contents">
                                 <h2 class="pbmit-element-title">Call US 24/7</h2>
-                                <div class="pbmit-heading-desc">Phone: +001 236-895-4732 <br> Mobile: +9123 895-4732-236</div>
+                                <div class="pbmit-heading-desc">Phone: {{ $contactUs->phone ?? '' }} <br> Mobile: {{ $contactUs->mobile ?? '' }}</div>
                             </div>
                             <div class="pbmit-ihbox-icon">
                                 <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
@@ -125,7 +125,7 @@
                         <div class="pbmit-ihbox-wrap">
                             <div class="pbmit-ihbox-contents">
                                 <h2 class="pbmit-element-title">Working Days</h2>
-                                <div class="pbmit-heading-desc">Mon to Fri - 09:00am To 06:00pm <br> Saturday to Sunday - Closed</div>
+                                <div class="pbmit-heading-desc">{{ $contactUs->working_day_summary ?? '' }}</div>
                             </div>
                             <div class="pbmit-ihbox-icon">
                                 <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
@@ -156,7 +156,11 @@
 <!-- Iframe -->
 <section class="iframe-section section-lgb pbmit-extend-animation">
     <div class="container-fluid p-0">
-        <iframe src="https://maps.google.com/maps?q=London%20Eye%2C%20London%2C%20United%20Kingdom&amp;t=m&amp;z=10&amp;output=embed&amp;iwloc=near" title="London Eye, London, United Kingdom" aria-label="London Eye, London, United Kingdom"></iframe>
+        @php($mapQuery = null)
+        @if(isset($contactUs) && $contactUs)
+            @php($mapQuery = ($contactUs->latitude && $contactUs->longitude) ? ($contactUs->latitude . ',' . $contactUs->longitude) : ($contactUs->location ?? null))
+        @endif
+        <iframe src="https://maps.google.com/maps?q={{ $mapQuery }}&amp;t=m&amp;z=10&amp;output=embed&amp;iwloc=near" title="{{ $contactUs->location ?? 'Location' }}" aria-label="{{ $contactUs->location ?? 'Location' }}"></iframe>
     </div>
 </section>
 <!-- Iframe End-->

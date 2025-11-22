@@ -52,14 +52,12 @@ class ContactUsForm
                     ->schema([
                         TextInput::make('latitude')
                             ->label('Latitude')
-                            ->numeric()
                             ->step(0.00000001)
                             ->placeholder('-6.200000')
                             ->helperText('Latitude coordinate'),
 
                         TextInput::make('longitude')
                             ->label('Longitude')
-                            ->numeric()
                             ->step(0.00000001)
                             ->placeholder('106.816666')
                             ->helperText('Longitude coordinate'),
