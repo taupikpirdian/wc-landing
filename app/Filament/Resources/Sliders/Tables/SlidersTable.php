@@ -32,10 +32,14 @@ class SlidersTable
                     ->wrap()
                     ->searchable(),
 
-                ImageColumn::make('image')
+                TextColumn::make('image')
                     ->label('Image')
-                    ->size(80) // Thumbnail size
-                    ->circular(),
+                    ->formatStateUsing(function ($state) {
+                        if (!$state) return '-';
+                        $src = route('file', ['path' => $state]);
+                        return '<img src="' . e($src) . '" style="width:80px;height:80px;border-radius:50%;object-fit:cover;" />';
+                    })
+                    ->html(),
 
                 TextColumn::make('created_at')
                     ->label('Created At')
