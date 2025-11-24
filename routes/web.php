@@ -70,3 +70,8 @@ Route::get('file/{path}', function ($path) {
     $response->header("X-Content-Type-Options", "nosniff");
     return $response;
 })->where('path', '.*')->name('file');
+
+Route::get('/generate', function(){
+   \Illuminate\Support\Facades\Artisan::call('storage:link');
+   echo 'ok';
+});
