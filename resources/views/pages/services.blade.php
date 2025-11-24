@@ -70,7 +70,7 @@
                                         <a href="{{ route('service-detail', $service->slug) }}">{{ $service->title }}</a>
                                     </h3>
                                     <div class="pbmit-service-description">
-                                        <p>{{ \Illuminate\Support\Str::limit($service->desc, 160) }}</p>
+                                        <p>{{ \Illuminate\Support\Str::limit($service->summary, 160) }}</p>
                                     </div>
                                     @php($iconUrl = $service->image_icon_url)
                                     @php($iconClass = $service->icon_class)

@@ -7,6 +7,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
 
 class OurAdvantageForm
 {
@@ -43,15 +44,27 @@ class OurAdvantageForm
                             ->placeholder('Brief description of this advantage...')
                             ->helperText('Detailed description of this achievement or advantage'),
 
-                        FileUpload::make('icon')
+                        Select::make('icon')
                             ->label('Icon')
-                            ->image()
-                            ->imageEditor()
-                            ->directory('public/advantages')
-                            ->visibility('public')
-                            ->maxSize(1024) // 1MB
-                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp', 'image/svg+xml'])
-                            ->helperText('Upload an icon or image to represent this advantage (max 1MB)')
+                            ->options([
+                                'fa fa-trophy' => 'Trophy',
+                                'fa fa-star' => 'Star',
+                                'fa fa-thumbs-up' => 'Thumbs Up',
+                                'fa fa-certificate' => 'Certificate',
+                                'fa fa-flag' => 'Flag',
+                                'fa fa-line-chart' => 'Growth (Line Chart)',
+                                'fa fa-bar-chart' => 'Progress (Bar Chart)',
+                                'fa fa-users' => 'Users / Clients',
+                                'fa fa-briefcase' => 'Projects / Work',
+                                'fa fa-rocket' => 'Launch / Fast',
+                                'fa fa-check-circle' => 'Success',
+                                'fa fa-globe' => 'Global Reach',
+                                'fa fa-diamond' => 'Premium',
+                            ])
+                            ->searchable()
+                            ->preload()
+                            ->placeholder('Pilih ikon pencapaian')
+                            ->helperText('Pilih ikon Font Awesome yang merepresentasikan pencapaian')
                             ->columnSpanFull(),
                     ])
                     ->columns(1),

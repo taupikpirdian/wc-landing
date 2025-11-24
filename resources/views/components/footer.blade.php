@@ -95,7 +95,7 @@
                 </div>
                 <div class="pbmit-footer-widget-col-4 col-md-3">
                     <aside class="widget">
-                        <h2 class="widget-title">Say Hello</h2>
+                        <h2 class="widget-title">Hubungi Kami</h2>
                         <div class="pbmit-contact-widget-lines">
                             <div class="pbmit-contact-widget-line pbmit-contact-widget-phone">{{ $contactUs->phone ?? '+1 800 123 456 789' }}</div>
                             <div class="pbmit-contact-widget-line pbmit-contact-widget-email">{{ $contactUs->mail ?? 'info@yourdomain.com' }}</div>
@@ -110,7 +110,7 @@
             <div class="pbmit-footer-text-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="pbmit-footer-copyright-text-area"> Copyright © 2024 <a href="#">Xcleen</a>, All Rights Reserved.</div>
+                        <div class="pbmit-footer-copyright-text-area"> Copyright © 2025 <a href="#">Sedot WC Resmi</a>, All Rights Reserved.</div>
                     </div>
                 </div>
             </div>

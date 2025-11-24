@@ -28,7 +28,8 @@ class HomeController extends Controller
         $blogs = Blog::where('is_publish', true)->orderByDesc('published_at')->limit(9)->get();
         $contactUs = ContactUs::first();
         $ourAdvantages = OurAdvantage::orderBy('number')->limit(4)->get();
-        return view('welcome', compact('seoService', 'sliders', 'services', 'portfolios', 'testimonies', 'faqs', 'blogs', 'contactUs', 'ourAdvantages'));
+        $aboutUs = AboutUs::first();
+        return view('welcome', compact('seoService', 'sliders', 'services', 'portfolios', 'testimonies', 'faqs', 'blogs', 'contactUs', 'ourAdvantages', 'aboutUs'));
     }
 
     public function services()
@@ -121,7 +122,9 @@ class HomeController extends Controller
         $ourAdvantages = OurAdvantage::orderBy('number')->get();
         $ourTeams = OurTeam::orderBy('id')->get();
         $testimonies = Testimony::latest()->limit(6)->get();
-        return view('pages.about-us', compact('seoService', 'aboutUs', 'ourAdvantages', 'ourTeams', 'testimonies'));
+        $contactUs = ContactUs::with('workingTimes')->first();
+
+        return view('pages.about-us', compact('seoService', 'aboutUs', 'ourAdvantages', 'ourTeams', 'testimonies', 'contactUs'));
     }
 
     public function contactUs()

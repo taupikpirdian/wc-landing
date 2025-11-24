@@ -53,7 +53,7 @@
                 </div>
                 @if(!empty($portfolio->client_review))
                     <div class="pbmit-heading animation-style2 mt-3">
-                        <h3 class="pbmit-title">Our Client Review</h3>
+                        <h3 class="pbmit-title">Testimoni Klien</h3>
                     </div>
                     <div class="ihbox-style-area pbmit-bg-color-light">
                         <div class="pbmit-ihbox-style-9">

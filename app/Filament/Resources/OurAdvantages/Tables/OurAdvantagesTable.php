@@ -6,9 +6,9 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Storage;
 
 class OurAdvantagesTable
 {
@@ -41,11 +41,18 @@ class OurAdvantagesTable
                     ->limit(50)
                     ->wrap(),
 
-                ImageColumn::make('icon')
+                TextColumn::make('icon')
                     ->label('Icon')
-                    ->size(60)
-                    ->circular()
-                    ->defaultImageUrl(null),
+                    ->formatStateUsing(function ($state) {
+                        if (!$state) return '-';
+                        if (is_string($state) && str_starts_with($state, 'public/')) {
+                            $url = Storage::disk('public')->url($state);
+                            $src = asset(str_replace('public/', '', $url));
+                            return '<img src="' . e($src) . '" style="width:40px;height:40px;border-radius:50%;object-fit:contain;" />';
+                        }
+                        return '<i class="' . e($state) . '" style="font-size:22px;"></i>';
+                    })
+                    ->html(),
 
                 TextColumn::make('created_at')
                     ->label('Created At')

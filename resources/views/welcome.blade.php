@@ -8,25 +8,18 @@
                 <div class="theiaStickySidebar">
                     <div class="ihbox-four-leftbox">
                         <div class="pbmit-heading-subheading animation-style4">
-                            <h4 class="pbmit-subtitle">How it works</h4>
-                            <h2 class="pbmit-title">The most thorough & effective service with us</h2>
+                            <h4 class="pbmit-subtitle">Kami menyediakan layanan terbaik</h4>
+                            <h2 class="pbmit-title">Layanan paling lengkap dan efektif bersama kami</h2>
                         </div>
                         <div class="position-relative">
                             <div class="text-xl-start text-center">
-                                <img src="{{ asset('assets/images/homepage-4/about-img-01.jpg') }}" class="about-img img-fluid" alt="">
+                                @php($imageTestimony = isset($aboutUs) && $aboutUs->image_testimony ? Storage::disk('public')->url($aboutUs->image_testimony) : null)
+                                @if($imageTestimony)
+                                    <img src="{{ asset(str_replace('public/', '', $imageTestimony)) }}" class="about-img img-fluid" alt="">
+                                @endif
                             </div>
                             <div class="fid-style-box">
                                 <div class="pbminfotech-ele-fid-style-4">
-                                    <div class="pbmit-fld-contents">
-                                        <div class="pbmit-fld-wrap">
-                                            <h4 class="pbmit-fid-inner">
-                                                <span class="pbmit-fid-before"></span>
-                                                <span class="pbmit-number-rotate numinate" data-appear-animation="animateDigits" data-from="0" data-to="25" data-interval="5" data-before="" data-before-style="" data-after="" data-after-style="">25</span>
-                                                <span class="pbmit-fid"><span>+</span></span>
-                                            </h4>
-                                        </div>
-                                        <div class="pbmit-heading-desc">Years as a Trusted <br>Provider</div>
-                                    </div>
                                     <div class="pbmit-sticky-corner  pbmit-bottom-left-corner">
                                         <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M30 30V0C30 16 16 30 0 30H30Z"></path>
@@ -60,7 +53,12 @@
                                                 <div class="pbmit-content-wrap">
                                                     <div class="pbmit-ihbox-icon">
                                                         <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
-                                                            <i class="pbmit-xclean-icon {{ $adv->icon }}"></i>
+                                                            @php($isFa = is_string($adv->icon) && (strpos($adv->icon, 'fa ') === 0 || strpos($adv->icon, 'fa-') === 0 || strpos($adv->icon, ' fa-') !== false))
+                                                            @if($isFa)
+                                                                <i class="{{ $adv->icon }}"></i>
+                                                            @else
+                                                                <i class="pbmit-xclean-icon {{ $adv->icon }}"></i>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                     <div class="pbmit-text-wrap">
@@ -86,8 +84,8 @@
 <section class="pbmit-bg-color-light section-xl service-sec-four mb-5">
     <div class="container">
         <div class="pbmit-heading-subheading text-center animation-style2">
-            <h4 class="pbmit-subtitle">Our Service</h4>
-            <h2 class="pbmit-title">Whatever you need done</h2>
+            <h4 class="pbmit-subtitle">Layanan Kami</h4>
+            <h2 class="pbmit-title">Apa pun kebutuhan Anda</h2>
         </div>
         <div class="row">
             @if(isset($services) && $services->isNotEmpty())
@@ -228,7 +226,7 @@
         </div>
         <div class="pbmit-portfolio-content">
             <div class="pbmit-heading animation-style4">
-                <h2 class="pbmit-title">Showcasing our <br> recent projects</h2>
+                <h2 class="pbmit-title">Proyek terbaru <br> yang telah kami kerjakan</h2>
             </div>
         </div>
     </div>
@@ -242,7 +240,7 @@
             <div class="col-md-8 col-lg-7">
                 <div class="pbmit-heading-subheading animation-style2">
                     <h4 class="pbmit-subtitle">Testimonials</h4>
-                    <h2 class="pbmit-title">Trusted by thousand of <br> people & companies.</h2>
+                    <h2 class="pbmit-title">Kepercayaan dari para pelanggan dan perusahaan</h2>
                 </div>
             </div>
             <div class="col-md-4 col-lg-5 text-end">
@@ -291,8 +289,8 @@
             <div class="col-md-12 col-xl-6">
                 <div class="faq-four-area pbmit-bg-color-light">
                     <div class="pbmit-heading-subheading animation-style4">
-                        <h4 class="pbmit-subtitle">Client Questions</h4>
-                        <h2 class="pbmit-title">You will learn more from our FAQ.</h2>
+                        <h4 class="pbmit-subtitle">Pertanyaan Pelanggan</h4>
+                        <h2 class="pbmit-title">Anda akan belajar lebih banyak dari FAQ kami.</h2>
                     </div>
                     <div class="accordion accordion-1" id="accordionExample1">
                         @if(isset($faqs) && $faqs->isNotEmpty())
@@ -337,8 +335,8 @@
         <div class="row">
             <div class="col-md-8 col-lg-6">
                 <div class="pbmit-heading-subheading animation-style2">
-                    <h4 class="pbmit-subtitle">Latest News</h4>
-                    <h2 class="pbmit-title">Our latest articles</h2>
+                    <h4 class="pbmit-subtitle">Artikel Terbaru</h4>
+                    <h2 class="pbmit-title">Artikel terbaru kami</h2>
                 </div>
             </div>
             <div class="col-md-4 col-lg-6 text-md-end mb-md-0 mb-5">
@@ -352,7 +350,7 @@
                                 <path d="M22.34,1,1,22.34" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
                             </svg>
                         </span>
-                        <span class="pbmit-button-text">View All Post</span>
+                        <span class="pbmit-button-text">Lihat Semua Post</span>
                     </span>
                 </a>
             </div>

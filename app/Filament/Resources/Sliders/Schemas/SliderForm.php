@@ -31,8 +31,8 @@ class SliderForm
                     ->imageEditor()
                     ->directory('public/sliders')
                     ->maxSize(2048) // 2MB
-                    ->acceptedFileTypes(['image/jpeg', 'image/png'])
-                    ->helperText('JPEG or PNG files only, max 2MB'),
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg'])
+                    ->helperText('JPEG, PNG, or JPG files only, max 2MB'),
             ]);
     }
 }

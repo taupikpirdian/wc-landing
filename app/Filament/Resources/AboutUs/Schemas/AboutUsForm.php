@@ -40,11 +40,11 @@ class AboutUsForm
                     ])
                     ->columns(2),
 
-                Section::make('Testimonial Image')
-                    ->description('Image for testimonials section')
+                Section::make('About Image')
+                    ->description('Image for about section')
                     ->schema([
                         FileUpload::make('image_testimony')
-                            ->label('Testimonial Image')
+                            ->label('About Image')
                             ->image()
                             ->imageEditor()
                             ->directory('public/about-us')

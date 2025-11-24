@@ -105,14 +105,14 @@
             <div class="col-md-12 col-xl-3 blog-right-col">
                 <aside class="sidebar">
                     <aside class="widget widget-search">
-                        <h2 class="widget-title">Search</h2>
+                        <h2 class="widget-title">Cari</h2>
                         <form class="search-form" action="{{ route('blog') }}" method="get">
-                            <input type="search" class="search-field" name="s" placeholder="Search …" value="{{ request('s') }}">
+                            <input type="search" class="search-field" name="s" placeholder="Judul postingan …" value="{{ request('s') }}">
                             <button type="submit" class="search-submit"></button>
                         </form>
                     </aside>
                     <aside class="widget widget-categories">
-                        <h2 class="widget-title">Categories</h2>
+                        <h2 class="widget-title">Kategori</h2>
                         <ul>
                             @if(isset($categories))
                                 @foreach($categories as $cat)
@@ -127,7 +127,7 @@
                         </ul>
                     </aside>
                     <aside class="widget widget-recent-post">
-                        <h2 class="widget-title">Recent Post </h2>
+                        <h2 class="widget-title">Postingan Terbaru</h2>
                         <ul class="recent-post-list">
                             @if(isset($recentBlogs))
                                 @foreach($recentBlogs as $rb)
