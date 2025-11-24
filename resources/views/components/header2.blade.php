@@ -6,8 +6,10 @@
                     <div class="pbmit-logo-menuarea d-flex justify-content-between align-items-center">
                         <div class="site-branding">
                             <h1 class="site-title">
-                                <a href="index.html">
-                                    <img class="logo-img" src="{{ asset('assets/images/logo.svg') }}" alt="Xcleen">
+                                @php($setting = \App\Models\Setting::first())
+                                @php($logoUrl = $setting && $setting->logo_url ? asset(str_replace('public/', '', $setting->logo_url)) : asset('assets/images/logo.svg'))
+                                <a href="{{ route('home') }}">
+                                    <img class="logo-img" src="{{ $logoUrl }}" alt="Xcleen">
                                 </a>
                             </h1>
                         </div>

@@ -2,7 +2,9 @@
 
 @section('title-bar')
 <!-- Title Bar Start -->
-<div class="pbmit-title-bar-wrapper">
+@php($banner = \App\Models\BannerSetting::where('page', 'faq')->first())
+@php($bannerImage = $banner && $banner->image_url ? asset(str_replace('public/', '', $banner->image_url)) : null)
+<div class="pbmit-title-bar-wrapper" @if($bannerImage) style="background-image:url('{{ $bannerImage }}');background-size:cover;background-position:center;" @endif>
     <div class="container">
         <div class="pbmit-title-bar-content">
             <div class="pbmit-title-bar-content-inner">

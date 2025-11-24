@@ -4,32 +4,42 @@
         <div class="container">
             <div class="row">
                 <div class="pbmit-footer-widget-col-1 col-md-3">
+                    @php($setting = \App\Models\Setting::first())
+                    @php($logoUrl = $setting && $setting->logo_url ? asset(str_replace('public/', '', $setting->logo_url)) : asset('assets/images/footer-logo.svg'))
                     <a href="{{ route('home') }}">
-                        <img src="{{ asset('assets/images/footer-logo.svg') }}" alt="logo">
+                        <img src="{{ $logoUrl }}" alt="logo">
                     </a>
                     <div class="widget">
                         <div class="textwidget">
                             <ul class="pbmit-social-links">
-                                <li class="pbmit-social-li pbmit-social-facebook">
-                                    <a title="Facebook" href="#" target="_blank" rel="noopener">
-                                        <span><i class="pbmit-base-icon-facebook-f"></i></span>
-                                    </a>
-                                </li>
-                                <li class="pbmit-social-li pbmit-social-twitter">
-                                    <a title="Twitter" href="#" target="_blank" rel="noopener">
-                                        <span><i class="pbmit-base-icon-twitter-2"></i></span>
-                                    </a>
-                                </li>
-                                <li class="pbmit-social-li pbmit-social-instagram">
-                                    <a title="Instagram" href="#" target="_blank" rel="noopener">
-                                        <span><i class="pbmit-base-icon-instagram"></i></span>
-                                    </a>
-                                </li>
-                                <li class="pbmit-social-li pbmit-social-youtube">
-                                    <a title="Youtube" href="#" target="_blank" rel="noopener">
-                                        <span><i class="pbmit-base-icon-youtube-play"></i></span>
-                                    </a>
-                                </li>
+                                @if($setting && $setting->facebook)
+                                    <li class="pbmit-social-li pbmit-social-facebook">
+                                        <a title="Facebook" href="{{ $setting->facebook }}" target="_blank" rel="noopener">
+                                            <span><i class="pbmit-base-icon-facebook-f"></i></span>
+                                        </a>
+                                    </li>
+                                @endif
+                                @if($setting && $setting->twitter)
+                                    <li class="pbmit-social-li pbmit-social-twitter">
+                                        <a title="Twitter" href="{{ $setting->twitter }}" target="_blank" rel="noopener">
+                                            <span><i class="pbmit-base-icon-twitter-2"></i></span>
+                                        </a>
+                                    </li>
+                                @endif
+                                @if($setting && $setting->instagram)
+                                    <li class="pbmit-social-li pbmit-social-instagram">
+                                        <a title="Instagram" href="{{ $setting->instagram }}" target="_blank" rel="noopener">
+                                            <span><i class="pbmit-base-icon-instagram"></i></span>
+                                        </a>
+                                    </li>
+                                @endif
+                                @if($setting && $setting->youtube)
+                                    <li class="pbmit-social-li pbmit-social-youtube">
+                                        <a title="Youtube" href="{{ $setting->youtube }}" target="_blank" rel="noopener">
+                                            <span><i class="pbmit-base-icon-youtube-play"></i></span>
+                                        </a>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                     </div>

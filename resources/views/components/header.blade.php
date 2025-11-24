@@ -8,9 +8,11 @@
                         <div class="pbmit-logo-menuarea d-flex justify-content-between align-items-center">
                             <div class="site-branding">
                                 <h1 class="site-title">
-                                    <a href="index.html">
-                                        <img class="logo-img" src="{{ asset('assets/images/logo-white.svg') }}" alt="Xcleen">
-                                        <img src="{{ asset('assets/images/logo.svg') }}" class="pbmit-sticky-logo" alt="Xcleen">
+                                    @php($setting = \App\Models\Setting::first())
+                                    @php($logoUrl = $setting && $setting->logo_url ? asset(str_replace('public/', '', $setting->logo_url)) : asset('assets/images/logo-white.svg'))
+                                    <a href="{{ route('home') }}">
+                                        <img class="logo-img" src="{{ $logoUrl }}" alt="Xcleen">
+                                        <img src="{{ $logoUrl }}" class="pbmit-sticky-logo" alt="Xcleen">
                                     </a>
                                 </h1>
                             </div>

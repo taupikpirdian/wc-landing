@@ -46,110 +46,34 @@
             <div class="col-md-12 col-xl-6">
                 <div class="ihbox-four-rightbox">
                     <div class="row pbmit-element-posts-wrapper pbminfotech-gap-50px">
-                        <article class="pbmit-miconheading-style-14 col-md-12">
-                            <div class="pbmit-ihbox-style-14">
-                                <div class="pbmit-ihbox-wrap">
-                                    <div class="pbmit-icon-wrap">
-                                        <div class="pbmit-content-number">
-                                            <div class="pbmit-wrap-number">
-                                            <div class="pbmit-ihbox-box-number">01</div>
-                                            </div>
-                                        </div>
-                                        <div class="pbmit-content-wrap">
-                                            <div class="pbmit-ihbox-icon">
-                                                <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
-                                                    <i class="pbmit-xclean-icon pbmit-xclean-icon-cleaning"></i>
+                        @if(isset($ourAdvantages) && $ourAdvantages->count())
+                            @foreach($ourAdvantages as $adv)
+                                <article class="pbmit-miconheading-style-14 col-md-12">
+                                    <div class="pbmit-ihbox-style-14">
+                                        <div class="pbmit-ihbox-wrap">
+                                            <div class="pbmit-icon-wrap">
+                                                <div class="pbmit-content-number">
+                                                    <div class="pbmit-wrap-number">
+                                                        <div class="pbmit-ihbox-box-number">{{ sprintf('%02d', $adv->number) }}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="pbmit-content-wrap">
+                                                    <div class="pbmit-ihbox-icon">
+                                                        <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
+                                                            <i class="pbmit-xclean-icon {{ $adv->icon }}"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pbmit-text-wrap">
+                                                        <h2 class="pbmit-element-title">{{ $adv->title }}</h2>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="pbmit-text-wrap">
-                                                <h2 class="pbmit-element-title">
-                                                    Highly skilled team
-                                                </h2>
-                                            </div>
+                                            <div class="pbmit-heading-desc">{{ $adv->desc }}</div>
                                         </div>
                                     </div>
-                                    <div class="pbmit-heading-desc">Professional and Experienced staff ready to help you anytime, Equipped with the most modern appliances Services</div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="pbmit-miconheading-style-14 col-md-12">
-                            <div class="pbmit-ihbox-style-14">
-                                <div class="pbmit-ihbox-wrap">
-                                    <div class="pbmit-icon-wrap">
-                                        <div class="pbmit-content-number">
-                                            <div class="pbmit-wrap-number">
-                                            <div class="pbmit-ihbox-box-number">02</div>
-                                            </div>
-                                        </div>
-                                        <div class="pbmit-content-wrap">
-                                            <div class="pbmit-ihbox-icon">
-                                                <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
-                                                    <i class="pbmit-xclean-icon pbmit-xclean-icon-window-cleaning"></i>
-                                                </div>
-                                            </div>
-                                            <div class="pbmit-text-wrap">
-                                                <h2 class="pbmit-element-title">
-                                                    Positive reputation
-                                                </h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pbmit-heading-desc">cleaning and sanitizing may be the most important aspects of a clean and stored in a clean, sanitary manner</div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="pbmit-miconheading-style-14 col-md-12">
-                            <div class="pbmit-ihbox-style-14">
-                                <div class="pbmit-ihbox-wrap">
-                                    <div class="pbmit-icon-wrap">
-                                        <div class="pbmit-content-number">
-                                            <div class="pbmit-wrap-number">
-                                            <div class="pbmit-ihbox-box-number">03</div>
-                                            </div>
-                                        </div>
-                                        <div class="pbmit-content-wrap">
-                                            <div class="pbmit-ihbox-icon">
-                                                <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
-                                                    <i class="pbmit-xclean-icon pbmit-xclean-icon-vacuum"></i>
-                                                </div>
-                                            </div>
-                                            <div class="pbmit-text-wrap">
-                                                <h2 class="pbmit-element-title">
-                                                    Fast and reliable
-                                                </h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pbmit-heading-desc">Provide you the best service quality with best rate all the time no matter you're looking for residential or commercial</div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="pbmit-miconheading-style-14 col-md-12">
-                            <div class="pbmit-ihbox-style-14">
-                                <div class="pbmit-ihbox-wrap">
-                                    <div class="pbmit-icon-wrap">
-                                        <div class="pbmit-content-number">
-                                            <div class="pbmit-wrap-number">
-                                            <div class="pbmit-ihbox-box-number">04</div>
-                                            </div>
-                                        </div>
-                                        <div class="pbmit-content-wrap">
-                                            <div class="pbmit-ihbox-icon">
-                                                <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
-                                                    <i class="pbmit-xclean-icon pbmit-xclean-icon-vaccum-cleaner"></i>
-                                                </div>
-                                            </div>
-                                            <div class="pbmit-text-wrap">
-                                                <h2 class="pbmit-element-title">
-                                                    24/7 availability
-                                                </h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pbmit-heading-desc">We make sure that we had all the tools and equipment you need to provide high-quality service to our clients 24/7</div>
-                                </div>
-                            </div>
-                        </article>
+                                </article>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>

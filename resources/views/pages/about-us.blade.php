@@ -2,7 +2,9 @@
 
 @section('title-bar')
 <!-- Title Bar Start -->
-<div class="pbmit-title-bar-wrapper">
+@php($banner = \App\Models\BannerSetting::where('page', 'tentang-kami')->first())
+@php($bannerImage = $banner && $banner->image_url ? asset(str_replace('public/', '', $banner->image_url)) : null)
+<div class="pbmit-title-bar-wrapper" @if($bannerImage) style="background-image:url('{{ $bannerImage }}');background-size:cover;background-position:center;" @endif>
     <div class="container">
         <div class="pbmit-title-bar-content">
             <div class="pbmit-title-bar-content-inner">
@@ -37,12 +39,11 @@
             <div class="col-md-12 col-xl-6">
                 <div class="pbmit-heading-subheading animation-style2">
                     <h4 class="pbmit-subtitle">Why choose us?</h4>
-                    <h2 class="pbmit-title">Most awarded cleaning company since 1995.</h2>
+                    <h2 class="pbmit-title">{{ $aboutUs->title ?? '' }}</h2>
                 </div>
             </div>
             <div class="col-md-12 col-xl-6">
-                <p class="pbmit-text-editor">We carefully screen all of our cleaners, so you can rest assured that your home would receive the absolute highest quality of service providing. Shall under In yielding saying given dominion don’t of two god which said. Morning greater Lesser day given fruitful.</p>
-                <p class="pbmit-text-editor pb-4">Shall under In yielding saying given dominion don’t of to two god which said. Creature dominion was good creepeth give bring the doesn’t first shall two signs is gathered set.</p>
+                <p class="pbmit-text-editor">{{ $aboutUs->desc ?? '' }}</p>
                 <div class="row g-0 align-items-center">
                     <div class="col-md-12 col-xl-6">
                         <div class="pbmit-ihbox-style-4">
@@ -83,6 +84,42 @@
                 </div>
             </div>
         </div>
+        @if(isset($ourAdvantages) && $ourAdvantages->count())
+        <div class="row mt-4">
+            <div class="col-md-12 col-xl-6">
+                <div class="ihbox-four-rightbox">
+                    <div class="row pbmit-element-posts-wrapper pbminfotech-gap-50px">
+                        @foreach($ourAdvantages as $adv)
+                            <article class="pbmit-miconheading-style-14 col-md-12">
+                                <div class="pbmit-ihbox-style-14">
+                                    <div class="pbmit-ihbox-wrap">
+                                        <div class="pbmit-icon-wrap">
+                                            <div class="pbmit-content-number">
+                                                <div class="pbmit-wrap-number">
+                                                    <div class="pbmit-ihbox-box-number">{{ sprintf('%02d', $adv->number) }}</div>
+                                                </div>
+                                            </div>
+                                            <div class="pbmit-content-wrap">
+                                                <div class="pbmit-ihbox-icon">
+                                                    <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
+                                                        <i class="pbmit-xclean-icon {{ $adv->icon }}"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="pbmit-text-wrap">
+                                                    <h2 class="pbmit-element-title">{{ $adv->title }}</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pbmit-heading-desc">{{ $adv->desc }}</div>
+                                    </div>
+                                </div>
+                            </article>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
     </div>
 </section> 
 <!-- About Us end --> 
@@ -103,422 +140,72 @@
         </div>
         <div class="swiper-slider" data-arrows-class="team-swiper-arrow" data-autoplay="false" data-loop="true" data-dots="false" data-arrows="true" data-columns="4" data-margin="40" data-effect="slide">
             <div class="swiper-wrapper">
-                <!-- Slide1 -->
-                <article class="pbmit-team-style-1 swiper-slide">
-                    <div class="pbminfotech-post-item">
-                        <div class="pbmit-featured-wrap">
-                            <div class="pbmit-featured-inner">
-                                <div class="pbmit-featured-img-wrapper">
-                                    <div class="pbmit-featured-wrapper">
-                                        <img src="images/homepage-2/team/team-01.jpg" class="img-fluid" alt="">
+                @if(isset($ourTeams) && $ourTeams->count())
+                    @foreach($ourTeams as $team)
+                        <article class="pbmit-team-style-1 swiper-slide">
+                            <div class="pbminfotech-post-item">
+                                <div class="pbmit-featured-wrap">
+                                    <div class="pbmit-featured-inner">
+                                        <div class="pbmit-featured-img-wrapper">
+                                            <div class="pbmit-featured-wrapper">
+                                                @php($imageUrl = $team->image ? Storage::disk('public')->url($team->image) : null)
+                                                @if($imageUrl)
+                                                    <img src="{{ $imageUrl }}" class="img-fluid" alt="{{ $team->name }}">
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <a class="pbmit-link" href="#"></a>
                                     </div>
                                 </div>
-                                <a class="pbmit-link" href="team-single-detail.html"></a>
-                            </div>
-                        </div>
-                        <div class="pbminfotech-box-content">
-                            <div class="pbminfotech-box-content-inner">
-                                <h3 class="pbmit-team-title">
-                                    <a href="team-single-detail.html">Mark Donald</a>
-                                </h3>
-                                <div class="pbminfotech-box-team-position">Co-Ordinator</div>
-                            </div>
-                            <div class="pbmit-team-btn">
-                                <a class="pbmit-team-text" href="#">
-                                    <i class="pbmit-base-icon-share"></i>
-                                </a>
-                                <div class="pbminfotech-box-social-links">
-                                    <ul class="pbmit-social-links pbmit-team-social-links">
-                                        <li class="pbmit-social-li pbmit-social-facebook">
-                                            <a href="#" title="Facebook" target="_blank">
-                                                <span><i class="pbmit-base-icon-facebook-f"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-twitter">
-                                            <a href="#" title="Twitter" target="_blank">
-                                                <span><i class="pbmit-base-icon-twitter-2"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-linkedin">
-                                            <a href="#" title="LinkedIn" target="_blank">
-                                                <span><i class="pbmit-base-icon-linkedin-in"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-instagram">
-                                            <a href="#" title="Instagram" target="_blank">
-                                                <span><i class="pbmit-base-icon-instagram"></i></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- Slide2 -->
-                <article class="pbmit-team-style-1 swiper-slide">
-                    <div class="pbminfotech-post-item">
-                        <div class="pbmit-featured-wrap">
-                            <div class="pbmit-featured-inner">
-                                <div class="pbmit-featured-img-wrapper">
-                                    <div class="pbmit-featured-wrapper">
-                                        <img src="images/homepage-2/team/team-02.jpg" class="img-fluid" alt="">
+                                <div class="pbminfotech-box-content">
+                                    <div class="pbminfotech-box-content-inner">
+                                        <h3 class="pbmit-team-title">
+                                            <a href="#">{{ $team->name }}</a>
+                                        </h3>
+                                        <div class="pbminfotech-box-team-position">{{ $team->position }}</div>
+                                    </div>
+                                    <div class="pbmit-team-btn">
+                                        <a class="pbmit-team-text" href="#">
+                                            <i class="pbmit-base-icon-share"></i>
+                                        </a>
+                                        <div class="pbminfotech-box-social-links">
+                                            <ul class="pbmit-social-links pbmit-team-social-links">
+                                                @if($team->facebook)
+                                                    <li class="pbmit-social-li pbmit-social-facebook">
+                                                        <a href="{{ $team->facebook }}" title="Facebook" target="_blank">
+                                                            <span><i class="pbmit-base-icon-facebook-f"></i></span>
+                                                        </a>
+                                                    </li>
+                                                @endif
+                                                @if($team->twitter)
+                                                    <li class="pbmit-social-li pbmit-social-twitter">
+                                                        <a href="{{ $team->twitter }}" title="Twitter" target="_blank">
+                                                            <span><i class="pbmit-base-icon-twitter-2"></i></span>
+                                                        </a>
+                                                    </li>
+                                                @endif
+                                                @if($team->instagram)
+                                                    <li class="pbmit-social-li pbmit-social-instagram">
+                                                        <a href="{{ $team->instagram }}" title="Instagram" target="_blank">
+                                                            <span><i class="pbmit-base-icon-instagram"></i></span>
+                                                        </a>
+                                                    </li>
+                                                @endif
+                                                @if($team->youtube)
+                                                    <li class="pbmit-social-li pbmit-social-youtube">
+                                                        <a href="{{ $team->youtube }}" title="YouTube" target="_blank">
+                                                            <span><i class="pbmit-base-icon-youtube"></i></span>
+                                                        </a>
+                                                    </li>
+                                                @endif
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                                <a class="pbmit-link" href="team-single-detail.html"></a>
                             </div>
-                        </div>
-                        <div class="pbminfotech-box-content">
-                            <div class="pbminfotech-box-content-inner">
-                                <h3 class="pbmit-team-title">
-                                    <a href="team-single-detail.html">Brielle Milla</a>
-                                </h3>
-                                <div class="pbminfotech-box-team-position">Service Manager</div>
-                            </div>
-                            <div class="pbmit-team-btn">
-                                <a class="pbmit-team-text" href="#">
-                                    <i class="pbmit-base-icon-share"></i>
-                                </a>
-                                <div class="pbminfotech-box-social-links">
-                                    <ul class="pbmit-social-links pbmit-team-social-links">
-                                        <li class="pbmit-social-li pbmit-social-facebook">
-                                            <a href="#" title="Facebook" target="_blank">
-                                                <span><i class="pbmit-base-icon-facebook-f"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-twitter">
-                                            <a href="#" title="Twitter" target="_blank">
-                                                <span><i class="pbmit-base-icon-twitter-2"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-linkedin">
-                                            <a href="#" title="LinkedIn" target="_blank">
-                                                <span><i class="pbmit-base-icon-linkedin-in"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-instagram">
-                                            <a href="#" title="Instagram" target="_blank">
-                                                <span><i class="pbmit-base-icon-instagram"></i></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- Slide3 -->
-                <article class="pbmit-team-style-1 swiper-slide">
-                    <div class="pbminfotech-post-item">
-                        <div class="pbmit-featured-wrap">
-                            <div class="pbmit-featured-inner">
-                                <div class="pbmit-featured-img-wrapper">
-                                    <div class="pbmit-featured-wrapper">
-                                        <img src="images/homepage-2/team/team-03.jpg" class="img-fluid" alt="">
-                                    </div>
-                                </div>
-                                <a class="pbmit-link" href="team-single-detail.html"></a>
-                            </div>
-                        </div>
-                        <div class="pbminfotech-box-content">
-                            <div class="pbminfotech-box-content-inner">
-                                <h3 class="pbmit-team-title">
-                                    <a href="team-single-detail.html">Myles Evander</a>
-                                </h3>
-                                <div class="pbminfotech-box-team-position">Office Cleaner</div>
-                            </div>
-                            <div class="pbmit-team-btn">
-                                <a class="pbmit-team-text" href="#">
-                                    <i class="pbmit-base-icon-share"></i>
-                                </a>
-                                <div class="pbminfotech-box-social-links">
-                                    <ul class="pbmit-social-links pbmit-team-social-links">
-                                        <li class="pbmit-social-li pbmit-social-facebook">
-                                            <a href="#" title="Facebook" target="_blank">
-                                                <span><i class="pbmit-base-icon-facebook-f"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-twitter">
-                                            <a href="#" title="Twitter" target="_blank">
-                                                <span><i class="pbmit-base-icon-twitter-2"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-linkedin">
-                                            <a href="#" title="LinkedIn" target="_blank">
-                                                <span><i class="pbmit-base-icon-linkedin-in"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-instagram">
-                                            <a href="#" title="Instagram" target="_blank">
-                                                <span><i class="pbmit-base-icon-instagram"></i></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- Slide4 -->
-                <article class="pbmit-team-style-1 swiper-slide">
-                    <div class="pbminfotech-post-item">
-                        <div class="pbmit-featured-wrap">
-                            <div class="pbmit-featured-inner">
-                                <div class="pbmit-featured-img-wrapper">
-                                    <div class="pbmit-featured-wrapper">
-                                        <img src="images/homepage-2/team/team-04.jpg" class="img-fluid" alt="">
-                                    </div>
-                                </div>
-                                <a class="pbmit-link" href="team-single-detail.html"></a>
-                            </div>
-                        </div>
-                        <div class="pbminfotech-box-content">
-                            <div class="pbminfotech-box-content-inner">
-                                <h3 class="pbmit-team-title">
-                                    <a href="team-single-detail.html">Elena Riley</a>
-                                </h3>
-                                <div class="pbminfotech-box-team-position">House Cleaner</div>
-                            </div>
-                            <div class="pbmit-team-btn">
-                                <a class="pbmit-team-text" href="#">
-                                    <i class="pbmit-base-icon-share"></i>
-                                </a>
-                                <div class="pbminfotech-box-social-links">
-                                    <ul class="pbmit-social-links pbmit-team-social-links">
-                                        <li class="pbmit-social-li pbmit-social-facebook">
-                                            <a href="#" title="Facebook" target="_blank">
-                                                <span><i class="pbmit-base-icon-facebook-f"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-twitter">
-                                            <a href="#" title="Twitter" target="_blank">
-                                                <span><i class="pbmit-base-icon-twitter-2"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-linkedin">
-                                            <a href="#" title="LinkedIn" target="_blank">
-                                                <span><i class="pbmit-base-icon-linkedin-in"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-instagram">
-                                            <a href="#" title="Instagram" target="_blank">
-                                                <span><i class="pbmit-base-icon-instagram"></i></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- Slide5 -->
-                <article class="pbmit-team-style-1 swiper-slide">
-                    <div class="pbminfotech-post-item">
-                        <div class="pbmit-featured-wrap">
-                            <div class="pbmit-featured-inner">
-                                <div class="pbmit-featured-img-wrapper">
-                                    <div class="pbmit-featured-wrapper">
-                                        <img src="images/homepage-2/team/team-05.jpg" class="img-fluid" alt="">
-                                    </div>
-                                </div>
-                                <a class="pbmit-link" href="team-single-detail.html"></a>
-                            </div>
-                        </div>
-                        <div class="pbminfotech-box-content">
-                            <div class="pbminfotech-box-content-inner">
-                                <h3 class="pbmit-team-title">
-                                    <a href="team-single-detail.html">Roman Amata</a>
-                                </h3>
-                                <div class="pbminfotech-box-team-position">Co-Ordinator</div>
-                            </div>
-                            <div class="pbmit-team-btn">
-                                <a class="pbmit-team-text" href="#">
-                                    <i class="pbmit-base-icon-share"></i>
-                                </a>
-                                <div class="pbminfotech-box-social-links">
-                                    <ul class="pbmit-social-links pbmit-team-social-links">
-                                        <li class="pbmit-social-li pbmit-social-facebook">
-                                            <a href="#" title="Facebook" target="_blank">
-                                                <span><i class="pbmit-base-icon-facebook-f"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-twitter">
-                                            <a href="#" title="Twitter" target="_blank">
-                                                <span><i class="pbmit-base-icon-twitter-2"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-linkedin">
-                                            <a href="#" title="LinkedIn" target="_blank">
-                                                <span><i class="pbmit-base-icon-linkedin-in"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-instagram">
-                                            <a href="#" title="Instagram" target="_blank">
-                                                <span><i class="pbmit-base-icon-instagram"></i></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- Slide6 -->
-                <article class="pbmit-team-style-1 swiper-slide">
-                    <div class="pbminfotech-post-item">
-                        <div class="pbmit-featured-wrap">
-                            <div class="pbmit-featured-inner">
-                                <div class="pbmit-featured-img-wrapper">
-                                    <div class="pbmit-featured-wrapper">
-                                        <img src="images/homepage-2/team/team-06.jpg" class="img-fluid" alt="">
-                                    </div>
-                                </div>
-                                <a class="pbmit-link" href="team-single-detail.html"></a>
-                            </div>
-                        </div>
-                        <div class="pbminfotech-box-content">
-                            <div class="pbminfotech-box-content-inner">
-                                <h3 class="pbmit-team-title">
-                                    <a href="team-single-detail.html">Mariam Ness</a>
-                                </h3>
-                                <div class="pbminfotech-box-team-position">Administrator</div>
-                            </div>
-                            <div class="pbmit-team-btn">
-                                <a class="pbmit-team-text" href="#">
-                                    <i class="pbmit-base-icon-share"></i>
-                                </a>
-                                <div class="pbminfotech-box-social-links">
-                                    <ul class="pbmit-social-links pbmit-team-social-links">
-                                        <li class="pbmit-social-li pbmit-social-facebook">
-                                            <a href="#" title="Facebook" target="_blank">
-                                                <span><i class="pbmit-base-icon-facebook-f"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-twitter">
-                                            <a href="#" title="Twitter" target="_blank">
-                                                <span><i class="pbmit-base-icon-twitter-2"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-linkedin">
-                                            <a href="#" title="LinkedIn" target="_blank">
-                                                <span><i class="pbmit-base-icon-linkedin-in"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-instagram">
-                                            <a href="#" title="Instagram" target="_blank">
-                                                <span><i class="pbmit-base-icon-instagram"></i></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- Slide7 -->
-                <article class="pbmit-team-style-1 swiper-slide">
-                    <div class="pbminfotech-post-item">
-                        <div class="pbmit-featured-wrap">
-                            <div class="pbmit-featured-inner">
-                                <div class="pbmit-featured-img-wrapper">
-                                    <div class="pbmit-featured-wrapper">
-                                        <img src="images/homepage-2/team/team-07.jpg" class="img-fluid" alt="">
-                                    </div>
-                                </div>
-                                <a class="pbmit-link" href="team-single-detail.html"></a>
-                            </div>
-                        </div>
-                        <div class="pbminfotech-box-content">
-                            <div class="pbminfotech-box-content-inner">
-                                <h3 class="pbmit-team-title">
-                                    <a href="team-single-detail.html">David Green</a>
-                                </h3>
-                                <div class="pbminfotech-box-team-position">Service Manager</div>
-                            </div>
-                            <div class="pbmit-team-btn">
-                                <a class="pbmit-team-text" href="#">
-                                    <i class="pbmit-base-icon-share"></i>
-                                </a>
-                                <div class="pbminfotech-box-social-links">
-                                    <ul class="pbmit-social-links pbmit-team-social-links">
-                                        <li class="pbmit-social-li pbmit-social-facebook">
-                                            <a href="#" title="Facebook" target="_blank">
-                                                <span><i class="pbmit-base-icon-facebook-f"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-twitter">
-                                            <a href="#" title="Twitter" target="_blank">
-                                                <span><i class="pbmit-base-icon-twitter-2"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-linkedin">
-                                            <a href="#" title="LinkedIn" target="_blank">
-                                                <span><i class="pbmit-base-icon-linkedin-in"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-instagram">
-                                            <a href="#" title="Instagram" target="_blank">
-                                                <span><i class="pbmit-base-icon-instagram"></i></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- Slide8 -->
-                <article class="pbmit-team-style-1 swiper-slide">
-                    <div class="pbminfotech-post-item">
-                        <div class="pbmit-featured-wrap">
-                            <div class="pbmit-featured-inner">
-                                <div class="pbmit-featured-img-wrapper">
-                                    <div class="pbmit-featured-wrapper">
-                                        <img src="images/homepage-2/team/team-08.jpg" class="img-fluid" alt="">
-                                    </div>
-                                </div>
-                                <a class="pbmit-link" href="team-single-detail.html"></a>
-                            </div>
-                        </div>
-                        <div class="pbminfotech-box-content">
-                            <div class="pbminfotech-box-content-inner">
-                                <h3 class="pbmit-team-title">
-                                    <a href="team-single-detail.html">Jamie Oliver</a>
-                                </h3>
-                                <div class="pbminfotech-box-team-position">Managing Director</div>
-                            </div>
-                            <div class="pbmit-team-btn">
-                                <a class="pbmit-team-text" href="#">
-                                    <i class="pbmit-base-icon-share"></i>
-                                </a>
-                                <div class="pbminfotech-box-social-links">
-                                    <ul class="pbmit-social-links pbmit-team-social-links">
-                                        <li class="pbmit-social-li pbmit-social-facebook">
-                                            <a href="#" title="Facebook" target="_blank">
-                                                <span><i class="pbmit-base-icon-facebook-f"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-twitter">
-                                            <a href="#" title="Twitter" target="_blank">
-                                                <span><i class="pbmit-base-icon-twitter-2"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-linkedin">
-                                            <a href="#" title="LinkedIn" target="_blank">
-                                                <span><i class="pbmit-base-icon-linkedin-in"></i></span>
-                                            </a>
-                                        </li>
-                                        <li class="pbmit-social-li pbmit-social-instagram">
-                                            <a href="#" title="Instagram" target="_blank">
-                                                <span><i class="pbmit-base-icon-instagram"></i></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                        </article>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
@@ -602,132 +289,32 @@
                     </div>
                     <div class="swiper-slider" data-autoplay="true" data-loop="true" data-dots="false" data-arrows="true" data-columns="1" data-margin="30" data-effect="slide">
                         <div class="swiper-wrapper">
-                            <!-- Slide1 -->
-                            <article class="pbmit-testimonial-style-1 swiper-slide">
-                                <div class="pbminfotech-post-item">
-                                    <div class="pbminfotech-box-desc">
-                                        <blockquote class="pbminfotech-testimonial-text">
-                                            <p>“I would recommend practitioners at this center to everyone! They are great to work with and are excellent trainers. Thank you all!”</p>
-                                        </blockquote>
-                                    </div>
-                                    <div class="pbminfotech-box-author">
-                                        <div class="pbmit-featured-img-wrapper">
-                                            <div class="pbmit-featured-wrapper">
-                                                <img src="images/homepage-2/testimonial/testimonial-img-01.jpg" class="img-fluid" alt="">
+                            @if(isset($testimonies) && $testimonies->count())
+                                @foreach($testimonies as $t)
+                                    <article class="pbmit-testimonial-style-1 swiper-slide">
+                                        <div class="pbminfotech-post-item">
+                                            <div class="pbminfotech-box-desc">
+                                                <blockquote class="pbminfotech-testimonial-text">
+                                                    <p>{{ $t->desc }}</p>
+                                                </blockquote>
+                                            </div>
+                                            <div class="pbminfotech-box-author">
+                                                <div class="pbmit-featured-img-wrapper">
+                                                    <div class="pbmit-featured-wrapper">
+                                                        @if($t->image_url)
+                                                            <img src="{{ $t->image_url }}" class="img-fluid" alt="{{ $t->name }}">
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                <div class="pbmit-auther-content">
+                                                    <h3 class="pbminfotech-box-title">{{ $t->name }}</h3>
+                                                    <div class="pbminfotech-testimonial-detail">{{ $t->position }}</div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="pbmit-auther-content">
-                                            <h3 class="pbminfotech-box-title">Evangeline Lee</h3>
-                                            <div class="pbminfotech-testimonial-detail">Manager</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <!-- Slide2 -->
-                            <article class="pbmit-testimonial-style-1 swiper-slide">
-                                <div class="pbminfotech-post-item">
-                                    <div class="pbminfotech-box-desc">
-                                        <blockquote class="pbminfotech-testimonial-text">
-                                            <p>“I would recommend practitioners at this center to everyone! They are great to work with and are excellent trainers. Thank you all!”</p>
-                                        </blockquote>
-                                    </div>
-                                    <div class="pbminfotech-box-author">
-                                        <div class="pbmit-featured-img-wrapper">
-                                            <div class="pbmit-featured-wrapper">
-                                                <img src="images/homepage-2/testimonial/testimonial-img-02.jpg" class="img-fluid" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="pbmit-auther-content">
-                                            <h3 class="pbminfotech-box-title">Adeline wood</h3>
-                                            <div class="pbminfotech-testimonial-detail">Satisfied Client</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <!-- Slide3 -->
-                            <article class="pbmit-testimonial-style-1 swiper-slide">
-                                <div class="pbminfotech-post-item">
-                                    <div class="pbminfotech-box-desc">
-                                        <blockquote class="pbminfotech-testimonial-text">
-                                            <p>“I would recommend practitioners at this center to everyone! They are great to work with and are excellent trainers. Thank you all!”</p>
-                                        </blockquote>
-                                    </div>
-                                    <div class="pbminfotech-box-author">
-                                        <div class="pbmit-featured-img-wrapper">
-                                            <div class="pbmit-featured-wrapper">
-                                                <img src="images/homepage-2/testimonial/testimonial-img-03.jpg" class="img-fluid" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="pbmit-auther-content">
-                                            <h3 class="pbminfotech-box-title">Naomi Violet</h3>
-                                            <div class="pbminfotech-testimonial-detail">Customer</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <!-- Slide4 -->
-                            <article class="pbmit-testimonial-style-1 swiper-slide">
-                                <div class="pbminfotech-post-item">
-                                    <div class="pbminfotech-box-desc">
-                                        <blockquote class="pbminfotech-testimonial-text">
-                                            <p>“I would recommend practitioners at this center to everyone! They are great to work with and are excellent trainers. Thank you all!”</p>
-                                        </blockquote>
-                                    </div>
-                                    <div class="pbminfotech-box-author">
-                                        <div class="pbmit-featured-img-wrapper">
-                                            <div class="pbmit-featured-wrapper">
-                                                <img src="images/homepage-2/testimonial/testimonial-img-04.jpg" class="img-fluid" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="pbmit-auther-content">
-                                            <h3 class="pbminfotech-box-title">Hazel Jenkins</h3>
-                                            <div class="pbminfotech-testimonial-detail">Satisfied Client</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <!-- Slide5 -->
-                            <article class="pbmit-testimonial-style-1 swiper-slide">
-                                <div class="pbminfotech-post-item">
-                                    <div class="pbminfotech-box-desc">
-                                        <blockquote class="pbminfotech-testimonial-text">
-                                            <p>“I would recommend practitioners at this center to everyone! They are great to work with and are excellent trainers. Thank you all!”</p>
-                                        </blockquote>
-                                    </div>
-                                    <div class="pbminfotech-box-author">
-                                        <div class="pbmit-featured-img-wrapper">
-                                            <div class="pbmit-featured-wrapper">
-                                                <img src="images/homepage-2/testimonial/testimonial-img-05.jpg" class="img-fluid" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="pbmit-auther-content">
-                                            <h3 class="pbminfotech-box-title">Ariana Green</h3>
-                                            <div class="pbminfotech-testimonial-detail">Manager</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <!-- Slide6 -->
-                            <article class="pbmit-testimonial-style-1 swiper-slide">
-                                <div class="pbminfotech-post-item">
-                                    <div class="pbminfotech-box-desc">
-                                        <blockquote class="pbminfotech-testimonial-text">
-                                            <p>“I would recommend practitioners at this center to everyone! They are great to work with and are excellent trainers. Thank you all!”</p>
-                                        </blockquote>
-                                    </div>
-                                    <div class="pbminfotech-box-author">
-                                        <div class="pbmit-featured-img-wrapper">
-                                            <div class="pbmit-featured-wrapper">
-                                                <img src="images/homepage-2/testimonial/testimonial-img-06.jpg" class="img-fluid" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="pbmit-auther-content">
-                                            <h3 class="pbminfotech-box-title">Parsons William</h3>
-                                            <div class="pbminfotech-testimonial-detail">Ceo & Founder</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
+                                    </article>
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                     <div class="fid-style-area">
