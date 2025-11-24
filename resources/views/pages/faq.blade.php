@@ -36,9 +36,9 @@
 <section class="section-lg">
     <div class="container">
         <div class="pbmit-heading-subheading text-center animation-style2">
-            <h4 class="pbmit-subtitle">About</h4>
-            <h2 class="pbmit-title">General Questions</h2>
-            <div class="pbmit-heading-desc">You will find answers to about our various Game work and Game's service and more. Please feel <br>free to contact us if you don't get your question's answer in below.</div>
+            <h4 class="pbmit-subtitle">Informasi Umum</h4>
+            <h2 class="pbmit-title">Pertanyaan Umum</h2>
+            <div class="pbmit-heading-desc">Temukan jawaban cepat untuk layanan sedot WC, pengelolaan limbah, dan layanan darurat kami. Kalau tidak menemukan jawaban, silakan hubungi kami — siap 24/7.</div>
         </div>
         <div class="row">
             <div class="col-md-12 col-xl-6">
@@ -117,9 +117,11 @@
     <div class="container">
         <div class="pbmit-heading-subheading text-center animation-style2">
             <h4 class="pbmit-subtitle">Information</h4>
-            <h2 class="pbmit-title">Frequently Asked <br>Questions</h2>
+            <h2 class="pbmit-title">Pertanyaan yang Sering <br>Diajukan</h2>
             <div class="pbmit-heading-desc">
-                You will find answers to about our various construction work and constructor's  service and more. Please feel <br>  free to contact us if you don't get your question's answer in below.
+                Cari jawaban tentang layanan sedot WC dan pengelolaan limbah? 
+                Silakan baca pertanyaan umum berikut. Jika masih belum jelas, 
+                tinggal hubungi kami — kami siap bantu.
             </div>
         </div>
         <div class="accordion" id="accordionExample2">
