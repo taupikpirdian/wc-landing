@@ -103,7 +103,8 @@ class SeoSettingForm
                             ->label('OG Image')
                             ->image()
                             ->imageEditor()
-                            ->directory('public/seo-images')
+                            ->disk('public')
+                            ->directory('seo-images')
                             ->visibility('public')
                             ->maxSize(5120) // 5MB increased to avoid size detection issues
                             ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp'])

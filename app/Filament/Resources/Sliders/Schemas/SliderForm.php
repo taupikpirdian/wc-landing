@@ -29,7 +29,9 @@ class SliderForm
                     ->label('Image')
                     ->image()
                     ->imageEditor()
-                    ->directory('public/sliders')
+                    ->disk('public')
+                    ->directory('sliders')
+                    ->visibility('public')
                     ->maxSize(2048) // 2MB
                     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg'])
                     ->helperText('JPEG, PNG, or JPG files only, max 2MB'),

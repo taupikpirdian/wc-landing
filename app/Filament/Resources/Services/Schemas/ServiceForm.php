@@ -76,7 +76,9 @@ class ServiceForm
                     ->required(fn (string $context): bool => $context === 'create')
                     ->image()
                     ->imageEditor()
-                    ->directory('public/services')
+                    ->disk('public')
+                    ->directory('services')
+                    ->visibility('public')
                     ->maxSize(2048) // 2MB
                     ->acceptedFileTypes(['image/jpeg', 'image/png'])
                     ->helperText('JPEG or PNG files only, max 2MB'),

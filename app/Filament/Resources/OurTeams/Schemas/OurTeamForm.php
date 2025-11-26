@@ -39,7 +39,8 @@ class OurTeamForm
                             ->label('Profile Photo')
                             ->image()
                             ->imageEditor()
-                            ->directory('public/our-teams')
+                            ->disk('public')
+                            ->directory('our-teams')
                             ->visibility('public')
                             ->maxSize(2048) // 2MB
                             ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp'])

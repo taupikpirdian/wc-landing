@@ -48,7 +48,9 @@ class UserForm
                             ->label('Avatar')
                             ->image()
                             ->imageEditor()
-                            ->directory('public/avatars')
+                            ->disk('public')
+                            ->directory('avatars')
+                            ->visibility('public')
                             ->maxSize(1024) // 1MB
                             ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg'])
                             ->helperText('JPEG or PNG files only, max 1MB'),

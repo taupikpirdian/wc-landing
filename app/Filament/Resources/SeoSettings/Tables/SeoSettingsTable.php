@@ -44,11 +44,14 @@ class SeoSettingsTable
                     ->searchable()
                     ->placeholder('No meta description'),
 
-                ImageColumn::make('og_image')
+                TextColumn::make('og_image')
                     ->label('OG Image')
-                    ->size(50)
-                    ->circular()
-                    ->defaultImageUrl(null),
+                    ->formatStateUsing(function ($state) {
+                        if (!$state) return '-';
+                        $src = route('file', ['path' => $state]);
+                        return '<img src="' . e($src) . '" style="width:50px;height:50px;border-radius:50%;object-fit:cover;" />';
+                    })
+                    ->html(),
 
                 TextColumn::make('created_at')
                     ->label('Created At')

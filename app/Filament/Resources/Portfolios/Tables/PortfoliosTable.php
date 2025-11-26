@@ -46,11 +46,14 @@ class PortfoliosTable
                     ->wrap()
                     ->placeholder('No review'),
 
-                ImageColumn::make('image_cover')
+                TextColumn::make('image_cover')
                     ->label('Image Cover')
-                    ->size(100) // Thumbnail for cover
-                    ->circular(false) // Rectangular for portfolio covers
-                    ->defaultImageUrl(null),
+                    ->formatStateUsing(function ($state) {
+                        if (!$state) return '-';
+                        $src = route('file', ['path' => $state]);
+                        return '<img src="' . e($src) . '" style="width:100px;height:70px;border-radius:6px;object-fit:cover;" />';
+                    })
+                    ->html(),
 
                 TextColumn::make('created_at')
                     ->label('Created At')

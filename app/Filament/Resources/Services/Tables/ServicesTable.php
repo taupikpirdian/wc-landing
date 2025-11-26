@@ -41,17 +41,30 @@ class ServicesTable
                     ->wrap()
                     ->searchable(),
 
-                ImageColumn::make('image_icon')
-                    ->label('Image Icon')
-                    ->size(50) // Small thumbnail for icon
-                    ->circular()
-                    ->defaultImageUrl(null),
+                TextColumn::make('image_icon')
+                    ->label('Icon')
+                    ->formatStateUsing(function ($state) {
+                        if (!$state) return '-';
+                        $isFa = is_string($state) && (str_starts_with($state, 'fa ') || str_starts_with($state, 'fa-') || str_contains($state, ' fa-'));
+                        if ($isFa) {
+                            return '<i class="' . e($state) . '" style="font-size:20px;"></i>';
+                        }
+                        if (is_string($state) && str_starts_with($state, 'public/')) {
+                            $src = route('file', ['path' => $state]);
+                            return '<img src="' . e($src) . '" style="width:50px;height:50px;border-radius:50%;object-fit:cover;" />';
+                        }
+                        return e($state);
+                    })
+                    ->html(),
 
-                ImageColumn::make('image_cover')
+                TextColumn::make('image_cover')
                     ->label('Image Cover')
-                    ->size(80) // Thumbnail for cover
-                    ->circular(false) // Rectangular for cover
-                    ->defaultImageUrl(null),
+                    ->formatStateUsing(function ($state) {
+                        if (!$state) return '-';
+                        $src = route('file', ['path' => $state]);
+                        return '<img src="' . e($src) . '" style="width:80px;height:60px;border-radius:6px;object-fit:cover;" />';
+                    })
+                    ->html(),
 
                 TextColumn::make('created_at')
                     ->label('Created At')

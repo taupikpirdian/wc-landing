@@ -49,7 +49,9 @@ class PortfolioForm
                     ->label('Image Cover')
                     ->image()
                     ->imageEditor()
-                    ->directory('public/portfolios')
+                    ->disk('public')
+                    ->directory('portfolios')
+                    ->visibility('public')
                     ->maxSize(2048) // 2MB
                     ->acceptedFileTypes(['image/jpeg', 'image/png'])
                     ->helperText('JPEG or PNG files only, max 2MB'),

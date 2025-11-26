@@ -37,11 +37,14 @@ class TestimoniesTable
                     ->limit(100)
                     ->wrap(),
 
-                ImageColumn::make('image')
+                TextColumn::make('image')
                     ->label('Image')
-                    ->size(60) // Thumbnail for testimony image
-                    ->circular() // Circular for testimonies (profile style)
-                    ->defaultImageUrl(null),
+                    ->formatStateUsing(function ($state) {
+                        if (!$state) return '-';
+                        $src = route('file', ['path' => $state]);
+                        return '<img src="' . e($src) . '" style="width:60px;height:60px;border-radius:50%;object-fit:cover;" />';
+                    })
+                    ->html(),
 
                 TextColumn::make('created_at')
                     ->label('Created At')

@@ -20,11 +20,14 @@ class OurTeamsTable
                     ->searchable(false)
                     ->sortable(),
 
-                ImageColumn::make('image')
+                TextColumn::make('image')
                     ->label('Photo')
-                    ->size(60)
-                    ->circular()
-                    ->defaultImageUrl(null),
+                    ->formatStateUsing(function ($state) {
+                        if (!$state) return '-';
+                        $src = route('file', ['path' => $state]);
+                        return '<img src="' . e($src) . '" style="width:60px;height:60px;border-radius:50%;object-fit:cover;" />';
+                    })
+                    ->html(),
 
                 TextColumn::make('name')
                     ->label('Full Name')

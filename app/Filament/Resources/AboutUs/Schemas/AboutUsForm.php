@@ -47,7 +47,8 @@ class AboutUsForm
                             ->label('About Image')
                             ->image()
                             ->imageEditor()
-                            ->directory('public/about-us')
+                            ->disk('public')
+                            ->directory('about-us')
                             ->visibility('public')
                             ->maxSize(2048) // 2MB
                             ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp'])

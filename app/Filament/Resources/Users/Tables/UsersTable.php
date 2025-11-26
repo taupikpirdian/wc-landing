@@ -17,11 +17,14 @@ class UsersTable
     {
         return $table
             ->columns([
-                ImageColumn::make('avatar')
+                TextColumn::make('avatar')
                     ->label('Avatar')
-                    ->size(40)
-                    ->circular()
-                    ->defaultImageUrl(null),
+                    ->formatStateUsing(function ($state) {
+                        if (!$state) return '<span style="display:inline-block;width:40px;height:40px;border-radius:50%;background:#eee;"></span>';
+                        $src = route('file', ['path' => $state]);
+                        return '<img src="' . e($src) . '" style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />';
+                    })
+                    ->html(),
 
                 TextColumn::make('name')
                     ->label('Name')

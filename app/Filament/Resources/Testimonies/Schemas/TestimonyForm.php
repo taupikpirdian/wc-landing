@@ -31,7 +31,9 @@ class TestimonyForm
                     ->label('Image')
                     ->image()
                     ->imageEditor()
-                    ->directory('public/testimonies')
+                    ->disk('public')
+                    ->directory('testimonies')
+                    ->visibility('public')
                     ->maxSize(2048) // 2MB
                     ->acceptedFileTypes(['image/jpeg', 'image/png'])
                     ->helperText('JPEG or PNG files only, max 2MB'),

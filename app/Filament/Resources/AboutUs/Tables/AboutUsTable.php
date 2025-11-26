@@ -33,11 +33,14 @@ class AboutUsTable
                     ->limit(50)
                     ->wrap(),
 
-                ImageColumn::make('image_testimony')
+                TextColumn::make('image_testimony')
                     ->label('Testimonial Image')
-                    ->size(80)
-                    ->circular(false)
-                    ->defaultImageUrl(null),
+                    ->formatStateUsing(function ($state) {
+                        if (!$state) return '-';
+                        $src = route('file', ['path' => $state]);
+                        return '<img src="' . e($src) . '" style="width:80px;height:60px;border-radius:6px;object-fit:cover;" />';
+                    })
+                    ->html(),
 
                 TextColumn::make('since')
                     ->label('Since')

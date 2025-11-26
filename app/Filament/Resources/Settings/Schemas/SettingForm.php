@@ -20,7 +20,8 @@ class SettingForm
                             ->label('Website Logo')
                             ->image()
                             ->imageEditor()
-                            ->directory('public/settings')
+                            ->disk('public')
+                            ->directory('settings')
                             ->visibility('public')
                             ->maxSize(2048) // 2MB
                             ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp', 'image/svg+xml'])
