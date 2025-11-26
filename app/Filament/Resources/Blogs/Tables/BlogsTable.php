@@ -7,7 +7,6 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -21,11 +20,14 @@ class BlogsTable
                     ->searchable(false)
                     ->sortable(),
 
-                ImageColumn::make('image')
-                    ->label('Image')
-                    ->size(80)
-                    ->circular(false)
-                    ->defaultImageUrl(null),
+                TextColumn::make('thumbnail')
+                    ->label('Thumbnail')
+                    ->formatStateUsing(function ($state) {
+                        if (!$state) return '-';
+                        $src = route('file', ['path' => $state]);
+                        return '<img src="' . e($src) . '" style="width:80px;height:60px;border-radius:6px;object-fit:cover;" />';
+                    })
+                    ->html(),
 
                 TextColumn::make('category.name')
                     ->label('Category')

@@ -20,11 +20,14 @@ class SettingsTable
                     ->searchable(false)
                     ->sortable(),
 
-                ImageColumn::make('logo')
+                TextColumn::make('logo')
                     ->label('Logo')
-                    ->size(60)
-                    ->circular()
-                    ->defaultImageUrl(null),
+                    ->formatStateUsing(function ($state) {
+                        if (!$state) return '-';
+                        $src = route('file', ['path' => $state]);
+                        return '<img src="' . e($src) . '" style="width:80px;height:60px;border-radius:6px;object-fit:cover;" />';
+                    })
+                    ->html(),
 
                 TextColumn::make('facebook')
                     ->label('Facebook')

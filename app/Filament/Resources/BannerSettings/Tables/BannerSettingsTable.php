@@ -32,10 +32,14 @@ class BannerSettingsTable
                     ->badge()
                     ->color('info'),
 
-                TextColumn::make('description')
-                    ->label('Description')
-                    ->limit(60)
-                    ->wrap(),
+                TextColumn::make('image')
+                    ->label('Banner')
+                    ->formatStateUsing(function ($state) {
+                        if (!$state) return '-';
+                        $src = route('file', ['path' => $state]);
+                        return '<img src="' . e($src) . '" style="width:80px;height:60px;border-radius:6px;object-fit:cover;" />';
+                    })
+                    ->html(),
 
                 TextColumn::make('created_at')
                     ->label('Created At')

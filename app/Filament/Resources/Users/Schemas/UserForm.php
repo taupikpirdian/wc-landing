@@ -65,10 +65,19 @@ class UserForm
                             ->password()
                             ->revealable()
                             ->required(fn (string $context): bool => $context === 'create')
+                            ->rules(['confirmed'])
+                            ->dehydrated(fn ($state) => filled($state))
                             ->helperText(fn (string $context): string =>
                                 $context === 'edit' ? 'Leave empty to keep current password' : 'Required for new users'
                             )
                             ->minLength(8),
+
+                        TextInput::make('password_confirmation')
+                            ->label('Confirm Password')
+                            ->password()
+                            ->revealable()
+                            ->dehydrated(false)
+                            ->required(fn (callable $get): bool => filled($get('password'))),
                     ]),
 
                 Section::make('System Information')
