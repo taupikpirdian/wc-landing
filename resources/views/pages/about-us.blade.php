@@ -109,7 +109,7 @@
                         @foreach($aboutUs->mission as $m)
                             <li class="list-group-item">
                                 <span class="pbmit-icon-list-icon"><i class="fa fa-check-circle"></i></span>
-                                <span class="pbmit-icon-list-text">{{ cleanHtml($m['mission_point'] ?? '') }}</span>
+                                <span class="pbmit-icon-list-text">{{ strip_tags($m['mission_point'] ?? '') }}</span>
                             </li>
                         @endforeach
                     </ul>
