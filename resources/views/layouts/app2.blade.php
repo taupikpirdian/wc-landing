@@ -9,8 +9,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- SEO Meta Tags -->
-    <x-seo :seo="$seoService" />
-
+    @include('components.seo')
     <!-- Stylesheets -->
     @include('components.style')
    </head>
@@ -60,5 +59,13 @@
 	</div>
 	<!-- Scroll To Top End -->
     @include('components.script')
+	<!-- Structured Data (JSON-LD) -->
+	<script type="application/ld+json">
+		{!! json_encode($seoService->getMetaTags()['jsonLd'], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) !!}
+	</script>
+	<noscript>
+		<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+	</noscript>
    </body>
 </html>

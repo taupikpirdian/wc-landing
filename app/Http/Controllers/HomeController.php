@@ -41,14 +41,7 @@ class HomeController extends Controller
 
     public function portfolio()
     {
-        $seoService = SeoService::forPage(
-            'Portfolio - Proyek Sedot WC Berhasil | Sedot WC Resmi',
-            'Lihat portfolio proyek jasa sedot WC yang telah kami kerjakan. Dokumentasi pekerjaan profesional dan hasil terbaik.',
-            [
-                'keywords' => ['portfolio sedot wc', 'proyek sedot wc', 'dokumentasi pekerjaan'],
-                'image' => asset('assets/images/og-portfolio.jpg'),
-            ]
-        );
+        $seoService = SeoService::forPortfolio();
         $portfolios = Portfolio::latest()->paginate(9);
         return view('pages.portfolio', compact('seoService', 'portfolios'));
     }
@@ -97,14 +90,7 @@ class HomeController extends Controller
 
     public function faq()
     {
-        $seoService = SeoService::forPage(
-            'FAQ - Pertanyaan Umum Jasa Sedot WC | Sedot WC Resmi',
-            'Temukan jawaban pertanyaan umum seputar jasa sedot WC. Panduan lengkap untuk layanan profesional kami.',
-            [
-                'keywords' => ['faq sedot wc', 'pertanyaan sedot wc', 'jawaban sedot wc'],
-                'image' => asset('assets/images/og-faq.jpg'),
-            ]
-        );
+        $seoService = SeoService::forFaq();
         $generalFaqs = Faq::where('is_general', true)->orderBy('id')->get();
         $splitIndex = (int) ceil($generalFaqs->count() / 2);
         $faqsLeft = $generalFaqs->slice(0, $splitIndex);

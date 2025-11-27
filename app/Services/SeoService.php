@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Models\SeoSetting;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class SeoService
@@ -11,7 +10,7 @@ class SeoService
     private string $title;
     private string $description;
     private string $canonical;
-    private array $keywords = [];
+    private string $keywords;
     private array $openGraph = [];
     private array $twitter = [];
     private array $jsonLd = [];
@@ -30,17 +29,67 @@ class SeoService
         $this->title = $siteName;
         $this->description = 'Jasa profesional sedot WC terpercaya dengan layanan cepat, bersih, dan terjangkau. Tersedia 24/7 untuk wilayah Anda.';
         $this->canonical = url()->current();
-        $this->keywords = ['sedot wc', 'jasa sedot wc', 'sedot wc profesional', 'limbah WC', 'toilet service'];
+        $this->keywords = 'sedot wc, jasa sedot wc, sedot wc profesional, limbah WC, toilet service';
 
         $this->openGraph = [
-            'site_name' => $siteName,
+            'title' => $this->title,
             'type' => 'website',
+            'site_name' => $siteName,
+            'description' => $this->description,
+            'url' => $this->canonical,
+            'image' => asset('images/fevicon.png'),
+            'image:alt' => $this->title,
+            'image:width' => 1200,
+            'image:height' => 630,
             'locale' => 'id_ID',
         ];
 
         $this->twitter = [
             'card' => 'summary_large_image',
             'site' => '@sedotwcofficial',
+            'title' => $this->title,
+            'description' => $this->description,
+            'image' => asset('images/fevicon.png'),
+            'image:alt' => $this->title,
+        ];
+
+        $this->jsonLd = [
+            [
+                '@context' => 'https://schema.org',
+                '@type' => 'Organization',
+                'name' => $siteName,
+                'url' => config('app.url', url('/')),
+                'logo' => asset('images/fevicon.png'),
+                'description' => $this->description,
+                'address' => [
+                    '@type' => 'PostalAddress',
+                    'addressCountry' => 'ID',
+                    'addressRegion' => 'Indonesia'
+                ],
+                'contactPoint' => [
+                    '@type' => 'ContactPoint',
+                    'telephone' => '+62-812-3456-7890',
+                    'contactType' => 'customer service',
+                    'availableLanguage' => 'Indonesian'
+                ],
+                'sameAs' => [
+                    'https://facebook.com/sedotwcofficial',
+                    'https://instagram.com/sedotwcofficial',
+                    'https://twitter.com/sedotwcofficial'
+                ]
+            ],
+            [
+                '@context' => 'https://schema.org',
+                '@type' => 'WebSite',
+                'name' => $siteName,
+                'url' => config('app.url', url('/')),
+                'description' => $this->description,
+                'potentialAction' => [
+                    '@type' => 'SearchAction',
+                    'target' => url('/search?q={search_term_string}'),
+                    'query-input' => 'required name=search_term_string'
+                ]
+            ]
         ];
     }
 
@@ -77,11 +126,30 @@ class SeoService
             $instance->title = $record->title ?: ($record->meta_title ?: ($record->og_title ?: $instance->title));
             $instance->description = $record->meta_description ?: ($record->og_description ?: $instance->description);
             $instance->canonical = $record->canonical_url ?: url()->current();
+            $instance->keywords = $record->meta_keywords;
 
-            $keywords = $record->meta_keywords ? array_map('trim', explode(',', $record->meta_keywords)) : [];
-            if (!empty($keywords)) {
-                $instance->keywords = $keywords;
-            }
+            $instance->openGraph = [
+                'title' => $record->og_title ?: $instance->title,
+                'type' => $record->og_type ?: 'website',
+                'site_name' => $record->og_site_name ?: config('app.name', 'Sedot WC Resmi'),
+                'description' => $record->og_description ?: $instance->description,
+                'url' => $record->og_url ?: url()->current(),
+                'image' => $record->og_image ? route('file', ['path' => $record->og_image]) : null,
+                'image:alt' => $record->og_image_alt ?: $instance->title,
+                'image:width' => $record->og_image_width ?: 1200,
+                'image:height' => $record->og_image_height ?: 630,
+                'locale' => $record->og_locale ?: 'id_ID',
+            ];
+
+            // for twitter
+            $instance->twitter = [
+                'card' => $record->twitter_card ?: 'summary_large_image',
+                'site' => $record->twitter_site ?: '@sedotwcofficial',
+                'title' => $record->twitter_title ?: $instance->title,
+                'description' => $record->twitter_description ?: $instance->description,
+                'image' => $record->twitter_image ? route('file', ['path' => $record->twitter_image]) : null,
+                'image:alt' => $record->twitter_image_alt ?: $instance->title,
+            ];
 
             if ($record->og_image) {
                 $path = str_starts_with($record->og_image, 'public/') ? substr($record->og_image, 7) : $record->og_image;
@@ -124,6 +192,16 @@ class SeoService
         return self::fromDb('blog');
     }
 
+    public static function forPortfolio(): self
+    {
+        return self::fromDb('portfolio');
+    }
+
+    public static function forFaq(): self
+    {
+        return self::fromDb('faq');
+    }
+
     public function addJsonLd(array $data): self
     {
         $this->jsonLd[] = $data;
@@ -140,11 +218,14 @@ class SeoService
         return [
             'title' => Str::limit($fullTitle, 60),
             'description' => Str::limit($this->description, 160),
-            'keywords' => implode(', ', $this->keywords),
+            'keywords' => $this->keywords,
             'canonical' => $this->canonical,
             'robots' => $this->robots,
             'author' => $this->author,
             'image' => $this->imageUrl,
+            'openGraph' => $this->openGraph,
+            'twitter' => $this->twitter,
+            'jsonLd' => $this->jsonLd,
             'published_time' => now()->format('Y-m-d\TH:i:s\Z'),
             'modified_time' => now()->format('Y-m-d\TH:i:s\Z'),
         ];
@@ -262,74 +343,17 @@ class SeoService
 
     public static function forPortfolioDetail(string $slug): self
     {
-        // $portfolio = Portfolio::where('slug', $slug)->firstOrFail();
-
-        // return $this->forPage(
-        //     $portfolio->title . ' - Proyek Sedot WC Berhasil | Sedot WC Resmi',
-        //     $portfolio->description,
-        //     [
-        //         'keywords' => $this->generateMetaKeywords($portfolio->keywords),
-        //         'image' => $portfolio->image ? asset('assets/images/portfolio/' . $portfolio->image) : asset('assets/images/og-portfolio.jpg'),
-        //     ]
-        // );
-
-        return self::forPage(
-            'Blog - Tips & Informasi Seputar Sedot WC | Sedot WC Resmi',
-            'Dapatkan informasi berguna seputar jasa sedot WC, tips perawatan, dan solusi masalah WC dari para ahli berpengalaman.',
-            [
-                'keywords' => ['blog sedot wc', 'tips perawatan wc', 'masalah wc', 'solusi wc'],
-                'image' => asset('assets/images/og-blog.jpg'),
-                'robots' => 'index, follow'
-            ]
-        );
+        return self::fromDb('portfolio-detail');
     }
 
     public static function forBlogDetail(string $slug): self
     {
-        // $blog = Blog::where('slug', $slug)->firstOrFail();
-
-        // return $this->forPage(
-        //     $blog->title . ' - Blog Sedot WC | Sedot WC Resmi',
-        //     $blog->description,
-        //     [
-        //         'keywords' => $this->generateMetaKeywords($blog->keywords),
-        //         'image' => $blog->image ? asset('assets/images/blog/' . $blog->image) : asset('assets/images/og-blog.jpg'),
-        //     ]
-        // );
-
-        return self::forPage(
-            'Blog - Tips & Informasi Seputar Sedot WC | Sedot WC Resmi',
-            'Dapatkan informasi berguna seputar jasa sedot WC, tips perawatan, dan solusi masalah WC dari para ahli berpengalaman.',
-            [
-                'keywords' => ['blog sedot wc', 'tips perawatan wc', 'masalah wc', 'solusi wc'],
-                'image' => asset('assets/images/og-blog.jpg'),
-                'robots' => 'index, follow'
-            ]
-        );
+        return self::fromDb('blog-detail');
     }
 
     public static function forServiceDetail(string $slug): self
     {
-        // $service = Service::where('slug', $slug)->firstOrFail();
-
-        // return $this->forPage(
-        //     $service->title . ' - Layanan Sedot WC | Sedot WC Resmi',
-        //     $service->description,
-        //     [
-        //         'keywords' => $this->generateMetaKeywords($service->keywords),
-        //         'image' => $service->image ? asset('assets/images/service/' . $service->image) : asset('assets/images/og-service.jpg'),
-        //     ]
-        // );
-
-        return self::forPage(
-            'Layanan - Jasa Sedot WC | Sedot WC Resmi',
-            'Jasa sedot WC terbaik dengan kualitas terbaik dan harga terjangkau.',
-            [
-                'keywords' => ['layanan sedot wc', 'jasa sedot wc', 'kualitas wc', 'harga wc'],
-                'image' => asset('assets/images/og-service.jpg'),
-                'robots' => 'index, follow'
-            ]
-        );
+        return self::fromDb('service-detail');
     }  
 
 }

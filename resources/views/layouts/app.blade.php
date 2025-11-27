@@ -4,17 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-		<!-- SEO Meta Tags -->
-		<x-seo :seo="$seoService" />
-
-		<!-- PWA Manifest -->
-		<link rel="manifest" href="{{ asset('manifest.json') }}">
-
-		<!-- Theme color for PWA -->
-		<meta name="theme-color" content="#4CAF50">
-
-		<!-- Stylesheets -->
+		@include('components.seo')
 		@include('components.style')
 	</head>
 	<body>
@@ -55,5 +45,13 @@
 	</div>
 	<!-- Scroll To Top End -->
 	@include('components.script')
+	<!-- Structured Data (JSON-LD) -->
+	<script type="application/ld+json">
+		{!! json_encode($seoService->getMetaTags()['jsonLd'], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) !!}
+	</script>
+	<noscript>
+		<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+	</noscript>
 	</body>
 </html>
