@@ -35,17 +35,13 @@ class AppServiceProvider extends ServiceProvider
         Filament::serving(function () {
             Filament::registerNavigationGroups([
                 NavigationGroup::make()
-                    ->label('Manajemen Pengguna')
-                    ->icon('heroicon-s-users'),
+                    ->label('Manajemen Pengguna'),
                 NavigationGroup::make()
-                    ->label('Konten Website')
-                    ->icon('heroicon-s-collection'),
+                    ->label('Konten Website'),
                 NavigationGroup::make()
-                    ->label('SEO & Marketing')
-                    ->icon('heroicon-s-magnifying-glass'),
+                    ->label('SEO & Marketing'),
                 NavigationGroup::make()
                     ->label('Pengaturan')
-                    ->icon('heroicon-s-cog')
                     ->collapsed(),
             ]);
         });
