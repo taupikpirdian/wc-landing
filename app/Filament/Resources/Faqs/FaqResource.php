@@ -20,6 +20,9 @@ class FaqResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+    protected static \UnitEnum|string|null $navigationGroup = 'Konten Website';
+    protected static ?int $navigationSort = 55;
+
     protected static ?string $recordTitleAttribute = 'question';
 
     public static function form(Schema $schema): Schema

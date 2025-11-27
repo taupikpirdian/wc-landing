@@ -20,6 +20,9 @@ class ContactUsResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+    protected static \UnitEnum|string|null $navigationGroup = 'Pengaturan';
+    protected static ?int $navigationSort = 20;
+
     protected static ?string $recordTitleAttribute = 'mail';
 
     public static function form(Schema $schema): Schema
