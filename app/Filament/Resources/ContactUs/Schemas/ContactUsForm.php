@@ -10,6 +10,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TimePicker;
+use Filament\Forms\Components\RichEditor;
 
 class ContactUsForm
 {
@@ -67,9 +68,8 @@ class ContactUsForm
                 Section::make('Working Hours')
                     ->description('Business working hours and schedule')
                     ->schema([
-                        Textarea::make('working_day_summary')
+                        RichEditor::make('working_day_summary')
                             ->label('Working Day Summary')
-                            ->rows(2)
                             ->placeholder('Mon-Fri: 09:00-17:00')
                             ->helperText('Summary of working hours'),
 
