@@ -9,10 +9,11 @@
                             <div class="site-branding">
                                 <h1 class="site-title">
                                     @php($setting = \App\Models\Setting::first())
-                                    @php($logoUrl = $setting && $setting->logo_url ? asset(str_replace('public/', '', $setting->logo_url)) : asset('assets/images/logo-white.svg'))
+                                    @php($logoPath = ($setting && $setting->logo) ? $setting->logo : null)
+                                    @php($logoUrl = $logoPath ? route('file', ['path' => $logoPath]) : asset('assets/images/logo-white.svg'))
                                     <a href="{{ route('home') }}">
-                                        <img class="logo-img" src="{{ $logoUrl }}" alt="Xcleen">
-                                        <img src="{{ $logoUrl }}" class="pbmit-sticky-logo" alt="Xcleen">
+                                        <!-- <img class="logo-img" src="{{ $logoUrl }}" alt="Xcleen" style="height:500px;width:auto;display:inline-block;"> -->
+                                        <img src="{{ $logoUrl }}" class="pbmit-sticky-logo" alt="Xcleen" style="height:500px;width:auto;display:inline-block;">
                                     </a>
                                 </h1>
                             </div>
