@@ -64,31 +64,26 @@
                         <div class="pbmit-timelist-wrapper">
                             @php($contactUs = isset($contactUs) ? $contactUs : \App\Models\ContactUs::with('workingTimes')->first())
                             <ul class="pbmit-timelist-list">
-                                @if($contactUs && $contactUs->relationLoaded('workingTimes') && $contactUs->workingTimes->count())
                                     @foreach($contactUs->workingTimes as $wt)
-                                        @php($summary = data_get($wt, 'summary'))
-                                        @php($day = data_get($wt, 'day'))
-                                        @php($start = data_get($wt, 'start'))
-                                        @php($end = data_get($wt, 'end'))
-                                        <li>
-                                            <span class="pbmit-timelist-time">{{ $summary ?? trim(($day ? ($day.': ') : '').(($start && $end) ? ($start.' - '.$end) : '')) }}</span>
-                                        </li>
-                                    @endforeach
-                                @elseif($contactUs && $contactUs->working_day_summary)
+                                        @php($dayEn = data_get($wt, 'day'))
+                                        @php($day = $dayEn ? ([
+                                            'Monday' => 'Senin',
+                                            'Tuesday' => 'Selasa',
+                                            'Wednesday' => 'Rabu',
+                                            'Thursday' => 'Kamis',
+                                            'Friday' => 'Jumat',
+                                            'Saturday' => 'Sabtu',
+                                            'Sunday' => 'Minggu',
+                                        ][$dayEn] ?? $dayEn) : null)
+                                    @php($start = data_get($wt, 'open_time'))
+                                    @php($end = data_get($wt, 'close_time'))
+                                    @php($isClosed = (bool) data_get($wt, 'is_closed'))
+                                    @php($startFmt = $start ? substr($start, 0, 5) : null)
+                                    @php($endFmt = $end ? substr($end, 0, 5) : null)
                                     <li>
-                                        <span class="pbmit-timelist-time">{{ $contactUs->working_day_summary }}</span>
+                                        <span class="pbmit-timelist-time">{{ ($day ? ($day.': ') : '') . ($isClosed ? 'Closed' : (($startFmt && $endFmt) ? ($startFmt.' - '.$endFmt) : '-')) }}</span>
                                     </li>
-                                @else
-                                    <li>
-                                        <span class="pbmit-timelist-time">Mon - Fri: 9.00am - 5.00pm</span>
-                                    </li>
-                                    <li>
-                                        <span class="pbmit-timelist-time">Saturday: 10.00am - 6.00pm</span>
-                                    </li>
-                                    <li>
-                                        <span class="pbmit-timelist-time">Sunday Closed</span>
-                                    </li>
-                                @endif
+                                @endforeach
                             </ul>
                         </div>
                     </div>
