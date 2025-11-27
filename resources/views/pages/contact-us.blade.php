@@ -127,7 +127,7 @@
                         <div class="pbmit-ihbox-wrap">
                             <div class="pbmit-ihbox-contents">
                                 <h2 class="pbmit-element-title">Working Days</h2>
-                                <div class="pbmit-heading-desc">{{ $contactUs->working_day_summary ?? '' }}</div>
+                                <div class="pbmit-heading-desc">{!! $contactUs->working_day_summary ?? '' !!}</div>
                             </div>
                             <div class="pbmit-ihbox-icon">
                                 <div class="pbmit-ihbox-icon-wrapper pbmit-icon-type-icon">
