@@ -27,7 +27,7 @@ class HomeController extends Controller
         $faqs = Faq::where('is_show_home', true)->latest()->limit(3)->get();
         $blogs = Blog::where('is_publish', true)->orderByDesc('published_at')->limit(9)->get();
         $contactUs = ContactUs::first();
-        $ourAdvantages = OurAdvantage::orderBy('number')->limit(4)->get();
+        $ourAdvantages = OurAdvantage::orderBy('number')->get();
         $aboutUs = AboutUs::first();
         return view('welcome', compact('seoService', 'sliders', 'services', 'portfolios', 'testimonies', 'faqs', 'blogs', 'contactUs', 'ourAdvantages', 'aboutUs'));
     }
