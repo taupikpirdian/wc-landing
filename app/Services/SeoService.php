@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Models\SeoSetting;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class SeoService
@@ -67,69 +69,59 @@ class SeoService
         return $instance;
     }
 
+    private static function fromDb(string $page): self
+    {
+        $instance = new self();
+        $record = SeoSetting::where('page', $page)->first();
+        if ($record) {
+            $instance->title = $record->title ?: ($record->meta_title ?: ($record->og_title ?: $instance->title));
+            $instance->description = $record->meta_description ?: ($record->og_description ?: $instance->description);
+            $instance->canonical = $record->canonical_url ?: url()->current();
+
+            $keywords = $record->meta_keywords ? array_map('trim', explode(',', $record->meta_keywords)) : [];
+            if (!empty($keywords)) {
+                $instance->keywords = $keywords;
+            }
+
+            if ($record->og_image) {
+                $path = str_starts_with($record->og_image, 'public/') ? substr($record->og_image, 7) : $record->og_image;
+                $instance->imageUrl = route('file', ['path' => $path]);
+            }
+
+            if ($record->json_ld) {
+                $decoded = json_decode($record->json_ld, true);
+                if (is_array($decoded)) {
+                    $instance->addJsonLd($decoded);
+                }
+            }
+        }
+
+        return $instance;
+    }
+
     public static function forHome(): self
     {
-        return self::forPage(
-            'Sedot WC Resmi - Jasa Profesional 24/7 | Bersih & Terpercaya',
-            'Jasa sedot WC resmi dan terpercaya dengan layanan 24 jam. Tenaga ahli, peralatan modern, harga terjangkau. Hubungi sekarang untuk solusi WC Anda!',
-            [
-                'keywords' => ['sedot wc', 'jasa sedot wc', 'sedot wc murah', 'sedot wc 24 jam', 'sedot wc profesional'],
-                'image' => asset('assets/images/og-home.jpg'),
-                'robots' => 'index, follow'
-            ]
-        );
+        return self::fromDb('home');
     }
 
     public static function forServices(): self
     {
-        return self::forPage(
-            'Layanan Jasa Sedot WC Lengkap | Sedot WC Resmi',
-            'Layanan lengkap jasa sedot WC: sedot WC rumah, kantor, pabrik, saluran mampet, dll. Harga bersaing, layanan profesional.',
-            [
-                'keywords' => ['layanan sedot wc', 'jasa sedot wc', 'sedot wc rumah', 'sedot wc kantor', 'saluran mampet'],
-                'image' => asset('assets/images/og-services.jpg'),
-                'robots' => 'index, follow'
-            ]
-        );
+        return self::fromDb('services');
     }
 
     public static function forAbout(): self
     {
-        return self::forPage(
-            'Tentang Kami - Sedot WC Resmi | Profil Perusahaan',
-            'Kenali lebih dekat Sedot WC Resmi. Berpengalaman 25+ tahun, tenaga ahli bersertifikat, peralatan modern, dan komitmen pelayanan terbaik.',
-            [
-                'keywords' => ['tentang sedot wc', 'profil jasa sedot wc', 'sedot wc profesional'],
-                'image' => asset('assets/images/og-about.jpg'),
-                'robots' => 'index, follow'
-            ]
-        );
+        return self::fromDb('about-us');
     }
 
     public static function forContact(): self
     {
-        return self::forPage(
-            'Hubungi Kami - Sedot WC Resmi 24/7',
-            'Kontak Sedot WC Resmi untuk layanan sedot WC darurat 24 jam. Telepon sekarang untuk respon cepat dan layanan profesional.',
-            [
-                'keywords' => ['kontak sedot wc', 'telepon sedot wc', 'sedot wc darurat'],
-                'image' => asset('assets/images/og-contact.jpg'),
-                'robots' => 'index, follow'
-            ]
-        );
+        return self::fromDb('contact-us');
     }
 
     public static function forBlog(): self
     {
-        return self::forPage(
-            'Blog - Tips & Informasi Seputar Sedot WC | Sedot WC Resmi',
-            'Dapatkan informasi berguna seputar jasa sedot WC, tips perawatan, dan solusi masalah WC dari para ahli berpengalaman.',
-            [
-                'keywords' => ['blog sedot wc', 'tips perawatan wc', 'masalah wc', 'solusi wc'],
-                'image' => asset('assets/images/og-blog.jpg'),
-                'robots' => 'index, follow'
-            ]
-        );
+        return self::fromDb('blog');
     }
 
     public function addJsonLd(array $data): self
