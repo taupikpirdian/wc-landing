@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use Filament\Facades\Filament;
+use Filament\Navigation\NavigationGroup;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,5 +31,23 @@ class AppServiceProvider extends ServiceProvider
                 URL::forceRootUrl(config('app.asset_url'));
             }
         }
+
+        Filament::serving(function () {
+            Filament::registerNavigationGroups([
+                NavigationGroup::make()
+                    ->label('Manajemen Pengguna')
+                    ->icon('heroicon-s-users'),
+                NavigationGroup::make()
+                    ->label('Konten Website')
+                    ->icon('heroicon-s-collection'),
+                NavigationGroup::make()
+                    ->label('SEO & Marketing')
+                    ->icon('heroicon-s-magnifying-glass'),
+                NavigationGroup::make()
+                    ->label('Pengaturan')
+                    ->icon('heroicon-s-cog')
+                    ->collapsed(),
+            ]);
+        });
     }
 }
