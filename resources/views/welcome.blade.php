@@ -126,7 +126,7 @@
                                         </div>
                                     </div>
                                     <div class="pbmit-service-description">
-                                        <p>{{ cleanHtml($service->desc) }}</p>
+                                        <p>{{ strip_tags($service->desc) }}</p>
                                     </div>
                                 </div>
                                 <div class="pbmit-service-btn-wrapper">
