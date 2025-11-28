@@ -5,6 +5,8 @@ namespace App\Providers;
 use Filament\Facades\Filament;
 use Filament\Navigation\NavigationGroup;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\View;
+use App\Models\ContactUs;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -45,5 +47,22 @@ class AppServiceProvider extends ServiceProvider
                     ->collapsed(),
             ]);
         });
+
+        $contact = ContactUs::first();
+        $rawMobile = $contact ? $contact->mobile : null;
+        $digits = $rawMobile ? preg_replace('/\D+/', '', $rawMobile) : null;
+        $wa = null;
+        if ($digits) {
+            if (str_starts_with($digits, '0')) {
+                $wa = '62' . substr($digits, 1);
+            } elseif (str_starts_with($digits, '62')) {
+                $wa = $digits;
+            } elseif (str_starts_with($digits, '8')) {
+                $wa = '62' . $digits;
+            } else {
+                $wa = $digits;
+            }
+        }
+        View::share('whatsappLink', $wa ? ('https://wa.me/' . $wa) : null);
     }
 }

@@ -12,6 +12,10 @@
     @include('components.seo')
     <!-- Stylesheets -->
     @include('components.style')
+    @if(isset($whatsappLink))
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/floating-whatsapp@1.0.1/floating-wpp.min.css">
+    <style>.floating-wpp{bottom:20px !important; right:20px !important;} .pbmit-progress-wrap{right:90px !important; bottom:20px !important;}</style>
+    @endif
    </head>
 
    <body>
@@ -58,7 +62,32 @@
 		</svg>	
 	</div>
 	<!-- Scroll To Top End -->
-    @include('components.script')
+    <div class="floating-wpp"></div>
+	@include('components.script')
+	<script>
+		$(function(){
+			function formatPhone(phone){
+				if (!phone) return '';
+				phone = String(phone).replace(/\D/g, '');
+				if (phone.startsWith('0')) return '62' + phone.slice(1);
+				if (phone.startsWith('62')) return phone;
+				return phone;
+			}
+			const phone = formatPhone(@json($contactUs->phone ?? null));
+			if (typeof $.fn.floatingWhatsApp === 'function' && phone && $('.floating-wpp').length) {
+				$('.floating-wpp').floatingWhatsApp({
+					phone: phone,
+					popupMessage: 'Halo! Ada yang bisa kami bantu?',
+					showPopup: true,
+					message: 'Halo, saya ingin konsultasi layanan.',
+					headerTitle: 'Sedot WC Resmi',
+					position: 'right',
+					size: '60px',
+					zIndex: 1000
+				});
+			}
+		});
+	</script>
 	<!-- Structured Data (JSON-LD) -->
 	<script type="application/ld+json">
 		{!! json_encode($seoService->getMetaTags()['jsonLd'], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) !!}

@@ -35,3 +35,4 @@
 <script src="{{ asset('assets/js/gsap-animation.js') }}"></script>
 <!-- Scripts JS -->
 <script src="{{ asset('assets/js/scripts.js') }}"></script>
+<script src="{{ asset('assets/js/floating-whatsapp-message-button-jquery/floating-wpp.min.js') }}"></script>

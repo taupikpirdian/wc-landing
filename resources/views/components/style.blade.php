@@ -22,3 +22,4 @@
 <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 <!-- Responsive CSS -->
 <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/js/floating-whatsapp-message-button-jquery/floating-wpp.min.css') }}">
