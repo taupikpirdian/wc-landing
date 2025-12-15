@@ -52,3 +52,18 @@
 <!-- Preload Critical CSS -->
 <link rel="preload" href="{{ asset('assets/css/bootstrap.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <link rel="preload" href="{{ asset('assets/css/style.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">	
+@php($gaId = config('seo.analytics.google_analytics_id'))
+@if($gaId)
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ $gaId }}"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '{{ $gaId }}', { anonymize_ip: true });
+
+// Check already start
+if (window.gtag) {
+    console.log('Google Analytics already started');
+}
+</script>
+@endif
