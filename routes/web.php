@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 Route::middleware(['web'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/layanan-kami', [HomeController::class, 'services'])->name('services');
+    Route::get('/area-layanan', [HomeController::class, 'serviceArea'])->name('service-area');
     Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
     Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
     Route::get('/faq', [HomeController::class, 'faq'])->name('faq');

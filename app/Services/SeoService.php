@@ -197,6 +197,11 @@ class SeoService
         return self::fromDb('portfolio');
     }
 
+    public static function forServiceArea(): self
+    {
+        return self::fromDb('area-layanan');
+    }
+
     public static function forFaq(): self
     {
         return self::fromDb('faq');

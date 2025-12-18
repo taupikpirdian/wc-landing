@@ -34,6 +34,9 @@
                                             <li class="dropdown @if(request()->segment(1) == '') active @endif">
                                                 <a href="{{ route('home') }}">Home</a>
                                             </li>
+                                            <li class="dropdown @if(request()->segment(1) == 'area-layanan') active @endif">
+                                                <a href="{{ route('service-area') }}">Area Layanan</a>
+                                            </li>
                                             <li class="dropdown @if(request()->segment(1) == 'tentang-kami') active @endif">
                                                 <a href="{{ route('about-us') }}">Tentang Kami</a>
                                             </li>

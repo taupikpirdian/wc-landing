@@ -21,7 +21,11 @@ class BlogResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static \UnitEnum|string|null $navigationGroup = 'Konten Website';
-    protected static ?int $navigationSort = 40;
+    protected static ?int $navigationSort = 1;
+
+    protected static ?string $modelLabel = 'Artikel';
+    protected static ?string $pluralModelLabel = 'Artikel';
+    protected static ?string $navigationLabel = 'Artikel';
 
     protected static ?string $recordTitleAttribute = 'title';
 

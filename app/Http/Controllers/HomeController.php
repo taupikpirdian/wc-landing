@@ -13,6 +13,7 @@ use App\Models\AboutUs;
 use App\Models\OurAdvantage;
 use App\Models\OurTeam;
 use App\Models\ContactUs;
+use App\Models\ServiceArea;
 use App\Services\SeoService;
 
 class HomeController extends Controller
@@ -37,6 +38,13 @@ class HomeController extends Controller
         $seoService = SeoService::forServices();
         $services = Service::latest()->paginate(9);
         return view('pages.services', compact('seoService', 'services'));
+    }
+
+    public function serviceArea()
+    {
+        $seoService = SeoService::forServiceArea();
+        $serviceAreas = ServiceArea::all();
+        return view('pages.service-area', compact('seoService', 'serviceAreas'));
     }
 
     public function portfolio()

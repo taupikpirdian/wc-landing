@@ -28,6 +28,7 @@ class BannerSettingForm
                             ->options([
                                 'tentang-kami' => 'Tentang Kami',
                                 'layanan-kami' => 'Layanan Kami',
+                                'area-layanan' => 'Area Layanan',
                                 'portfolio' => 'Portfolio',
                                 'blog' => 'Blog',
                                 'faq' => 'FAQ',
