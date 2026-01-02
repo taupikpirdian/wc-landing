@@ -42,6 +42,7 @@
                                                 <li class="@if(request()->segment(1) == 'portfolio') active @endif"><a href="{{ route('portfolio') }}">Portfolio</a></li>
                                                 <li class="@if(request()->segment(1) == 'blog') active @endif"><a href="{{ route('blog') }}">Blog</a></li>
                                                 <li class="@if(request()->segment(1) == 'faq') active @endif"><a href="{{ route('faq') }}">Faq</a></li>
+                                                <li class="@if(request()->segment(1) == 'hubungi-kami') active @endif"><a href="{{ route('contact-us') }}">Kontak Kami</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -110,7 +111,7 @@
                                             <h2 class="pbmit-title transform-bottom transform-delay-2">{{ $s->desc }}</h2>
                                             <div class="pbmit-button d-flex justify-content-center">
                                                 <div class="transform-bottom transform-delay-3 me-md-4 me-2">
-                                                    <a class="pbmit-btn pbmit-btn-hover-blackish" href="{{ route('contact-us') }}">
+                                                    <a class="pbmit-btn" href="{{ route('contact-us') }}" style="background-color: #fba310; border-color: #fba310;">
                                                         <span class="pbmit-button-content-wrapper">
                                                             <span class="pbmit-button-icon">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22.76" height="22.76" viewBox="0 0 22.76 22.76">

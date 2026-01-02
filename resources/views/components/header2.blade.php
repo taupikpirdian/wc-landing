@@ -50,6 +50,7 @@
                                                 <a href="{{ route('blog') }}">Blog</a>
                                             </li>
                                             <li class="dropdown @if(request()->segment(1) == 'faq') active @endif"><a href="{{ route('faq') }}">Faq</a></li>
+                                            <li class="dropdown @if(request()->segment(1) == 'hubungi-kami') active @endif"><a href="{{ route('contact-us') }}">Kontak Kami</a></li>
                                         </ul>
                                     </div>
                                 </div>
