@@ -20,7 +20,7 @@
                             <div class="site-navigation">
                                 <nav class="main-menu navbar-expand-xl navbar-light">
                                     <div class="navbar-header">
-                                        <!-- Toggle Button --> 
+                                        <!-- Toggle Button -->
                                         <button class="navbar-toggler" type="button">
                                             <i class="pbmit-base-icon-menu-1"></i>
                                         </button>
@@ -50,8 +50,25 @@
                             </div>
                         </div>
                         <div class="pbmit-right-box d-flex align-items-center">
+                            <!-- Mobile Number Display (Right Side) -->
+                            <div class="d-xl-none me-3" style="margin-left: auto; margin-right: 50px !important;">
+                                @php($rawMobile = $contactUs->mobile ?? null)
+                                @php($digits = $rawMobile ? preg_replace('/\D+/', '', $rawMobile) : null)
+                                @php($wa = null)
+                                @if($digits)
+                                    @php($wa = str_starts_with($digits, '0') ? ('62' . substr($digits, 1)) : (str_starts_with($digits, '62') ? $digits : (str_starts_with($digits, '8') ? ('62' . $digits) : $digits)))
+                                @endif
+                                <a href="{{ $wa ? ('https://wa.me/' . $wa) : '#' }}" @if($wa) target="_blank" rel="noopener" @endif class="text-white text-decoration-none fw-bold d-flex align-items-center">
+                                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background-color: #fba310; border-radius: 50%; margin-right: 8px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                        </svg>
+                                    </span>
+                                    <span style="font-size: 14px;">{{ $rawMobile ?? '' }}</span>
+                                </a>
+                            </div>
                             <div class="pbmit-right-box-button d-flex align-items-center">
-                                <div class="pbmit-button-box pe-4">
+                                <div class="pbmit-button-box pe-4" style="display: block !important;">
                                     <div class="pbmit-header-button">
                                         @php($rawMobile = $contactUs->mobile ?? null)
                                         @php($digits = $rawMobile ? preg_replace('/\D+/', '', $rawMobile) : null)
@@ -87,12 +104,12 @@
                                 </div>
                                 <div class="pbmit-sticky-corner  pbmit-top-left-corner">
                                     <svg width="30" height="30" viewBox="0 0 30 30" fill="" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M30 30V0C30 16 16 30 0 30H30Z" fill="red"></path>
+                                        <path d="M30 30V0C30 16 16 30 0 30H30Z" fill="#fba310"></path>
                                     </svg>
                                 </div>
                                 <div class="pbmit-sticky-corner pbmit-bottom-right-corner">
                                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M30 30V0C30 16 16 30 0 30H30Z" fill="red"></path>
+                                        <path d="M30 30V0C30 16 16 30 0 30H30Z" fill="#fba310"></path>
                                     </svg>
                                 </div>
                             </div>
