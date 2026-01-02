@@ -67,6 +67,7 @@
 				if (phone.startsWith('62')) return phone;
 				return phone;
 			}
+			@if(isset($contactUs) && $contactUs)
 			const phone = formatPhone(@json($contactUs->phone ?? null));
 			if (typeof $.fn.floatingWhatsApp === 'function' && phone && $('.floating-wpp').length) {
 				$('.floating-wpp').floatingWhatsApp({
@@ -80,6 +81,7 @@
 					zIndex: 1000
 				});
 			}
+			@endif
 		});
 	</script>
 	<!-- Structured Data (JSON-LD) -->
