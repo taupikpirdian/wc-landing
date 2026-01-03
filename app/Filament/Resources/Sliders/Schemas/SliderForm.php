@@ -18,6 +18,12 @@ class SliderForm
                     ->label('Title')
                     ->maxLength(255),
 
+                TextInput::make('tagline')
+                    ->label('Tagline')
+                    ->nullable()
+                    ->maxLength(255)
+                    ->helperText('Short tagline or subtitle for the slider'),
+
                 Textarea::make('desc')
                     ->rows(3)
                     ->label('Description')
@@ -34,7 +40,8 @@ class SliderForm
                     ->visibility('public')
                     ->maxSize(2048) // 2MB
                     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg'])
-                    ->helperText('JPEG, PNG, or JPG files only, max 2MB'),
+                    ->helperText('JPEG, PNG, or JPG files only, max 2MB')
+                    ->columnSpanFull(),
             ]);
     }
 }

@@ -11,5 +11,7 @@ class OurAdvantage extends Model
         'title',
         'desc',
         'icon',
+        'enable_main_slider',
+        'enable_slider',
     ];
 }

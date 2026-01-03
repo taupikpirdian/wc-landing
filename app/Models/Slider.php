@@ -8,7 +8,7 @@ use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer;
 
 class Slider extends Model
 {
-    protected $fillable = ['title', 'desc', 'image'];
+    protected $fillable = ['title', 'desc', 'image', 'tagline'];
 
     protected static function boot()
     {

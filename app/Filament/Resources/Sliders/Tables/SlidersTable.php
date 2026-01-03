@@ -24,13 +24,24 @@ class SlidersTable
                 TextColumn::make('title')
                     ->label('Title')
                     ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->badge()
+                    ->color('primary'),
+
+                TextColumn::make('tagline')
+                    ->label('Tagline')
+                    ->searchable()
+                    ->sortable()
+                    ->limit(50)
+                    ->wrap()
+                    ->toggleable(isToggledHiddenByDefault: false),
 
                 TextColumn::make('desc')
                     ->label('Description')
                     ->limit(50)
                     ->wrap()
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('image')
                     ->label('Image')
@@ -44,7 +55,8 @@ class SlidersTable
                 TextColumn::make('created_at')
                     ->label('Created At')
                     ->dateTime('M d, Y H:i')
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

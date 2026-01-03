@@ -182,9 +182,11 @@ class HomeController extends Controller
         $seoService = SeoService::forPromo();
         $contactUs = ContactUs::first();
         $ourAdvantages = OurAdvantage::orderBy('number')->get();
+        $heroFeatures = OurAdvantage::where('enable_slider', true)->latest()->limit(3)->get();
         $services = Service::latest()->limit(9)->get();
         $testimonies = Testimony::latest()->limit(9)->get();
         $faqs = Faq::where('is_show_home', true)->latest()->limit(5)->get();
-        return view('promo', compact('contactUs', 'seoService', 'ourAdvantages', 'services', 'testimonies', 'faqs'));
+        $sliders = Slider::latest()->limit(3)->get();
+        return view('promo', compact('contactUs', 'seoService', 'ourAdvantages', 'heroFeatures', 'services', 'testimonies', 'faqs', 'sliders'));
     }
 }

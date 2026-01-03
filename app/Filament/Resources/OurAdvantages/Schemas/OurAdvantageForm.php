@@ -8,6 +8,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
 
 class OurAdvantageForm
 {
@@ -66,6 +67,23 @@ class OurAdvantageForm
                             ->placeholder('Pilih ikon pencapaian')
                             ->helperText('Pilih ikon Font Awesome yang merepresentasikan pencapaian')
                             ->columnSpanFull(),
+                    ])
+                    ->columns(1),
+
+                Section::make('Display Settings')
+                    ->description('Control where this advantage is displayed')
+                    ->schema([
+                        Toggle::make('enable_main_slider')
+                            ->label('Show in Main Slider')
+                            ->helperText('Enable to show this advantage in the main homepage slider')
+                            ->default(false)
+                            ->inline(false),
+
+                        Toggle::make('enable_slider')
+                            ->label('Show in Slider')
+                            ->helperText('Enable to show this advantage in the slider section')
+                            ->default(false)
+                            ->inline(false),
                     ])
                     ->columns(1),
             ]);

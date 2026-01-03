@@ -4,63 +4,163 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <div class="hero-badge">
-                        <i class="fas fa-tools"></i>
-                        Layanan Sedot & Perbaikan WC
-                    </div>
-                    <h1 class="hero-title">
-                        WC Mampet?<br>
-                        <span>1 Jam Tuntas.</span>
-                    </h1>
-                    <p class="hero-subtitle">
-                        Layanan sedot WC profesional, bersih, dan bergaransi. Harga transparan tanpa biaya tersembunyi. Siap datang 24/7 ke lokasi Anda.
-                    </p>
-                    <div class="d-flex flex-wrap">
-                        @php($rawMobile = $contactUs->mobile ?? '08513277679')
-                        @php($digits = $rawMobile ? preg_replace('/\D+/', '', $rawMobile) : null)
-                        @php($wa = null)
-                        @if($digits)
-                            @php($wa = str_starts_with($digits, '0') ? ('62' . substr($digits, 1)) : (str_starts_with($digits, '62') ? $digits : (str_starts_with($digits, '8') ? ('62' . $digits) : $digits)))
+            @if(isset($sliders) && $sliders->isNotEmpty())
+                @foreach($sliders as $index => $s)
+                    @if($index === 0)
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 mb-5 mb-lg-0">
+                                <div class="hero-badge">
+                                    <i class="fas fa-tools"></i>
+                                    {{ $s->tagline ?? $s->title }}
+                                </div>
+                                <h1 class="hero-title">
+                                    {{ $s->title }}
+                                </h1>
+                                <p class="hero-subtitle">
+                                    {!! $s->desc !!}
+                                </p>
+                                <div class="d-flex flex-wrap">
+                                    @php($rawMobile = $contactUs->mobile ?? '08513277679')
+                                    @php($digits = $rawMobile ? preg_replace('/\D+/', '', $rawMobile) : null)
+                                    @php($wa = null)
+                                    @if($digits)
+                                        @php($wa = str_starts_with($digits, '0') ? ('62' . substr($digits, 1)) : (str_starts_with($digits, '62') ? $digits : (str_starts_with($digits, '8') ? ('62' . $digits) : $digits)))
+                                    @endif
+                                    <a href="https://wa.me/{{ $wa }}" class="btn btn-whatsapp" target="_blank" rel="noopener">
+                                        <i class="fab fa-whatsapp"></i>
+                                        Chat WhatsApp
+                                    </a>
+                                </div>
+                                @if(isset($heroFeatures) && $heroFeatures->isNotEmpty())
+                                    <div class="hero-features">
+                                        @foreach($heroFeatures as $hf)
+                                            <div class="hero-feature-item">
+                                                @php($isFa = is_string($hf->icon) && (strpos($hf->icon, 'fa ') === 0 || strpos($hf->icon, 'fa-') === 0 || strpos($hf->icon, ' fa-') !== false))
+                                                @if($isFa)
+                                                    <i class="{{ $hf->icon }}"></i>
+                                                @else
+                                                    <i class="pbmit-xclean-icon {{ $hf->icon }}"></i>
+                                                @endif
+                                                <span>{{ $hf->title }}</span>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @else
+                                    <div class="hero-features">
+                                        <div class="hero-feature-item">
+                                            <i class="fas fa-shield-alt"></i>
+                                            <span>Bergaransi</span>
+                                        </div>
+                                        <div class="hero-feature-item">
+                                            <i class="fas fa-certificate"></i>
+                                            <span>Legalitas Lengkap</span>
+                                        </div>
+                                        <div class="hero-feature-item">
+                                            <i class="fas fa-clock"></i>
+                                            <span>Layanan 24 Jam</span>
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="col-lg-6">
+                                @if($s->image_url)
+                                    <div class="hero-card" style="background-image: url('{{ asset(str_replace('public/', '', $s->image_url)) }}'); background-size: cover; background-position: center; min-height: 400px;">
+                                    </div>
+                                @else
+                                    <div class="hero-card">
+                                        <div class="hero-card-icon">
+                                            <i class="fas fa-truck"></i>
+                                        </div>
+                                        <h3 class="hero-card-title">Armada Modern & Bersih</h3>
+                                        <p class="hero-card-subtitle">Siap melayani ke lokasi Anda</p>
+                                        <div class="hero-card-rating">
+                                            <div>
+                                                <i class="fas fa-star"></i>
+                                                <span class="hero-card-rating-text">4.9/5.0</span>
+                                                <span class="hero-card-rating-subtext">Kepuasan Pelanggan</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+            @else
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <div class="hero-badge">
+                            <i class="fas fa-tools"></i>
+                            Layanan Sedot & Perbaikan WC
+                        </div>
+                        <h1 class="hero-title">
+                            WC Mampet?<br>
+                            <span>1 Jam Tuntas.</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Layanan sedot WC profesional, bersih, dan bergaransi. Harga transparan tanpa biaya tersembunyi. Siap datang 24/7 ke lokasi Anda.
+                        </p>
+                        <div class="d-flex flex-wrap">
+                            @php($rawMobile = $contactUs->mobile ?? '08513277679')
+                            @php($digits = $rawMobile ? preg_replace('/\D+/', '', $rawMobile) : null)
+                            @php($wa = null)
+                            @if($digits)
+                                @php($wa = str_starts_with($digits, '0') ? ('62' . substr($digits, 1)) : (str_starts_with($digits, '62') ? $digits : (str_starts_with($digits, '8') ? ('62' . $digits) : $digits)))
+                            @endif
+                            <a href="https://wa.me/{{ $wa }}" class="btn btn-whatsapp" target="_blank" rel="noopener">
+                                <i class="fab fa-whatsapp"></i>
+                                Chat WhatsApp
+                            </a>
+                        </div>
+                        @if(isset($heroFeatures) && $heroFeatures->isNotEmpty())
+                            <div class="hero-features">
+                                @foreach($heroFeatures as $hf)
+                                    <div class="hero-feature-item">
+                                        @php($isFa = is_string($hf->icon) && (strpos($hf->icon, 'fa ') === 0 || strpos($hf->icon, 'fa-') === 0 || strpos($hf->icon, ' fa-') !== false))
+                                        @if($isFa)
+                                            <i class="{{ $hf->icon }}"></i>
+                                        @else
+                                            <i class="pbmit-xclean-icon {{ $hf->icon }}"></i>
+                                        @endif
+                                        <span>{{ $hf->title }}</span>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @else
+                            <div class="hero-features">
+                                <div class="hero-feature-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Bergaransi</span>
+                                </div>
+                                <div class="hero-feature-item">
+                                    <i class="fas fa-certificate"></i>
+                                    <span>Legalitas Lengkap</span>
+                                </div>
+                                <div class="hero-feature-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Layanan 24 Jam</span>
+                                </div>
+                            </div>
                         @endif
-                        <a href="https://wa.me/{{ $wa }}" class="btn btn-whatsapp" target="_blank" rel="noopener">
-                            <i class="fab fa-whatsapp"></i>
-                            Chat WhatsApp
-                        </a>
                     </div>
-                    <div class="hero-features">
-                        <div class="hero-feature-item">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Bergaransi</span>
-                        </div>
-                        <div class="hero-feature-item">
-                            <i class="fas fa-certificate"></i>
-                            <span>Legalitas Lengkap</span>
-                        </div>
-                        <div class="hero-feature-item">
-                            <i class="fas fa-clock"></i>
-                            <span>Layanan 24 Jam</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="hero-card">
-                        <div class="hero-card-icon">
-                            <i class="fas fa-truck"></i>
-                        </div>
-                        <h3 class="hero-card-title">Armada Modern & Bersih</h3>
-                        <p class="hero-card-subtitle">Siap melayani ke lokasi Anda</p>
-                        <div class="hero-card-rating">
-                            <div>
-                                <i class="fas fa-star"></i>
-                                <span class="hero-card-rating-text">4.9/5.0</span>
-                                <span class="hero-card-rating-subtext">Kepuasan Pelanggan</span>
+                    <div class="col-lg-6">
+                        <div class="hero-card">
+                            <div class="hero-card-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <h3 class="hero-card-title">Armada Modern & Bersih</h3>
+                            <p class="hero-card-subtitle">Siap melayani ke lokasi Anda</p>
+                            <div class="hero-card-rating">
+                                <div>
+                                    <i class="fas fa-star"></i>
+                                    <span class="hero-card-rating-text">4.9/5.0</span>
+                                    <span class="hero-card-rating-subtext">Kepuasan Pelanggan</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endif
         </div>
     </section>
 
