@@ -214,42 +214,26 @@
             <div class="row justify-content-center mt-5">
                 <div class="col-lg-8">
                     <div class="accordion" id="faqAccordion">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                    Apakah harga di awal sudah final?
-                                </button>
-                            </h2>
-                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Ya, harga yang kami tawarkan di awal sudah final dan transparan. Tidak ada biaya tambahan yang tersembunyi. Kami akan memberikan estimasi biaya setelah survey lokasi, dan harga tersebut tidak akan berubah.
+                        @if(isset($faqs) && $faqs->isNotEmpty())
+                            @foreach($faqs as $faq)
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button @if(!$loop->first) collapsed @endif" type="button" data-bs-toggle="collapse" data-bs-target="#faq{{ $loop->iteration }}">
+                                            {{ $faq->question }}
+                                        </button>
+                                    </h2>
+                                    <div id="faq{{ $loop->iteration }}" class="accordion-collapse collapse @if($loop->first) show @endif" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            {{ $faq->answer }}
+                                        </div>
+                                    </div>
                                 </div>
+                            @endforeach
+                        @else
+                            <div class="col-12 text-center">
+                                <p>Belum ada data FAQ.</p>
                             </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                    Berapa lama teknisi sampai ke lokasi?
-                                </button>
-                            </h2>
-                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Tim teknisi kami biasanya tiba dalam waktu 1-2 jam setelah Anda menghubungi kami, tergantung lokasi dan situasi lalu lintas. Kami beroperasi 24/7 untuk memastikan layanan cepat tanggap.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                    Apakah limbah dibuang sembarangan?
-                                </button>
-                            </h2>
-                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Tidak, kami sangat memperhatikan aspek lingkungan. Semua limbah yang kami sedot akan dibuang ke Instalasi Pengolahan Lumpur Tinja (IPLT) resmi yang telah ditunjuk pemerintah. Kami memiliki izin lengkap dan berkomitmen terhadap kelestarian lingkungan.
-                                </div>
-                            </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
             </div>

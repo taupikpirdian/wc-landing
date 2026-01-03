@@ -184,6 +184,7 @@ class HomeController extends Controller
         $ourAdvantages = OurAdvantage::orderBy('number')->get();
         $services = Service::latest()->limit(9)->get();
         $testimonies = Testimony::latest()->limit(9)->get();
-        return view('promo', compact('contactUs', 'seoService', 'ourAdvantages', 'services', 'testimonies'));
+        $faqs = Faq::where('is_show_home', true)->latest()->limit(5)->get();
+        return view('promo', compact('contactUs', 'seoService', 'ourAdvantages', 'services', 'testimonies', 'faqs'));
     }
 }
