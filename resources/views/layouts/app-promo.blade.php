@@ -409,6 +409,69 @@
 				background-color: #FFFFFF;
 			}
 
+			.testimonial-section .carousel {
+				position: relative;
+			}
+
+			.testimonial-section .carousel-indicators {
+				position: relative;
+				margin-bottom: 2rem;
+			}
+
+			.testimonial-section .carousel-indicators [data-bs-target] {
+				width: 12px;
+				height: 12px;
+				border-radius: 50%;
+				background-color: #E5E7EB;
+				border: none;
+				opacity: 1;
+				margin: 0 6px;
+				transition: all 0.3s ease;
+			}
+
+			.testimonial-section .carousel-indicators [data-bs-target].active {
+				background-color: #479EF6;
+				width: 32px;
+				border-radius: 6px;
+			}
+
+			.testimonial-section .carousel-control-prev,
+			.testimonial-section .carousel-control-next {
+				width: 50px;
+				height: 50px;
+				background-color: white;
+				border-radius: 50%;
+				top: 50%;
+				transform: translateY(-50%);
+				opacity: 0;
+				transition: all 0.3s ease;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+			}
+
+			.testimonial-section:hover .carousel-control-prev,
+			.testimonial-section:hover .carousel-control-next {
+				opacity: 1;
+			}
+
+			.testimonial-section .carousel-control-prev {
+				left: -25px;
+			}
+
+			.testimonial-section .carousel-control-next {
+				right: -25px;
+			}
+
+			.testimonial-section .carousel-control-prev:hover,
+			.testimonial-section .carousel-control-next:hover {
+				background-color: #479EF6;
+			}
+
+			.testimonial-section .carousel-control-prev-icon,
+			.testimonial-section .carousel-control-next-icon {
+				width: 20px;
+				height: 20px;
+			}
+
 			.testimonial-card {
 				background: white;
 				border-radius: 20px;
@@ -455,6 +518,14 @@
 				font-weight: 700;
 				color: #479EF6;
 				font-size: 1.125rem;
+			}
+
+			.testimonial-avatar-img img {
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				object-fit: cover;
+				margin-right: 1rem;
 			}
 
 			.testimonial-author-name {

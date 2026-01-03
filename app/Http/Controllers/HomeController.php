@@ -181,6 +181,9 @@ class HomeController extends Controller
     {
         $seoService = SeoService::forPromo();
         $contactUs = ContactUs::first();
-        return view('promo', compact('contactUs', 'seoService'));
+        $ourAdvantages = OurAdvantage::orderBy('number')->get();
+        $services = Service::latest()->limit(9)->get();
+        $testimonies = Testimony::latest()->limit(9)->get();
+        return view('promo', compact('contactUs', 'seoService', 'ourAdvantages', 'services', 'testimonies'));
     }
 }
