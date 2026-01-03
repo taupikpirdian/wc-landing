@@ -2353,4 +2353,9 @@ body {
 	}
 }
 
-
+/* min 1201px maks 1700px */
+@media (min-width: 1201px) and (max-width: 1700px) {
+	#header-navigation li a {
+		font-size: 13px !important;
+	}
+}
