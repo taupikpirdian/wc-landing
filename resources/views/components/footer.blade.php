@@ -7,7 +7,7 @@
                     @php($setting = \App\Models\Setting::first())
                     @php($logoUrl = $setting && $setting->logo_url ? asset(str_replace('public/', '', $setting->logo_url)) : asset('assets/images/footer-logo.svg'))
                     <a href="{{ route('home') }}">
-                        <img src="{{ $logoUrl }}" alt="logo">
+                        <img style="width: 25%;" src="{{ $logoUrl }}" alt="logo">
                     </a>
                     <div class="widget">
                         <div class="textwidget">
@@ -50,6 +50,7 @@
                         <div class="textwidget">
                             <ul>
                                 <li><a href="{{ route('home') }}">Home</a></li>
+                                <li><a href="{{ route('promo') }}">Promo</a></li>
                                 <li><a href="{{ route('services') }}">Services</a></li>
                                 <li><a href="{{ route('blog') }}">Blog</a></li>
                                 <li><a href="{{ route('about-us') }}">About</a></li>
