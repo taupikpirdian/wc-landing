@@ -73,7 +73,18 @@ class BlogForm
                                 'strike',
                                 'underline',
                                 'undo',
+                                'attachFiles',
                             ])
+                            ->fileAttachmentsDisk('public')
+                            ->fileAttachmentsDirectory('blogs/content')
+                            ->fileAttachmentsVisibility('public')
+                            ->dehydrateStateUsing(function ($state) {
+                                return preg_replace(
+                                    '/<img(.*?)>/i',
+                                    '<img$1 style="width:80%;height:auto;">',
+                                    $state
+                                );
+                            })
                             ->helperText('Write your full blog content here'),
                     ])
                     ->columns(2),
