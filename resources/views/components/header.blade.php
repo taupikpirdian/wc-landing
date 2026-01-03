@@ -36,6 +36,7 @@
                                             </span>
                                             <ul class="navigation clearfix">
                                                 <li class="@if(request()->segment(1) == '') active @endif"><a href="{{ route('home') }}">Home</a></li>
+                                                <li class="@if(request()->segment(1) == 'promo') active @endif"><a href="{{ route('promo') }}">Promo</a></li>
                                                 <li class="@if(request()->segment(1) == 'layanan-kami') active @endif"><a href="{{ route('service-area') }}">Area Layanan</a></li>
                                                 <li class="@if(request()->segment(1) == 'tentang-kami') active @endif"><a href="{{ route('about-us') }}">Tentang Kami</a></li>
                                                 <li class="@if(request()->segment(1) == 'layanan-kami') active @endif"><a href="{{ route('services') }}">Layanan Kami</a></li>

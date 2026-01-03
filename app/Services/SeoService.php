@@ -163,7 +163,6 @@ class SeoService
                 }
             }
         }
-
         return $instance;
     }
 
@@ -205,6 +204,11 @@ class SeoService
     public static function forFaq(): self
     {
         return self::fromDb('faq');
+    }
+
+    public static function forPromo(): self
+    {
+        return self::fromDb('promo');
     }
 
     public function addJsonLd(array $data): self

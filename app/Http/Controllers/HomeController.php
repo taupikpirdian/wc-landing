@@ -176,4 +176,11 @@ class HomeController extends Controller
         $allServices = Service::orderBy('title')->get();
         return view('pages.services-detail', compact('seoService', 'service', 'allServices'));
     }
+
+    public function promo()
+    {
+        $seoService = SeoService::forPromo();
+        $contactUs = ContactUs::first();
+        return view('promo', compact('contactUs', 'seoService'));
+    }
 }
