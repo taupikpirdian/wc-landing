@@ -4,88 +4,102 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            @if(isset($sliders) && $sliders->isNotEmpty())
-                @foreach($sliders as $index => $s)
-                    @if($index === 0)
-                        <div class="row align-items-center">
-                            <div class="col-lg-6 mb-5 mb-lg-0">
-                                <div class="hero-badge">
-                                    <i class="fas fa-tools"></i>
-                                    {{ $s->tagline ?? $s->title }}
-                                </div>
-                                <h1 class="hero-title">
-                                    {{ $s->title }}
-                                </h1>
-                                <p class="hero-subtitle">
-                                    {!! $s->desc !!}
-                                </p>
-                                <div class="d-flex flex-wrap">
-                                    @php($rawMobile = $contactUs->mobile ?? '08513277679')
-                                    @php($digits = $rawMobile ? preg_replace('/\D+/', '', $rawMobile) : null)
-                                    @php($wa = null)
-                                    @if($digits)
-                                        @php($wa = str_starts_with($digits, '0') ? ('62' . substr($digits, 1)) : (str_starts_with($digits, '62') ? $digits : (str_starts_with($digits, '8') ? ('62' . $digits) : $digits)))
-                                    @endif
-                                    <a href="https://wa.me/{{ $wa }}" class="btn btn-whatsapp" target="_blank" rel="noopener">
-                                        <i class="fab fa-whatsapp"></i>
-                                        Chat WhatsApp
-                                    </a>
-                                </div>
-                                @if(isset($heroFeatures) && $heroFeatures->isNotEmpty())
-                                    <div class="hero-features">
-                                        @foreach($heroFeatures as $hf)
-                                            <div class="hero-feature-item">
-                                                @php($isFa = is_string($hf->icon) && (strpos($hf->icon, 'fa ') === 0 || strpos($hf->icon, 'fa-') === 0 || strpos($hf->icon, ' fa-') !== false))
-                                                @if($isFa)
-                                                    <i class="{{ $hf->icon }}"></i>
-                                                @else
-                                                    <i class="pbmit-xclean-icon {{ $hf->icon }}"></i>
-                                                @endif
-                                                <span>{{ $hf->title }}</span>
+            @if(isset($promos) && $promos->isNotEmpty())
+                <div id="promoCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach($promos as $index => $p)
+                            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6 mb-5 mb-lg-0">
+                                        <div class="hero-badge">
+                                            <i class="fas fa-tools"></i>
+                                            {{ $p->tagline ?? $p->title }}
+                                        </div>
+                                        <h1 class="hero-title">
+                                            {{ $p->title }}
+                                        </h1>
+                                        <p class="hero-subtitle">
+                                            {!! $p->description !!}
+                                        </p>
+                                        <div class="d-flex flex-wrap">
+                                            @php($rawMobile = $contactUs->mobile ?? '08513277679')
+                                            @php($digits = $rawMobile ? preg_replace('/\D+/', '', $rawMobile) : null)
+                                            @php($wa = null)
+                                            @if($digits)
+                                                @php($wa = str_starts_with($digits, '0') ? ('62' . substr($digits, 1)) : (str_starts_with($digits, '62') ? $digits : (str_starts_with($digits, '8') ? ('62' . $digits) : $digits)))
+                                            @endif
+                                            <a href="https://wa.me/{{ $wa }}" class="btn btn-whatsapp" target="_blank" rel="noopener">
+                                                <i class="fab fa-whatsapp"></i>
+                                                Chat WhatsApp
+                                            </a>
+                                        </div>
+                                        @if(isset($heroFeatures) && $heroFeatures->isNotEmpty())
+                                            <div class="hero-features">
+                                                @foreach($heroFeatures as $hf)
+                                                    <div class="hero-feature-item">
+                                                        @php($isFa = is_string($hf->icon) && (strpos($hf->icon, 'fa ') === 0 || strpos($hf->icon, 'fa-') === 0 || strpos($hf->icon, ' fa-') !== false))
+                                                        @if($isFa)
+                                                            <i class="{{ $hf->icon }}"></i>
+                                                        @else
+                                                            <i class="pbmit-xclean-icon {{ $hf->icon }}"></i>
+                                                        @endif
+                                                        <span>{{ $hf->title }}</span>
+                                                    </div>
+                                                @endforeach
                                             </div>
-                                        @endforeach
-                                    </div>
-                                @else
-                                    <div class="hero-features">
-                                        <div class="hero-feature-item">
-                                            <i class="fas fa-shield-alt"></i>
-                                            <span>Bergaransi</span>
-                                        </div>
-                                        <div class="hero-feature-item">
-                                            <i class="fas fa-certificate"></i>
-                                            <span>Legalitas Lengkap</span>
-                                        </div>
-                                        <div class="hero-feature-item">
-                                            <i class="fas fa-clock"></i>
-                                            <span>Layanan 24 Jam</span>
-                                        </div>
-                                    </div>
-                                @endif
-                            </div>
-                            <div class="col-lg-6">
-                                @if($s->image_url)
-                                    <div class="hero-card" style="background-image: url('{{ asset(str_replace('public/', '', $s->image_url)) }}'); background-size: cover; background-position: center; min-height: 400px;">
-                                    </div>
-                                @else
-                                    <div class="hero-card">
-                                        <div class="hero-card-icon">
-                                            <i class="fas fa-truck"></i>
-                                        </div>
-                                        <h3 class="hero-card-title">Armada Modern & Bersih</h3>
-                                        <p class="hero-card-subtitle">Siap melayani ke lokasi Anda</p>
-                                        <div class="hero-card-rating">
-                                            <div>
-                                                <i class="fas fa-star"></i>
-                                                <span class="hero-card-rating-text">4.9/5.0</span>
-                                                <span class="hero-card-rating-subtext">Kepuasan Pelanggan</span>
+                                        @else
+                                            <div class="hero-features">
+                                                <div class="hero-feature-item">
+                                                    <i class="fas fa-shield-alt"></i>
+                                                    <span>Bergaransi</span>
+                                                </div>
+                                                <div class="hero-feature-item">
+                                                    <i class="fas fa-certificate"></i>
+                                                    <span>Legalitas Lengkap</span>
+                                                </div>
+                                                <div class="hero-feature-item">
+                                                    <i class="fas fa-clock"></i>
+                                                    <span>Layanan 24 Jam</span>
+                                                </div>
                                             </div>
-                                        </div>
+                                        @endif
                                     </div>
-                                @endif
+                                    <div class="col-lg-6">
+                                        @if($p->image)
+                                            <div class="hero-card" style="background-image: url('{{ route('file', ['path' => $p->image]) }}'); background-size: cover; background-position: center; min-height: 400px;">
+                                            </div>
+                                        @else
+                                            <div class="hero-card">
+                                                <div class="hero-card-icon">
+                                                    <i class="fas fa-truck"></i>
+                                                </div>
+                                                <h3 class="hero-card-title">Armada Modern & Bersih</h3>
+                                                <p class="hero-card-subtitle">Siap melayani ke lokasi Anda</p>
+                                                <div class="hero-card-rating">
+                                                    <div>
+                                                        <i class="fas fa-star"></i>
+                                                        <span class="hero-card-rating-text">4.9/5.0</span>
+                                                        <span class="hero-card-rating-subtext">Kepuasan Pelanggan</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
+                    </div>
+                    @if($promos->count() > 1)
+                        <button class="carousel-control-prev" type="button" data-bs-target="#promoCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#promoCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     @endif
-                @endforeach
+                </div>
             @else
                 <div class="row align-items-center">
                     <div class="col-lg-6 mb-5 mb-lg-0">

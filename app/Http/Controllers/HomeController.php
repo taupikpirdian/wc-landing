@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Faq;
 use App\Models\Blog;
 use App\Models\Slider;
+use App\Models\Promo;
 use App\Models\Service;
 use App\Models\Category;
 use App\Models\Portfolio;
@@ -186,7 +187,7 @@ class HomeController extends Controller
         $services = Service::latest()->limit(9)->get();
         $testimonies = Testimony::latest()->limit(9)->get();
         $faqs = Faq::where('is_show_home', true)->latest()->limit(5)->get();
-        $sliders = Slider::latest()->limit(3)->get();
-        return view('promo', compact('contactUs', 'seoService', 'ourAdvantages', 'heroFeatures', 'services', 'testimonies', 'faqs', 'sliders'));
+        $promos = Promo::latest()->limit(3)->get();
+        return view('promo', compact('contactUs', 'seoService', 'ourAdvantages', 'heroFeatures', 'services', 'testimonies', 'faqs', 'promos'));
     }
 }
