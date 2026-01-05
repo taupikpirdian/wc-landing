@@ -143,13 +143,15 @@
                         <div class="pbmit-slider-item">
                             @php($sliderImage = asset(str_replace("public/", "", $s->image_url)))
                             @php($isFirstSlider = $loop->first)
+                            @php($isSecondSlider = $loop->index == 1)
                             <div class="pbmit-slider-bg">
+                                <link rel="preload" as="image" href="{{ $sliderImage }}" @if($isFirstSlider) fetchpriority="high" @endif>
                                 <img
                                     src="{{ $sliderImage }}"
                                     alt="{{ $s->title ?? 'Hero Slider' }}"
-                                    @if($isFirstSlider) fetchpriority="high" @endif
+                                    @if($isFirstSlider) fetchpriority="high" @elseif($isSecondSlider) fetchpriority="auto" @endif
                                     decoding="async"
-                                    loading="@if($isFirstSlider) eager @else lazy @endif"
+                                    loading="@if($isFirstSlider || $isSecondSlider) eager @else lazy @endif"
                                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
                                 >
                             </div>
