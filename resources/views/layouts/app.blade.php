@@ -11,6 +11,13 @@
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Preconnect to font origins -->
+		<link rel="preconnect" href="{{ asset('assets/fonts/') }}" crossorigin>
+
+		<!-- Preload critical font files -->
+		<link rel="preload" href="{{ asset('assets/fonts/fontawesome-webfont.woff2') }}" as="font" type="font/woff2" crossorigin>
+
 		@include('components.seo')
 		@include('components.style')
 		<style>.floating-wpp{bottom:20px !important; right:20px !important;} .pbmit-progress-wrap{right:90px !important; bottom:20px !important;}</style>
