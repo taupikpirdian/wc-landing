@@ -153,14 +153,14 @@
                                                     <a class="pbmit-btn" href="{{ $wa ? ('https://wa.me/' . $wa) : '#' }}" @if($wa) target="_blank" rel="noopener" @endif style="background-color: #fba310; border-color: #fba310;">
                                                         <span class="pbmit-button-content-wrapper">
                                                             <span class="pbmit-button-icon">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="22.76" height="22.76" viewBox="0 0 22.76 22.76">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="22.76" height="22.76" viewBox="0 0 22.76 22.76" style="color: #000000 !important;">
                                                                     <title>black-arrow</title>
-                                                                    <path d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                                    <path d="M22.34,1a14.67,14.67,0,0,0,0,20.75" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
-                                                                    <path d="M22.34,1,1,22.34" transform="translate(-0.29 -0.29)" fill="none" stroke="#000" stroke-width="2"></path>
+                                                                    <path d="M22.34,1A14.67,14.67,0,0,1,12,5.3,14.6,14.6,0,0,1,6.08,4.06,14.68,14.68,0,0,1,1.59,1" transform="translate(-0.29 -0.29)" fill="none" stroke="#000000 !important" stroke-width="2" style="stroke: #000000 !important;"></path>
+                                                                    <path d="M22.34,1a14.67,14.67,0,0,0,0,20.75" transform="translate(-0.29 -0.29)" fill="none" stroke="#000000 !important" stroke-width="2" style="stroke: #000000 !important;"></path>
+                                                                    <path d="M22.34,1,1,22.34" transform="translate(-0.29 -0.29)" fill="none" stroke="#000000 !important" stroke-width="2" style="stroke: #000000 !important;"></path>
                                                                 </svg>
                                                             </span>
-                                                            <span class="pbmit-button-text">Hubungi Kami</span>
+                                                            <span class="pbmit-button-text" style="font-size: 18px; font-weight: bold; color: #000000;">Hubungi Kami</span>
                                                         </span>
                                                     </a>
                                                 </div>
