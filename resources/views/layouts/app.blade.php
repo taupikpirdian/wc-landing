@@ -88,9 +88,5 @@
 	<script type="application/ld+json">
 		{!! json_encode($seoService->getMetaTags()['jsonLd'], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) !!}
 	</script>
-	<noscript>
-		<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-		<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-	</noscript>
 	</body>
 </html>
