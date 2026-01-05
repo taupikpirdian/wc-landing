@@ -141,7 +141,18 @@
                 @foreach($sliders as $s)
                     <div class="swiper-slide">
                         <div class="pbmit-slider-item">
-                            <div class="pbmit-slider-bg" style="background-image: url({{ asset(str_replace("public/", "", $s->image_url)) }});"></div>
+                            @php($sliderImage = asset(str_replace("public/", "", $s->image_url)))
+                            @php($isFirstSlider = $loop->first)
+                            <div class="pbmit-slider-bg">
+                                <img
+                                    src="{{ $sliderImage }}"
+                                    alt="{{ $s->title ?? 'Hero Slider' }}"
+                                    @if($isFirstSlider) fetchpriority="high" @endif
+                                    decoding="async"
+                                    loading="@if($isFirstSlider) eager @else lazy @endif"
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
+                                >
+                            </div>
                             <div class="container">
                                 <div class="row text-center">
                                     <div class="col-md-12">

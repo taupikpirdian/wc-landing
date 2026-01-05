@@ -55,7 +55,19 @@
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"></noscript>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"></noscript>	
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"></noscript>
+
+@php
+    $firstSlider = \App\Models\Slider::orderBy('id', 'asc')->first();
+    $lcpImage = $firstSlider ? asset(str_replace("public/", "", $firstSlider->image_url)) : null;
+@endphp
+
+@if($lcpImage)
+<!-- Preload LCP Image (First Slider Image) -->
+<link rel="preload" href="{{ $lcpImage }}" as="image" fetchpriority="high">
+@endif
+
+@php($gaId = config('seo.analytics.google_analytics_id'))	
 @php($gaId = config('seo.analytics.google_analytics_id'))
 @if($gaId)
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ $gaId }}"></script>
