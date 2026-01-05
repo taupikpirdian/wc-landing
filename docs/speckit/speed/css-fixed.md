@@ -20,12 +20,12 @@ Total **53.3 KiB** CSS memblokir initial render dengan durasi total **7,490 ms**
 ### 1. **Critical vs Non-Critical CSS Separation**
 **File**: `resources/views/components/style.blade.php`
 
-**Critical CSS** (Load immediately untuk above-the-fold):
-- `bootstrap.min.css` - Framework utama
-- `base.css` - Variables dan basic styles
-- `style.css` - Main theme styles
+**Critical CSS** (Load immediately - hanya 1 file):
+- `base.css` - CSS variables dan basic styles (5.3 KiB, critical untuk layout)
 
-**Non-Critical CSS** (Deferred loading dengan preload + onload):
+**All Other CSS** (Deferred loading dengan preload + onload):
+- `bootstrap.min.css` - Framework utama (deferred)
+- `style.css` - Main theme styles (deferred)
 - `fontawesome.css` - Icons (deferred)
 - `flaticon.css` - Icons (deferred)
 - `pbminfotech-base-icons.css` - Icons (deferred)
@@ -72,24 +72,26 @@ Menghapus noscript fallback yang duplikat dan tidak perlu.
 ## Expected Results
 
 ### Performance Improvements:
-✅ **FCP (First Contentful Paint)**: Diperkirakan meningkat **40-60%**
+✅ **FCP (First Contentful Paint)**: Diperkirakan meningkat **60-70%**
 - Sebelumnya: ~2-3 detik
-- Target: <1.5 detik
+- Target: <1 detik (hanya base.css yang blocking)
 
-✅ **LCP (Largest Contentful Paint)**: Diperkirakan meningkat **30-50%**
+✅ **LCP (Largest Contentful Paint)**: Diperkirakan meningkat **50-60%**
 - Sebelumnya: ~3-4 detik
-- Target: <2.5 detik
+- Target: <2 detik
 
-✅ **Total Blocking Time**: Berkurang **~3-4 detik**
+✅ **Total Blocking Time**: Berkurang **~5-6 detik**
+- Semua CSS kecuali 5.3 KiB base.css menjadi non-blocking
 
 ### Why This Works:
 
-1. **Critical CSS Only**: Hanya 3 file penting yang load synchronously
-   - Bootstrap: Framework dasar
-   - Base: CSS variables
-   - Style: Main styling untuk above-the-fold
+1. **Only 1 Critical CSS**: Hanya base.css (5.3 KiB) yang load synchronously
+   - Berisi CSS variables dan basic styles
+   - Kecil dan fast untuk load
+   - Mencegah FOUC (Flash of Unstyled Content)
 
-2. **Non-Critical Deferred**: 10 file CSS lainnya load async
+2. **All Other CSS Deferred**: 11 file CSS load async
+   - Bootstrap dan Style sekarang non-blocking
    - Tidak memblokir initial render
    - Load setelah critical path selesai
    - Fallback untuk no-JS browsers
@@ -102,6 +104,11 @@ Menghapus noscript fallback yang duplikat dan tidak perlu.
 4. **No @import**: Menghapus blocking @import di CSS
    - @import = blocking request
    - Pindah ke async HTML link tags
+
+5. **Maximum Parallel Loading**: Semua CSS load secara paralel
+   - Browser tidak menunggu CSS selesai
+   - Content langsung dirender dengan base.css
+   - Styling lengkap muncul segera setelah CSS lain load
 
 ## Browser Support
 
