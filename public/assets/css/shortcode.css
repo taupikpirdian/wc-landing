@@ -65,6 +65,13 @@
     text-transform: none;
     font-style: normal;
 	margin-bottom: 0;
+    /* Fix: Enable GPU acceleration for smoother animations */
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 .pbmit-heading-subheading .pbmit-heading-desc{
 	margin-top: 30px;
@@ -3903,30 +3910,54 @@ blockquote p {
 /*----------------------------------------*/
 .pbmit-slider-area .transform-left{
 	opacity: 0;
-    transition: all 1000ms ease;
+    /* Fix: Use specific GPU-accelerated properties instead of 'all' */
+    transition: transform 1000ms ease, opacity 1000ms ease;
     transform: translateX(-200px);
-}   
+    /* Enable GPU acceleration for smoother animations */
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+}
 .swiper-slide-active .transform-left {
 	opacity: 1;
 	transform: translateX(0);
+	/* Clear will-change after animation completes */
+	will-change: auto;
 }
 .pbmit-slider-area .transform-bottom{
 	opacity: 0;
     transform: translateY(50px);
-    transition: all 1000ms ease;
+    /* Fix: Use specific GPU-accelerated properties instead of 'all' */
+    transition: transform 1000ms ease, opacity 1000ms ease;
+    /* Enable GPU acceleration for smoother animations */
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
 }
 .swiper-slide-active .transform-bottom{
 	opacity: 1;
     transform: translateY(0);
+    /* Clear will-change after animation completes */
+    will-change: auto;
 }
 .pbmit-slider-area .transform-center{
 	opacity: 0;
-    transition: all 1000ms ease;
+    /* Fix: Use specific GPU-accelerated properties instead of 'all' */
+    transition: transform 1000ms ease, opacity 1000ms ease;
     transform: scale(0.9);
+    /* Enable GPU acceleration for smoother animations */
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
 }
 .swiper-slide-active .transform-center {
 	opacity: 1;
 	transform: scale(1);
+	/* Clear will-change after animation completes */
+	will-change: auto;
 }
 .swiper-slide-active .transform-delay-1{
 	transition-delay: 1000ms;
@@ -4021,6 +4052,11 @@ blockquote p {
     transform-origin: left;
     transform: scaleX(0);
 	opacity: 0;
+    /* Fix: Enable GPU acceleration for smoother animations */
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
 }
 .pbmit-slider-one .swiper-slide-active .pbmit-sub-title::before,
 .pbmit-slider-three .swiper-slide-active .pbmit-sub-title::before{
