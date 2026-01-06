@@ -1,4 +1,4 @@
-<script src="{{ asset('assets/js/jquery.min.js') }}" defer></script>
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
 <!-- Popper JS -->
 <script src="{{ asset('assets/js/popper.min.js') }}" defer></script>
 <!-- Bootstrap JS -->
@@ -35,4 +35,3 @@
 <script src="{{ asset('assets/js/gsap-animation.js') }}" defer></script>
 <!-- Scripts JS -->
 <script src="{{ asset('assets/js/scripts.js') }}" defer></script>
-<script src="{{ asset('assets/js/floating-whatsapp-message-button-jquery/floating-wpp.min.js') }}" defer></script>

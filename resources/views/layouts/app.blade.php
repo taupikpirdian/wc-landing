@@ -65,8 +65,15 @@
 	<!-- Scroll To Top End -->
 	<div class="floating-wpp"></div>
 	@include('components.script')
+	<!-- Floating WhatsApp JS - Try loading both versions -->
+	<script src="{{ asset('assets/js/floating-whatsapp-message-button-jquery/floating-wpp.js') }}"></script>
 	<script>
-		$(function(){
+		console.log('jQuery loaded:', typeof $);
+		console.log('jQuery.fn:', typeof $.fn);
+		console.log('jQuery.fn.floatingWhatsApp (immediate):', typeof $.fn.floatingWhatsApp);
+	</script>
+	<script>
+		$(document).ready(function(){
 			function formatPhone(phone){
 				if (!phone) return '';
 				phone = String(phone).replace(/\D/g, '');
@@ -87,7 +94,11 @@
 					size: '60px',
 					zIndex: 1000
 				});
+			} else {
+				console.log('Floating WhatsApp NOT initialized. Plugin:', typeof $.fn.floatingWhatsApp, 'Phone:', phone, 'Element:', $('.floating-wpp').length);
 			}
+			@else
+			console.log('ContactUs not set');
 			@endif
 		});
 	</script>
