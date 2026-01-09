@@ -2,10 +2,12 @@
 <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/base.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+<!-- Animation Performance Optimizations - Load Immediately -->
+<link rel="stylesheet" href="{{ asset('assets/css/animation-performance.css') }}">
 
 <!-- Defer Non-Critical CSS -->
-<link rel="preload" href="{{ asset('assets/css/fontawesome.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{{ asset('assets/css/fontawesome.css') }}"></noscript>
+{{-- <link rel="preload" href="{{ asset('assets/css/fontawesome.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ asset('assets/css/fontawesome.css') }}"></noscript> --}}
 
 <link rel="preload" href="{{ asset('assets/css/flaticon.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{{ asset('assets/css/flaticon.css') }}"></noscript>
