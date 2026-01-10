@@ -146,14 +146,31 @@
                             @php($isSecondSlider = $loop->index == 1)
                             <div class="pbmit-slider-bg">
                                 <link rel="preload" as="image" href="{{ $sliderImage }}" @if($isFirstSlider) fetchpriority="high" @endif>
-                                <img
-                                    src="{{ $sliderImage }}"
-                                    alt="{{ $s->title ?? 'Hero Slider' }}"
-                                    @if($isFirstSlider) fetchpriority="high" @elseif($isSecondSlider) fetchpriority="auto" @endif
-                                    decoding="async"
-                                    loading="@if($isFirstSlider || $isSecondSlider) eager @else lazy @endif"
-                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
-                                >
+                                <picture>
+                                    <source
+                                        media="(max-width: 767px)"
+                                        srcset="{{ $sliderImage }}"
+                                        width="767"
+                                        height="1000"
+                                    >
+                                    <source
+                                        media="(max-width: 1023px)"
+                                        srcset="{{ $sliderImage }}"
+                                        width="1023"
+                                        height="800"
+                                    >
+                                    <img
+                                        src="{{ $sliderImage }}"
+                                        alt="{{ $s->title ?? 'Hero Slider' }}"
+                                        @if($isFirstSlider) fetchpriority="high" @elseif($isSecondSlider) fetchpriority="auto" @endif
+                                        decoding="async"
+                                        loading="@if($isFirstSlider || $isSecondSlider) eager @else lazy @endif"
+                                        style="position: absolute; top: 0; left: 0; object-fit: cover; width: 100%; height: 100%;"
+                                        width="1920"
+                                        height="1080"
+                                        sizes="(max-width: 767px) 767px, (max-width: 1023px) 1023px, 1920px"
+                                    >
+                                </picture>
                             </div>
                             <div class="container">
                                 <div class="row text-center">
