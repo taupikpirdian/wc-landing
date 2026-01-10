@@ -65,6 +65,8 @@
 	<!-- Scroll To Top End -->
     <div class="floating-wpp"></div>
 	@include('components.script')
+	<!-- Floating WhatsApp JS -->
+	<script src="{{ asset('assets/js/floating-whatsapp-message-button-jquery/floating-wpp.js') }}"></script>
 	<script>
 		$(function(){
 			function formatPhone(phone){
