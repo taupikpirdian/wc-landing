@@ -18,7 +18,7 @@
 <!-- countdown JS -->
 {{-- <script src="{{ asset('assets/js/jquery.countdown.min.js') }}" defer></script> --}}
 <!-- AOS -->
-{{-- <script src="{{ asset('assets/js/aos.js') }}" defer></script> --}}
+<script src="{{ asset('assets/js/aos.js') }}" defer></script>
 <!-- GSAP -->
 {{-- <script src="{{ asset('assets/js/gsap.js') }}" defer></script> --}}
 <!-- Scroll Trigger -->

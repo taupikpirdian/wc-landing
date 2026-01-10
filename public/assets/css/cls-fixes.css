@@ -1,0 +1,26 @@
+/**
+ * CLS (Cumulative Layout Shift) Fixes
+ *
+ * File ini berisi perbaikan untuk mencegah layout shift pada halaman
+ * Fokus utama: Reserve space, prevent content reflow, stabilize dimensions
+ */
+
+/*===========================================================
+  1. HERO SECTION - FIXED HEIGHT (Score 0.492)
+===========================================================*/
+
+/* Reserve fixed height untuk hero slider - mencegah shift besar */
+.pbmit-slider-area {
+    min-height: 600px;
+    height: 100vh;
+    max-height: 1300px;
+    position: relative;
+}
+
+/* Mobile version - adjust height for smaller screens */
+@media (max-width: 768px) {
+    .pbmit-slider-area {
+        height: 80vh;
+        max-height: 30px;
+    }
+}
