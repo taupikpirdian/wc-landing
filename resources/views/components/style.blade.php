@@ -2,6 +2,9 @@
 <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/base.css') }}">
 
+<!-- CLS Fixes - Load Immediately to prevent layout shift -->
+<link rel="stylesheet" href="{{ asset('assets/css/cls-fixes.css') }}">
+
 <link rel="preload" href="{{ asset('assets/css/style.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"></noscript>
 
@@ -24,8 +27,8 @@
 {{-- <link rel="preload" href="{{ asset('assets/css/magnific-popup.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}"></noscript> --}}
 
-{{-- <link rel="preload" href="{{ asset('assets/css/aos.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{{ asset('assets/css/aos.css') }}"></noscript> --}}
+<link rel="preload" href="{{ asset('assets/css/aos.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ asset('assets/css/aos.css') }}"></noscript>
 
 <link rel="preload" href="{{ asset('assets/css/shortcode.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{{ asset('assets/css/shortcode.css') }}"></noscript>
