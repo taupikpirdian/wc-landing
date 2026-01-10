@@ -20,6 +20,7 @@
 
 		@include('components.seo')
 		@include('components.style')
+		@stack('style')
 		<style>.floating-wpp{bottom:20px !important; right:20px !important;} .pbmit-progress-wrap{right:90px !important; bottom:20px !important;}</style>
 	</head>
 	<body>

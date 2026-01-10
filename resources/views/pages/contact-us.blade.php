@@ -30,6 +30,10 @@
 <!-- Title Bar End -->
 @endsection
 @section('content')
+@push('style')
+    <link rel="preload" href="{{ asset('assets/css/flaticon.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ asset('assets/css/flaticon.css') }}"></noscript>
+@endpush
 <!-- Title Bar Start -->
 <section class="section-xl">
     <div class="container">
