@@ -1,4 +1,15 @@
 @extends('layouts.app')
+
+@push('image-preloads')
+    @if(isset($sliders) && $sliders->count() > 0)
+        @php($firstSlider = $sliders->first())
+        @if($firstSlider && $firstSlider->image_url)
+            @php($firstSliderImage = asset(str_replace("public/", "", $firstSlider->image_url)))
+            <link rel="preload" as="image" href="{{ $firstSliderImage }}" fetchpriority="high">
+        @endif
+    @endif
+@endpush
+
 @section('content')
 <!-- Ihbox Start -->
 <section class="section-lg ihbox-four-bg">
