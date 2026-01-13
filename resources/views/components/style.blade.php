@@ -4,12 +4,12 @@
       href="{{ asset('assets/css/bootstrap.min.css') }}"
       media="print"
       onload="this.media='all'">
-
-<link rel="stylesheet" href="{{ asset('assets/css/base.css') }}">
-{{-- <link rel="stylesheet"
+      
+{{-- <link rel="stylesheet" href="{{ asset('assets/css/base.css') }}"> --}}
+<link rel="stylesheet"
       href="{{ asset('assets/css/base.css') }}"
       media="print"
-      onload="this.media='all'"> --}}
+      onload="this.media='all'">
 
 <!-- CLS Fixes - Load Immediately to prevent layout shift -->
 {{-- <link rel="stylesheet" href="{{ asset('assets/css/cls-fixes.css') }}"> --}}
