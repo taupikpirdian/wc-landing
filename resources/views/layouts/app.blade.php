@@ -67,7 +67,7 @@
 	<div class="floating-wpp"></div>
 	@include('components.script')
 	<!-- Floating WhatsApp JS - Try loading both versions -->
-	<script src="{{ asset('assets/js/floating-whatsapp-message-button-jquery/floating-wpp.js') }}"></script>
+	<script src="{{ asset('assets/js/floating-whatsapp-message-button-jquery/floating-wpp.js') }}" defer></script>
 	<script>
 		console.log('jQuery loaded:', typeof $);
 		console.log('jQuery.fn:', typeof $.fn);

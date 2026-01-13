@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Services – Xcleen Demo1 HTML Template</title>
+	<title>Sedot WC Resmi</title>
 	<meta name="robots" content="noindex, follow">
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,7 +13,7 @@
     <!-- Stylesheets -->
     @include('components.style')
     @if(isset($whatsappLink))
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/floating-whatsapp@1.0.1/floating-wpp.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/floating-whatsapp@1.0.1/floating-wpp.min.css" defer>
     <style>.floating-wpp{bottom:20px !important; right:20px !important;} .pbmit-progress-wrap{right:90px !important; bottom:20px !important;}</style>
     @endif
 	@stack('style')
@@ -66,8 +66,8 @@
     <div class="floating-wpp"></div>
 	@include('components.script')
 	<!-- Floating WhatsApp JS -->
-	<script src="{{ asset('assets/js/floating-whatsapp-message-button-jquery/floating-wpp.js') }}"></script>
-	<script>
+	<script src="{{ asset('assets/js/floating-whatsapp-message-button-jquery/floating-wpp.js') }}" defer></script>
+	<script defer>
 		$(function(){
 			function formatPhone(phone){
 				if (!phone) return '';
@@ -92,12 +92,8 @@
 		});
 	</script>
 	<!-- Structured Data (JSON-LD) -->
-	<script type="application/ld+json">
+	<script type="application/ld+json" defer>
 		{!! json_encode($seoService->getMetaTags()['jsonLd'], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) !!}
 	</script>
-	<noscript>
-		<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-		<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-	</noscript>
    </body>
 </html>
