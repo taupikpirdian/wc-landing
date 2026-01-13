@@ -145,7 +145,6 @@
                             @php($isFirstSlider = $loop->first)
                             @php($isSecondSlider = $loop->index == 1)
                             <div class="pbmit-slider-bg">
-                                <link rel="preload" as="image" href="{{ $sliderImage }}" @if($isFirstSlider) fetchpriority="high" @endif>
                                 <picture>
                                     <source
                                         media="(max-width: 767px)"
