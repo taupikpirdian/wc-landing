@@ -47,8 +47,8 @@ class BannerSettingForm
                             ->directory('banner-settings')
                             ->visibility('public')
                             ->maxSize(4096)
-                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp'])
-                            ->helperText('Ukuran disarankan 1920x600 (maks 4MB)')
+                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp', 'image/svg+xml'])
+                            ->helperText('Ukuran disarankan 1920x600 (maks 4MB). Format: JPG, PNG, WEBP, SVG.')
                             ->columnSpanFull(),
                     ])
                     ->columns(2),

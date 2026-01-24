@@ -37,8 +37,8 @@ class PromoForm
                     ->directory('promos')
                     ->visibility('public')
                     ->maxSize(2048) // 2MB
-                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg'])
-                    ->helperText('JPEG, PNG, or JPG files only, max 2MB')
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp', 'image/svg+xml'])
+                    ->helperText('JPEG, PNG, JPG, WEBP, or SVG files only, max 2MB')
                     ->columnSpanFull(),
             ])
             ->columns(2);

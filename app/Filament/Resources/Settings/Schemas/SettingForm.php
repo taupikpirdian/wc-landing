@@ -25,7 +25,7 @@ class SettingForm
                             ->visibility('public')
                             ->maxSize(2048) // 2MB
                             ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp', 'image/svg+xml'])
-                            ->helperText('Upload your website logo (PNG, JPG, SVG, max 2MB)')
+                            ->helperText('Upload your website logo (PNG, JPG, WEBP, SVG, max 2MB)')
                             ->columnSpanFull(),
                     ]),
 
