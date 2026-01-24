@@ -5,9 +5,10 @@
             <div class="row">
                 <div class="pbmit-footer-widget-col-1 col-md-3">
                     @php($setting = \App\Models\Setting::first())
-                    @php($logoUrl = $setting && $setting->logo_url ? asset(str_replace('public/', '', $setting->logo_url)) : asset('assets/images/footer-logo.svg'))
                     <div class="widget">
+                        @if($setting && ($setting->facebook || $setting->twitter || $setting->instagram || $setting->youtube))
                         <h2 class="widget-title">Sosial Media</h2>
+                        @endif
                         <div class="textwidget">
                             <ul class="pbmit-social-links">
                                 @if($setting && $setting->facebook)
