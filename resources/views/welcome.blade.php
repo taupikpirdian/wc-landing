@@ -175,7 +175,7 @@
                             <div class="pbmit-featured-img-wrapper">
                                 <div class="pbmit-featured-wrapper">
                                     @if($p->image_cover_url)
-                                        <img src="{{ asset(str_replace('public/', '', $p->image_cover_url)) }}" class="img-fluid" alt="{{ $p->title }}">
+                                        <img src="{{ asset(str_replace('public/', '', $p->image_cover_url)) }}" class="img-fluid" alt="{{ $p->title }}" width="800" height="600">
                                     @endif
                                 </div>
                             </div>
@@ -209,7 +209,7 @@
                             <div class="pbmit-featured-img-wrapper">
                                 <div class="pbmit-featured-wrapper">
                                     @if($p->image_cover_url)
-                                        <img src="{{ asset(str_replace('public/', '', $p->image_cover_url)) }}" class="img-fluid" alt="{{ $p->title }}">
+                                        <img src="{{ asset(str_replace('public/', '', $p->image_cover_url)) }}" class="img-fluid" alt="{{ $p->title }}" width="800" height="600">
                                     @endif
                                 </div>
                             </div>
