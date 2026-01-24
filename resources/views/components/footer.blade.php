@@ -6,10 +6,8 @@
                 <div class="pbmit-footer-widget-col-1 col-md-3">
                     @php($setting = \App\Models\Setting::first())
                     @php($logoUrl = $setting && $setting->logo_url ? asset(str_replace('public/', '', $setting->logo_url)) : asset('assets/images/footer-logo.svg'))
-                    <a href="{{ route('home') }}">
-                        <img src="{{ $logoUrl }}" alt="logo" width="176" height="176">
-                    </a>
                     <div class="widget">
+                        <h2 class="widget-title">Sosial Media</h2>
                         <div class="textwidget">
                             <ul class="pbmit-social-links">
                                 @if($setting && $setting->facebook)
