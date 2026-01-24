@@ -51,7 +51,7 @@ class AboutUsForm
                             ->directory('about-us')
                             ->visibility('public')
                             ->maxSize(2048) // 2MB
-                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp'])
+                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp', 'image/svg+xml'])
                             ->helperText('Upload an image for the testimonials section (max 2MB)')
                             ->columnSpanFull(),
                     ]),

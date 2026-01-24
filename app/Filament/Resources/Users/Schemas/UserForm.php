@@ -52,8 +52,8 @@ class UserForm
                             ->directory('avatars')
                             ->visibility('public')
                             ->maxSize(1024) // 1MB
-                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg'])
-                            ->helperText('JPEG or PNG files only, max 1MB'),
+                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp', 'image/svg+xml'])
+                            ->helperText('JPEG, PNG, JPG, WEBP, or SVG files only, max 1MB'),
 
                         Toggle::make('is_active')
                             ->label('Active')

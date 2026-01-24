@@ -107,7 +107,7 @@ class SeoSettingForm
                             ->directory('seo-images')
                             ->visibility('public')
                             ->maxSize(5120) // 5MB increased to avoid size detection issues
-                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp'])
+                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp', 'image/svg+xml'])
                             ->helperText('Image shown when shared on social media (5MB max)'),
                     ]),
 

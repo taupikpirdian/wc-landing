@@ -53,8 +53,8 @@ class PortfolioForm
                     ->directory('portfolios')
                     ->visibility('public')
                     ->maxSize(2048) // 2MB
-                    ->acceptedFileTypes(['image/jpeg', 'image/png'])
-                    ->helperText('JPEG or PNG files only, max 2MB'),
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp', 'image/svg+xml'])
+                    ->helperText('JPEG, PNG, JPG, WEBP, or SVG files only, max 2MB'),
             ]);
     }
 }

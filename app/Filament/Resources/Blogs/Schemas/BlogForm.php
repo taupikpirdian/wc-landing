@@ -100,8 +100,8 @@ class BlogForm
                             ->directory('blogs')
                             ->visibility('public')
                             ->maxSize(4096) // 4MB
-                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp'])
-                            ->helperText('Upload a featured image for your blog post (max 4MB)')
+                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp', 'image/svg+xml'])
+                            ->helperText('Upload a featured image for your blog post (max 4MB). Format: JPG, PNG, WEBP, SVG.')
                             ->columnSpanFull(),
                         FileUpload::make('thumbnail')
                             ->label('Thumbnail (880x620)')
@@ -111,8 +111,8 @@ class BlogForm
                             ->directory('blogs/thumbnails')
                             ->visibility('public')
                             ->maxSize(4096)
-                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp'])
-                            ->helperText('Crop image to 880x620 for optimal display')
+                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp', 'image/svg+xml'])
+                            ->helperText('Crop image to 880x620 for optimal display. Format: JPG, PNG, WEBP, SVG.')
                             ->columnSpanFull(),
                     ]),
 

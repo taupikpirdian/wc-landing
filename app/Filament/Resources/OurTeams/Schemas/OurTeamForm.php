@@ -43,7 +43,7 @@ class OurTeamForm
                             ->directory('our-teams')
                             ->visibility('public')
                             ->maxSize(2048) // 2MB
-                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp'])
+                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp', 'image/svg+xml'])
                             ->helperText('Upload a professional photo of the team member (max 2MB, recommended square aspect ratio)')
                             ->columnSpanFull(),
                     ]),
