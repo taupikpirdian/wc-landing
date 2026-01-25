@@ -136,7 +136,7 @@
         </div>
     </div>
     <div class="pbmit-slider-area pbmit-slider-four">
-        <div class="swiper-slider" data-autoplay="true" data-loop="true" data-dots="true" data-arrows="false" data-columns="1" data-margin="0" data-effect="fade">
+        <div class="swiper-slider" data-autoplay="true" data-loop="true" data-dots="true" data-arrows="false" data-columns="1" data-margin="0" data-effect="fade" data-init-delay="2000">
             <div class="swiper-wrapper">
                 @foreach($sliders as $s)
                     <div class="swiper-slide">
@@ -206,3 +206,7 @@
     </div>
 </header>
 <!-- Header Main Area End Here -->
+
+<!-- LCP Optimization Script - Defer Swiper Initialization -->
+<script src="{{ asset('assets/js/lcp-slider-optimization.js') }}" defer></script>
+

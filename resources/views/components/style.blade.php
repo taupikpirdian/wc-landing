@@ -317,4 +317,70 @@
         background-color: #e8920e !important;
         border-color: #e8920e !important;
     }
+
+    /*===========================================================
+    LCP OPTIMIZATION - STATIC HERO IMAGE
+    ===========================================================*/
+
+    /* Make first slide immediately visible without JavaScript */
+    .swiper-slide:first-child .pbmit-slider-item {
+        position: relative;
+        z-index: 1;
+        opacity: 1;
+    }
+
+    /* First slide image - critical for LCP */
+    .swiper-slide:first-child .pbmit-slider-bg img {
+        position: relative;
+        display: block;
+        /* Remove absolute positioning to prevent layout shift */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Ensure first slide content is visible immediately */
+    .swiper-slide:first-child .pbmit-slider-content {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* Hide other slides until JS loads */
+    .swiper-slide:not(:first-child) {
+        display: none;
+    }
+
+    /* Show all slides after Swiper initializes */
+    .swiper-slider.swiper-initialized .swiper-slide {
+        display: block;
+    }
+
+    /* Reserve space for slider to prevent CLS */
+    .pbmit-slider-area {
+        /* Ensure height is reserved before JS loads */
+        min-height: 600px;
+        height: 100vh;
+        max-height: 1300px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Critical CSS for first slide - inline to prevent FOUC */
+    .pbmit-slider-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    .pbmit-slider-content {
+        position: relative;
+        z-index: 2;
+        padding: 2rem 0;
+    }
 </style>
