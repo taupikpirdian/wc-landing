@@ -59,7 +59,7 @@
                                 @if($digits)
                                     @php($wa = str_starts_with($digits, '0') ? ('62' . substr($digits, 1)) : (str_starts_with($digits, '62') ? $digits : (str_starts_with($digits, '8') ? ('62' . $digits) : $digits)))
                                 @endif
-                                <a class="pbmit-btn" href="{{ $wa ? ('https://wa.me/' . $wa) : '#' }}" @if($wa) target="_blank" rel="noopener" @endif style="padding: 8px 16px; font-size: 12px;">
+                                <a class="pbmit-btn btn-sm" href="{{ $wa ? ('https://wa.me/' . $wa) : '#' }}" @if($wa) target="_blank" rel="noopener" @endif>
                                     <span class="pbmit-button-content-wrapper">
                                         <span class="pbmit-button-icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 22.76 22.76">
@@ -179,7 +179,7 @@
                                             <h2 class="pbmit-title transform-bottom transform-delay-2">{{ $s->desc }}</h2>
                                             <div class="pbmit-button d-flex justify-content-center">
                                                 <div class="transform-bottom transform-delay-3 me-md-4 me-2">
-                                                    <a class="pbmit-btn" href="{{ $wa ? ('https://wa.me/' . $wa) : '#' }}" @if($wa) target="_blank" rel="noopener" @endif style="background-color: #fba310; border-color: #fba310;">
+                                                    <a class="pbmit-btn btn-orange" href="{{ $wa ? ('https://wa.me/' . $wa) : '#' }}" @if($wa) target="_blank" rel="noopener" @endif>
                                                         <span class="pbmit-button-content-wrapper">
                                                             <span class="pbmit-button-icon">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22.76" height="22.76" viewBox="0 0 22.76 22.76" style="color: #000000 !important;">

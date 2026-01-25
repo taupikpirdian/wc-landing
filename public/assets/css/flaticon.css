@@ -4,7 +4,8 @@
 url("../fonts/flaticon.woff?8f9a5d362efd21b1ab85efd488d9635c") format("woff"),
 url("../fonts/flaticon.eot?8f9a5d362efd21b1ab85efd488d9635c#iefix") format("embedded-opentype"),
 url("../fonts/flaticon.ttf?8f9a5d362efd21b1ab85efd488d9635c") format("truetype"),
-url("../fonts/flaticon.svg?8f9a5d362efd21b1ab85efd488d9635c#flaticon") format("svg")
+url("../fonts/flaticon.svg?8f9a5d362efd21b1ab85efd488d9635c#flaticon") format("svg");
+    font-display: swap;
 }
 i[class^="flaticon-"]:before, i[class*=" pbmit-xclean-icon-"]:before {
     font-family: flaticon !important;
