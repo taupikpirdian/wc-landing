@@ -270,4 +270,51 @@
     .swiper-slide-active > * {
         contain: layout style paint;
     }
+
+    /*===========================================================
+    BUTTONS - PREVENT LAYOUT SHIFTS (CLS Prevention)
+    ===========================================================*/
+
+    /* Small button variant - replaces inline style="padding: 8px 16px; font-size: 12px;" */
+    .pbmit-btn.btn-sm {
+        font-size: 12px;
+        padding: 8px 16px;
+        min-height: 36px; /* Reserve height to prevent layout shift */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Prevent font loading from shifting button dimensions */
+    .pbmit-btn {
+        /* Ensure button has minimum height before font loads */
+        min-height: 54px; /* 18px padding top + 18px padding bottom + base font size */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        /* Fix for font loading shifts */
+        font-display: swap; /* Use swap for button fonts */
+
+        /* Reserve space for content */
+        contain: layout style;
+    }
+
+    /* Fix for button text to prevent layout shifts */
+    .pbmit-btn .pbmit-button-text {
+        /* Prevent text from causing layout shifts during font loading */
+        min-height: 1.2em; /* Reserve space for text */
+        display: inline-block;
+    }
+
+    /* Orange button variant - replaces inline style="background-color: #fba310;" */
+    .pbmit-btn.btn-orange {
+        background-color: #fba310 !important;
+        border-color: #fba310 !important;
+    }
+
+    .pbmit-btn.btn-orange:hover {
+        background-color: #e8920e !important;
+        border-color: #e8920e !important;
+    }
 </style>
