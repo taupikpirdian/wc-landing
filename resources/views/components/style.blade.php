@@ -215,4 +215,59 @@
             will-change: auto !important;
         }
     }
+
+    /*===========================================================
+    SWIPER SLIDER - ASPECT RATIO FIX (CLS Prevention)
+    ===========================================================*/
+
+    /* Fix layout shifts by setting aspect-ratio for swiper slides */
+    .swiper-slide {
+        position: relative;
+        /* Ensure slide has height before content loads */
+        min-height: 300px;
+    }
+
+    /* Add aspect-ratio to images in swiper slides to prevent layout shift */
+    .swiper-slide img {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+        /* Prevent image from causing layout shift while loading */
+        background-color: transparent;
+    }
+
+    /* Specific fix for carousel with fade effect */
+    .swiper-fade .swiper-slide {
+        /* Reserve space for fade transitions */
+        min-height: 400px;
+    }
+
+    /* Fix for slider area with background images */
+    .pbmit-slider-area .swiper-slide {
+        min-height: 600px;
+        height: 100vh;
+        max-height: 1300px;
+    }
+
+    @media (max-width: 768px) {
+        .pbmit-slider-area .swiper-slide {
+            min-height: 400px;
+            height: 80vh;
+        }
+
+        .swiper-fade .swiper-slide {
+            min-height: 250px;
+        }
+
+        .swiper-slide {
+            min-height: 200px;
+        }
+    }
+
+    /* Prevent content from shifting during slide transitions */
+    .swiper-slide-active > * {
+        contain: layout style paint;
+    }
 </style>
